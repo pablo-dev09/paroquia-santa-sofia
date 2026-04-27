@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
-<meta name="theme-color" content="#1c1008"/>
-<meta name="description" content="Paróquia Santa Sofia – Fé, Esperança e Caridade. Cosmos, Rio de Janeiro. Fundada em 1945."/>
+<meta name="theme-color" content="#0d0804"/>
+<meta name="description" content="Paróquia Santa Sofia – Fé, Esperança e Caridade. Cosmos, Rio de Janeiro."/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 <meta name="apple-mobile-web-app-title" content="Sta. Sofia"/>
@@ -12,2145 +12,2044 @@
 <title>Paróquia Santa Sofia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=UnifrakturMaguntia&display=swap" rel="stylesheet"/>
 <style>
-/* ══════════════════════════════════════════════
-   TOKENS — Biblioteca Antiga / Scriptorium
-══════════════════════════════════════════════ */
-:root{
-  --ink:        #0f0a04;
-  --oak:        #1c1008;
-  --walnut:     #2e1d0e;
-  --mahogany:   #3d2710;
-  --leather:    #5c3a1e;
-  --caramel:    #7a4f2e;
-  --parchment:  #f0e6c8;
-  --vellum:     #f7f0dc;
-  --cream:      #fdf8ee;
-  --gold:       #c8960c;
-  --gold-light: #e8b84b;
-  --gold-pale:  #f5d97a;
-  --rust:       #8b3a2a;
-  --burgundy:   #5c1a1a;
-  --text-dark:  #1a0f05;
-  --text-mid:   #4a3520;
-  --text-muted: #7a6040;
+/* ═══════════════════════════════════════════════════════════════
+   VARIÁVEIS E RESET
+═══════════════════════════════════════════════════════════════ */
+:root {
+  --ink: #080402;
+  --parchment: #f2e8ce;
+  --vellum: #ede0bc;
+  --cream: #f8f2e0;
+  --aged: #e8d9b0;
+  --stone: #1a120a;
+  --dark-stone: #100b06;
+  --mid-stone: #2c1e10;
+  --warm-stone: #3e2a15;
+  --gold: #b8860b;
+  --gold-light: #d4a017;
+  --gold-pale: #e8c558;
+  --gold-bright: #f0d070;
+  --rust: #7a2e0e;
+  --rust-light: #9e3a12;
+  --burgundy: #4a0e1a;
+  --blood: #6b1219;
+  --shadow: rgba(0,0,0,0.85);
 
-  --font-title: 'IM Fell English', serif;
-  --font-head:  'Playfair Display', serif;
-  --font-body:  'Cormorant Garamond', serif;
+  --fc-title: 'Cinzel Decorative', serif;
+  --fc-head: 'Cinzel', serif;
+  --fc-body: 'EB Garamond', serif;
+  --fc-gothic: 'UnifrakturMaguntia', cursive;
 
-  --radius: 4px;
-  --safe-top: env(safe-area-inset-top,0px);
-  --safe-bot: env(safe-area-inset-bottom,0px);
+  --r: 2px;
+  --st: env(safe-area-inset-top,0px);
+  --sb: env(safe-area-inset-bottom,0px);
+
+  /* Texture overlay */
+  --tex: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
 }
 
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  font-family:var(--font-body);
-  background:var(--oak);
-  color:var(--parchment);
-  min-height:100dvh;
-  overflow-x:hidden;
-}
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
-button{font-family:inherit;cursor:pointer}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
 
-/* Grain texture overlay */
-body::before{
-  content:'';
-  position:fixed;inset:0;z-index:9999;
-  pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-  opacity:.35;
+body {
+  font-family: var(--fc-body);
+  background: var(--stone);
+  color: var(--parchment);
+  min-height: 100dvh;
+  overflow-x: hidden;
+  line-height: 1.6;
 }
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
 
 /* Scrollbar */
-::-webkit-scrollbar{width:8px}
-::-webkit-scrollbar-track{background:var(--oak)}
-::-webkit-scrollbar-thumb{background:var(--caramel);border-radius:2px}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--ink); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 1px; }
 
-/* ══ TOP NAV ══ */
-nav{
-  position:sticky;top:0;z-index:100;
-  background:var(--ink);
-  border-bottom:2px solid var(--gold);
-  padding:calc(var(--safe-top) + 10px) 20px 10px;
-  display:flex;align-items:center;justify-content:space-between;
-  gap:12px;
-}
-nav::after{
-  content:'';
-  position:absolute;bottom:-5px;left:0;right:0;height:3px;
-  background:linear-gradient(90deg,transparent,var(--gold-pale),transparent);
-  opacity:.4;
-}
-.nav-brand{
-  display:flex;align-items:center;gap:12px;cursor:pointer;flex-shrink:0;
-}
-.nav-brand .brand-text h1{
-  font-family:var(--font-title);
-  font-size:clamp(.8rem,2.5vw,1.1rem);
-  color:var(--gold-light);
-  letter-spacing:.04em;
-  line-height:1.1;
-}
-.nav-brand .brand-text p{
-  font-family:var(--font-body);
-  font-size:.65rem;
-  color:var(--text-muted);
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  font-style:italic;
-}
-.nav-desktop{
-  display:flex;flex-wrap:wrap;gap:2px;list-style:none;
-  justify-content:flex-end;
-}
-.nav-desktop li button{
-  background:none;border:none;
-  font-family:var(--font-body);
-  font-size:.72rem;
-  color:var(--parchment);
-  padding:5px 9px;
-  border-radius:var(--radius);
-  letter-spacing:.05em;
-  transition:background .2s,color .2s;
-  white-space:nowrap;
-  opacity:.75;
-}
-.nav-desktop li button:hover,
-.nav-desktop li button.active{
-  background:rgba(200,150,12,.18);
-  color:var(--gold-light);
-  opacity:1;
-}
-.hamburger{
-  display:none;flex-direction:column;gap:5px;
-  background:none;border:none;padding:4px;
-}
-.hamburger span{
-  display:block;width:24px;height:2px;
-  background:var(--gold);border-radius:1px;
-  transition:transform .3s,opacity .3s;
+/* ═══════════════════════════════════════════════════════════════
+   DECORATIVE ELEMENTS
+═══════════════════════════════════════════════════════════════ */
+
+/* Cross divider ornament */
+.orn {
+  text-align: center;
+  font-family: var(--fc-head);
+  font-size: 0.75rem;
+  letter-spacing: 0.5em;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
 }
 
-/* ══ MOBILE DRAWER ══ */
-.drawer{
-  position:fixed;inset:0;z-index:200;
-  opacity:0;pointer-events:none;
-  transition:opacity .25s;
-}
-.drawer.open{opacity:1;pointer-events:all}
-.drawer-overlay{position:absolute;inset:0;background:rgba(0,0,0,.7)}
-.drawer-panel{
-  position:relative;z-index:1;
-  width:min(300px,85vw);height:100%;
-  background:var(--ink);
-  border-right:1px solid var(--gold);
-  padding:calc(var(--safe-top) + 70px) 0 40px;
-  overflow-y:auto;
-  transform:translateX(-100%);
-  transition:transform .3s cubic-bezier(.16,1,.3,1);
-}
-.drawer.open .drawer-panel{transform:translateX(0)}
-.drawer-section-title{
-  font-family:var(--font-title);
-  font-size:.62rem;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--gold);
-  padding:0 20px 8px;
-  border-bottom:1px solid rgba(200,150,12,.2);
-  margin-bottom:6px;margin-top:16px;
-}
-.drawer-panel button{
-  display:flex;align-items:center;gap:10px;width:100%;
-  background:none;border:none;
-  font-family:var(--font-body);font-size:.95rem;
-  color:var(--parchment);
-  padding:10px 20px;
-  transition:background .2s,color .2s;
-  text-align:left;
-}
-.drawer-panel button:hover{
-  background:rgba(200,150,12,.12);
-  color:var(--gold-light);
-}
-.drawer-panel button .nav-emoji{font-size:1rem}
-
-/* ══ PAGES ══ */
-.page{display:none;min-height:calc(100dvh - 55px);animation:fadeIn .35s ease}
-.page.active{display:block}
-@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-
-/* ══ PARCHMENT PANEL ══ */
-.parchment{
-  background:linear-gradient(160deg,var(--cream) 0%,var(--vellum) 40%,var(--parchment) 100%);
-  color:var(--text-dark);
-  position:relative;
-}
-.parchment::before{
-  content:'';
-  position:absolute;inset:0;
-  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8960c' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  pointer-events:none;opacity:.6;
+/* Section label */
+.lbl {
+  display: block;
+  text-align: center;
+  font-family: var(--fc-head);
+  font-size: 0.55rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 0.6rem;
 }
 
-/* ══ SECTION GLOBALS ══ */
-.container{width:min(1060px,94vw);margin:0 auto}
-.section-ornament{
-  text-align:center;
-  font-size:1.4rem;color:var(--gold);
-  margin-bottom:6px;letter-spacing:.3em;
+/* Main section title */
+.ttl {
+  font-family: var(--fc-title);
+  font-size: clamp(1.3rem, 4vw, 2.4rem);
+  font-weight: 700;
+  color: var(--stone);
+  text-align: center;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
 }
-.section-label{
-  font-family:var(--font-title);
-  font-size:.65rem;letter-spacing:.28em;
-  text-transform:uppercase;
-  color:var(--text-muted);
-  display:block;text-align:center;
-  margin-bottom:8px;
-}
-.section-title{
-  font-family:var(--font-head);
-  font-size:clamp(1.6rem,4vw,2.8rem);
-  font-weight:700;
-  color:var(--text-dark);
-  text-align:center;
-  line-height:1.15;
-  margin-bottom:12px;
-}
-.section-title em{font-style:italic;color:var(--rust)}
-.section-rule{
-  display:flex;align-items:center;justify-content:center;gap:14px;
-  margin-bottom:36px;
-}
-.section-rule::before,.section-rule::after{
-  content:'';flex:1;max-width:120px;height:1px;
-  background:linear-gradient(90deg,transparent,var(--gold));
-}
-.section-rule::after{background:linear-gradient(90deg,var(--gold),transparent)}
-.section-rule span{color:var(--gold);font-size:1rem}
+.ttl em { font-style: italic; color: var(--rust); }
+.ttl-light { color: var(--parchment); }
+.ttl-light em { color: var(--gold-pale); }
 
-/* ══════════════════════════════════════
-   PAGE 1 — HOME
-══════════════════════════════════════ */
-.hero{
-  position:relative;overflow:hidden;
-  min-height:calc(100svh - 55px);
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  text-align:center;
-  padding:60px 24px 80px;
+/* Rule divider */
+.rle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 2.5rem;
+}
+.rle::before, .rle::after {
+  content: '';
+  flex: 1;
+  max-width: 100px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+.rle::after { background: linear-gradient(90deg, var(--gold), transparent); }
+.rle span { color: var(--gold); font-size: 0.85rem; font-family: var(--fc-head); }
+
+/* Illuminated border box */
+.illu-box {
+  border: 1px solid var(--gold);
+  box-shadow: inset 0 0 0 3px rgba(184,134,11,0.1), 0 0 0 1px rgba(184,134,11,0.3);
+  position: relative;
+}
+.illu-box::before, .illu-box::after {
+  content: '✦';
+  position: absolute;
+  font-size: 0.7rem;
+  color: var(--gold);
+  line-height: 1;
+}
+.illu-box::before { top: -0.5rem; left: 50%; transform: translateX(-50%); background: inherit; padding: 0 6px; }
+
+/* Manuscript texture overlay */
+.manuscript {
+  background-color: var(--cream);
+  background-image:
+    var(--tex),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 27px,
+      rgba(184,134,11,0.06) 27px,
+      rgba(184,134,11,0.06) 28px
+    );
+  color: var(--stone);
+  position: relative;
+}
+.manuscript::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
   background:
-    radial-gradient(ellipse 80% 60% at 50% 40%,rgba(200,150,12,.07) 0%,transparent 70%),
-    linear-gradient(170deg,var(--ink) 0%,var(--oak) 50%,var(--walnut) 100%);
-}
-/* Decorative wood border lines */
-.hero::before{
-  content:'';
-  position:absolute;inset:16px;
-  border:1px solid rgba(200,150,12,.2);
-  pointer-events:none;
-}
-.hero::after{
-  content:'';
-  position:absolute;inset:22px;
-  border:1px solid rgba(200,150,12,.08);
-  pointer-events:none;
-}
-.hero-saint-img{
-  width:clamp(140px,28vw,220px);
-  margin:0 auto 28px;
-  filter:drop-shadow(0 0 30px rgba(200,150,12,.4));
-  animation:saintFloat 8s ease-in-out infinite;
-}
-@keyframes saintFloat{
-  0%,100%{transform:translateY(0) scale(1)}
-  50%{transform:translateY(-8px) scale(1.01)}
-}
-.hero-eyebrow{
-  font-family:var(--font-title);
-  font-size:.65rem;letter-spacing:.35em;
-  text-transform:uppercase;
-  color:var(--gold);
-  margin-bottom:10px;
-  font-style:italic;
-}
-.hero-title{
-  font-family:var(--font-head);
-  font-size:clamp(2.2rem,8vw,5rem);
-  font-weight:900;
-  color:var(--cream);
-  line-height:1;
-  margin-bottom:4px;
-}
-.hero-title em{
-  display:block;font-style:italic;
-  color:var(--gold-light);
-  font-size:.6em;font-weight:400;
-  letter-spacing:.08em;
-}
-.hero-subtitle{
-  font-family:var(--font-title);
-  font-size:clamp(.8rem,2vw,1rem);
-  color:var(--gold-pale);
-  letter-spacing:.12em;
-  margin:16px 0 8px;
-  font-style:italic;
-}
-.hero-verse{
-  font-family:var(--font-body);
-  font-size:clamp(.95rem,2vw,1.15rem);
-  font-style:italic;font-weight:300;
-  color:var(--text-muted);
-  max-width:500px;
-  line-height:1.75;
-  margin:0 auto 32px;
-}
-.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.btn{
-  font-family:var(--font-body);
-  font-size:.9rem;letter-spacing:.08em;
-  padding:11px 26px;
-  border:none;cursor:pointer;
-  border-radius:var(--radius);
-  transition:transform .2s,box-shadow .2s;
-}
-.btn:active{transform:scale(.97)}
-.btn-gold{
-  background:linear-gradient(135deg,var(--gold),var(--gold-light));
-  color:var(--ink);font-weight:600;
-  box-shadow:0 4px 20px rgba(200,150,12,.35);
-}
-.btn-gold:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(200,150,12,.5)}
-.btn-outline{
-  background:transparent;
-  color:var(--gold-light);
-  border:1px solid rgba(200,150,12,.5);
-}
-.btn-outline:hover{background:rgba(200,150,12,.1);transform:translateY(-2px)}
-
-/* Home parchment sections */
-.home-welcome{
-  padding:64px 0 56px;
-}
-.welcome-box{
-  max-width:700px;margin:0 auto;
-  text-align:center;
-  font-family:var(--font-body);
-  font-size:1.12rem;line-height:1.85;
-  font-weight:300;
-  color:var(--text-mid);
-}
-.welcome-box p+p{margin-top:14px}
-.welcome-box strong{font-weight:600;color:var(--text-dark)}
-.welcome-sig{
-  margin-top:24px;
-  font-family:var(--font-title);
-  font-style:italic;color:var(--rust);
-  font-size:.9rem;letter-spacing:.06em;
+    radial-gradient(ellipse at 0% 0%, rgba(120,80,20,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 100% 100%, rgba(100,60,10,0.1) 0%, transparent 60%);
 }
 
-/* Avisos */
-.avisos{
-  padding:0 0 64px;
-}
-.avisos-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-  gap:18px;
-}
-.aviso-card{
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(200,150,12,.25);
-  border-top:3px solid var(--gold);
-  border-radius:var(--radius);
-  padding:22px 20px;
-  transition:transform .25s,box-shadow .25s;
-}
-.aviso-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.4)}
-.aviso-date{
-  font-family:var(--font-title);
-  font-size:.62rem;letter-spacing:.18em;
-  text-transform:uppercase;
-  color:var(--gold);margin-bottom:8px;
-}
-.aviso-card h3{
-  font-family:var(--font-head);
-  font-size:1rem;font-weight:700;
-  color:var(--cream);margin-bottom:6px;
-}
-.aviso-card p{font-size:.95rem;color:var(--text-muted);line-height:1.6;font-weight:300}
-
-/* ══════════════════════════════════════
-   PAGE 2 — HISTÓRIA
-══════════════════════════════════════ */
-.historia-page{padding:60px 0 80px}
-.history-intro{
-  max-width:720px;margin:0 auto 52px;
-  text-align:center;
-  font-size:1.1rem;line-height:1.85;color:var(--text-mid);font-weight:300;
-}
-.timeline{
-  position:relative;
-  padding-left:40px;
-  border-left:2px solid rgba(200,150,12,.3);
-  max-width:760px;margin:0 auto;
-}
-.timeline-item{position:relative;padding-bottom:44px}
-.timeline-item::before{
-  content:'✦';
-  position:absolute;left:-46px;top:4px;
-  color:var(--gold);font-size:.85rem;
-  background:var(--cream);padding:2px 0;
-}
-.t-year{
-  font-family:var(--font-title);
-  font-size:.68rem;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--rust);margin-bottom:4px;
-}
-.timeline-item h3{
-  font-family:var(--font-head);font-size:1.2rem;font-weight:700;
-  color:var(--text-dark);margin-bottom:8px;
-}
-.timeline-item p{font-size:1rem;color:var(--text-mid);line-height:1.75;font-weight:300}
-
-/* ══════════════════════════════════════
-   PAGE 3 — PADROEIRA
-══════════════════════════════════════ */
-.padroeira-page{padding:60px 0 80px}
-.padroeira-hero{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:52px;align-items:center;
-  margin-bottom:64px;
-}
-@media(max-width:640px){.padroeira-hero{grid-template-columns:1fr}}
-.padroeira-img-wrap{
-  display:flex;flex-direction:column;align-items:center;gap:16px;
-}
-.padroeira-img-wrap svg{
-  filter:drop-shadow(0 0 24px rgba(200,150,12,.3));
-  max-width:320px;width:100%;
-}
-.saint-caption{
-  font-family:var(--font-title);
-  font-style:italic;font-size:.8rem;
-  color:var(--text-muted);letter-spacing:.08em;text-align:center;
-}
-.padroeira-text h2{
-  font-family:var(--font-head);font-size:2rem;font-weight:700;
-  color:var(--text-dark);margin-bottom:16px;
-}
-.padroeira-text p{
-  font-size:1.05rem;line-height:1.8;color:var(--text-mid);font-weight:300;margin-bottom:14px;
-}
-.padroeira-text blockquote{
-  border-left:3px solid var(--gold);
-  padding:12px 20px;
-  margin:20px 0;
-  background:rgba(200,150,12,.06);
-  border-radius:0 var(--radius) var(--radius) 0;
-}
-.padroeira-text blockquote p{
-  font-style:italic;font-size:1.05rem;color:var(--rust);margin:0;
-}
-.fact-cards{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;
-}
-.fact-card{
-  background:var(--cream);
-  border:1px solid rgba(200,150,12,.3);
-  border-radius:var(--radius);padding:20px;
-  text-align:center;
-}
-.fact-card .fact-icon{font-size:1.8rem;margin-bottom:10px}
-.fact-card h4{
-  font-family:var(--font-head);font-size:.9rem;font-weight:700;
-  color:var(--rust);margin-bottom:6px;
-}
-.fact-card p{font-size:.9rem;color:var(--text-mid);line-height:1.55;font-weight:300}
-
-/* ══════════════════════════════════════
-   PAGE 4 — HORÁRIOS
-══════════════════════════════════════ */
-.horarios-page{padding:60px 0 80px}
-.horarios-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
-  gap:20px;
-  margin-bottom:36px;
-}
-.horario-block{
-  background:var(--cream);
-  border:1px solid rgba(200,150,12,.35);
-  border-top:3px solid var(--gold);
-  border-radius:var(--radius);
-  padding:24px 20px;
-}
-.horario-block .hb-label{
-  font-family:var(--font-title);
-  font-size:.65rem;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--rust);margin-bottom:14px;
-  display:flex;align-items:center;gap:8px;
-}
-.horario-block table{width:100%;border-collapse:collapse}
-.horario-block td{
-  padding:7px 0;
-  border-bottom:1px solid rgba(200,150,12,.12);
-  font-size:.97rem;color:var(--text-mid);
-}
-.horario-block td:last-child{
-  text-align:right;font-weight:600;color:var(--text-dark);
-}
-.horario-block tr:last-child td{border-bottom:none}
-.horario-obs{
-  padding:18px 22px;
-  background:rgba(200,150,12,.08);
-  border:1px solid rgba(200,150,12,.3);
-  border-radius:var(--radius);
-  font-size:.92rem;color:var(--text-mid);line-height:1.6;
-}
-.horario-obs strong{color:var(--rust)}
-
-/* ══════════════════════════════════════
-   PAGE 5 — AGENDA
-══════════════════════════════════════ */
-.agenda-page{padding:60px 0 80px}
-.eventos-list{display:flex;flex-direction:column;gap:16px;max-width:800px;margin:0 auto}
-.evento-item{
-  display:flex;gap:20px;align-items:flex-start;
-  background:var(--cream);
-  border:1px solid rgba(200,150,12,.25);
-  border-radius:var(--radius);
-  padding:20px;
-  transition:transform .2s,box-shadow .2s;
-}
-.evento-item:hover{transform:translateX(4px);box-shadow:4px 0 16px rgba(200,150,12,.15)}
-.evento-date-box{
-  flex-shrink:0;text-align:center;
-  background:var(--rust);color:var(--cream);
-  border-radius:var(--radius);
-  padding:8px 14px;min-width:60px;
-}
-.evento-date-box .day{
-  font-family:var(--font-head);font-size:1.6rem;font-weight:900;line-height:1;
-}
-.evento-date-box .month{
-  font-family:var(--font-title);font-size:.55rem;
-  letter-spacing:.15em;text-transform:uppercase;margin-top:2px;
-}
-.evento-body h3{
-  font-family:var(--font-head);font-size:1.05rem;font-weight:700;
-  color:var(--text-dark);margin-bottom:4px;
-}
-.evento-body p{font-size:.92rem;color:var(--text-mid);line-height:1.6;font-weight:300}
-.evento-tag{
-  display:inline-block;margin-top:8px;
-  padding:3px 10px;
-  background:rgba(200,150,12,.12);
-  border:1px solid rgba(200,150,12,.3);
-  border-radius:50px;
-  font-size:.7rem;color:var(--rust);
-  font-family:var(--font-title);letter-spacing:.1em;
+/* Stone wall texture for dark sections */
+.stonework {
+  background-color: var(--dark-stone);
+  background-image:
+    var(--tex),
+    linear-gradient(180deg, rgba(0,0,0,0.4) 0%, transparent 20%, transparent 80%, rgba(0,0,0,0.4) 100%);
 }
 
-/* ══════════════════════════════════════
-   PAGE 6 — PASTORAIS
-══════════════════════════════════════ */
-.pastorais-page{padding:60px 0 80px}
-.pastorais-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
-  gap:22px;
-}
-.pastoral-card{
-  background:var(--cream);
-  border:1px solid rgba(200,150,12,.25);
-  border-radius:var(--radius);
-  padding:28px;
-  transition:transform .25s,box-shadow .25s;
-}
-.pastoral-card:hover{transform:translateY(-4px);box-shadow:0 10px 32px rgba(0,0,0,.12)}
-.pastoral-card .pc-icon{
-  font-size:2.2rem;margin-bottom:14px;
-}
-.pastoral-card h3{
-  font-family:var(--font-head);font-size:1.1rem;font-weight:700;
-  color:var(--text-dark);margin-bottom:8px;
-}
-.pastoral-card p{font-size:.95rem;color:var(--text-mid);line-height:1.65;font-weight:300;margin-bottom:12px}
-.pastoral-contact{
-  font-size:.82rem;color:var(--rust);
-  font-family:var(--font-title);letter-spacing:.05em;
-  font-style:italic;
+/* ═══════════════════════════════════════════════════════════════
+   NAVIGATION — MOBILE FIRST
+═══════════════════════════════════════════════════════════════ */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--ink);
+  border-bottom: 2px solid var(--gold);
+  padding: calc(var(--st) + 8px) 16px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.7);
 }
 
-/* ══════════════════════════════════════
-   PAGE 7 — NOTÍCIAS
-══════════════════════════════════════ */
-.noticias-page{padding:60px 0 80px}
-.noticias-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
-  gap:22px;
-}
-.noticia-card{
-  background:var(--cream);
-  border:1px solid rgba(200,150,12,.25);
-  border-radius:var(--radius);
-  overflow:hidden;
-  transition:transform .25s,box-shadow .25s;
-}
-.noticia-card:hover{transform:translateY(-4px);box-shadow:0 10px 32px rgba(0,0,0,.12)}
-.noticia-img{
-  height:160px;
-  background:linear-gradient(135deg,var(--mahogany),var(--walnut));
-  display:flex;align-items:center;justify-content:center;
-  font-size:2.5rem;
-}
-.noticia-body{padding:20px}
-.noticia-body .nc-date{
-  font-family:var(--font-title);font-size:.6rem;
-  letter-spacing:.18em;text-transform:uppercase;
-  color:var(--rust);margin-bottom:8px;
-}
-.noticia-body h3{
-  font-family:var(--font-head);font-size:1rem;font-weight:700;
-  color:var(--text-dark);margin-bottom:6px;
-}
-.noticia-body p{font-size:.9rem;color:var(--text-mid);line-height:1.6;font-weight:300}
-
-/* ══════════════════════════════════════
-   PAGE 8 — GALERIA
-══════════════════════════════════════ */
-.galeria-page{padding:60px 0 80px}
-.galeria-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-  gap:14px;
-}
-.galeria-item{
-  aspect-ratio:4/3;
-  border-radius:var(--radius);
-  overflow:hidden;
-  position:relative;
-  cursor:pointer;
-  border:2px solid rgba(200,150,12,.2);
-  transition:transform .25s,border-color .25s;
-}
-.galeria-item:hover{transform:scale(1.02);border-color:var(--gold)}
-.galeria-item .gi-bg{
-  width:100%;height:100%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:2.5rem;
-}
-.galeria-item .gi-label{
-  position:absolute;bottom:0;left:0;right:0;
-  background:linear-gradient(0deg,rgba(0,0,0,.75),transparent);
-  padding:24px 12px 10px;
-  font-family:var(--font-title);font-size:.68rem;
-  letter-spacing:.1em;text-transform:uppercase;
-  color:var(--gold-pale);
+/* Double border effect */
+nav::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 5%, var(--gold-pale) 30%, var(--gold-bright) 50%, var(--gold-pale) 70%, transparent 95%);
+  opacity: 0.25;
 }
 
-/* ══════════════════════════════════════
-   PAGE 9 — SACRAMENTOS
-══════════════════════════════════════ */
-.sacramentos-page{padding:60px 0 80px}
-.sacramentos-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-  gap:22px;
-}
-.sacramento-card{
-  background:var(--cream);
-  border:1px solid rgba(200,150,12,.25);
-  border-radius:var(--radius);
-  padding:28px;
-}
-.sacramento-card .sc-icon{
-  font-size:2rem;margin-bottom:12px;
-}
-.sacramento-card h3{
-  font-family:var(--font-head);font-size:1.1rem;font-weight:700;
-  color:var(--text-dark);margin-bottom:10px;
-}
-.sacramento-card p{font-size:.93rem;color:var(--text-mid);line-height:1.65;font-weight:300;margin-bottom:12px}
-.docs-list{
-  list-style:none;
-  border-top:1px solid rgba(200,150,12,.2);
-  padding-top:12px;margin-top:4px;
-}
-.docs-list li{
-  font-size:.85rem;color:var(--text-muted);
-  padding:4px 0;
-  display:flex;align-items:center;gap:8px;
-}
-.docs-list li::before{content:'📄';font-size:.75rem}
-
-/* ══════════════════════════════════════
-   PAGE 10 — CONTATO
-══════════════════════════════════════ */
-.contato-page{padding:60px 0 80px}
-.contato-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;
-}
-@media(max-width:640px){.contato-grid{grid-template-columns:1fr}}
-.info-blocks{display:flex;flex-direction:column;gap:20px}
-.info-block{
-  display:flex;gap:16px;align-items:flex-start;
-  background:var(--cream);
-  border:1px solid rgba(200,150,12,.2);
-  border-radius:var(--radius);padding:18px 20px;
-}
-.info-block .ib-icon{
-  width:40px;height:40px;flex-shrink:0;
-  background:linear-gradient(135deg,var(--mahogany),var(--walnut));
-  border-radius:var(--radius);
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.1rem;color:var(--gold);
-}
-.info-block .ib-text h4{
-  font-family:var(--font-title);font-size:.65rem;
-  letter-spacing:.18em;text-transform:uppercase;
-  color:var(--rust);margin-bottom:3px;
-}
-.info-block .ib-text p{font-size:.93rem;color:var(--text-mid);font-weight:300;line-height:1.5}
-.info-block .ib-text a{color:var(--rust);text-decoration:underline;text-underline-offset:2px}
-.map-box{
-  background:var(--cream);
-  border:2px solid rgba(200,150,12,.3);
-  border-radius:var(--radius);
-  overflow:hidden;aspect-ratio:4/3;
-}
-.map-box iframe{width:100%;height:100%;border:none;filter:sepia(.3) contrast(.9)}
-
-/* ══════════════════════════════════════
-   PAGE 11 — ORAÇÃO
-══════════════════════════════════════ */
-.oracao-page{padding:60px 0 80px}
-.prayer-form-wrap{max-width:600px;margin:0 auto}
-.prayer-form-wrap p{
-  font-size:1.05rem;line-height:1.75;color:var(--text-mid);font-weight:300;
-  margin-bottom:28px;text-align:center;font-style:italic;
-}
-.form-group{margin-bottom:18px}
-.form-group label{
-  display:block;
-  font-family:var(--font-title);font-size:.67rem;
-  letter-spacing:.18em;text-transform:uppercase;
-  color:var(--rust);margin-bottom:8px;
-}
-.form-group input,
-.form-group textarea{
-  width:100%;
-  background:var(--cream);
-  border:1px solid rgba(200,150,12,.35);
-  border-radius:var(--radius);
-  padding:12px 16px;
-  font-family:var(--font-body);font-size:1rem;
-  color:var(--text-dark);
-  transition:border-color .2s,box-shadow .2s;
-  outline:none;resize:vertical;
-}
-.form-group input:focus,
-.form-group textarea:focus{
-  border-color:var(--gold);
-  box-shadow:0 0 0 3px rgba(200,150,12,.12);
-}
-.form-group textarea{min-height:130px}
-.form-success{
-  display:none;text-align:center;
-  padding:24px;background:rgba(200,150,12,.1);
-  border:1px solid var(--gold);border-radius:var(--radius);
-  font-family:var(--font-head);font-size:1.1rem;color:var(--rust);
-  font-style:italic;
-}
-.recent-prayers{margin-top:48px}
-.recent-prayers h3{
-  font-family:var(--font-head);font-size:1.2rem;color:var(--text-dark);
-  margin-bottom:16px;text-align:center;
-}
-.prayer-item{
-  background:var(--cream);
-  border-left:3px solid var(--gold);
-  padding:14px 18px;margin-bottom:12px;
-  border-radius:0 var(--radius) var(--radius) 0;
-}
-.prayer-item p{font-style:italic;font-size:.97rem;color:var(--text-mid);line-height:1.6}
-.prayer-item .pi-name{
-  font-family:var(--font-title);font-size:.65rem;
-  letter-spacing:.1em;color:var(--rust);margin-top:8px;
+.nb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  flex-shrink: 0;
+  min-width: 0;
 }
 
-/* ══════════════════════════════════════
-   PAGE 12 — DOAÇÕES
-══════════════════════════════════════ */
-.doacoes-page{padding:60px 0 80px}
-.doacoes-intro{
-  max-width:680px;margin:0 auto 48px;
-  text-align:center;font-size:1.05rem;line-height:1.8;
-  color:var(--text-mid);font-weight:300;
+.nb-text { min-width: 0; }
+.nb h1 {
+  font-family: var(--fc-head);
+  font-size: clamp(0.7rem, 2.8vw, 1rem);
+  color: var(--gold-light);
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.pix-box{
-  max-width:480px;margin:0 auto 40px;
-  background:var(--cream);
-  border:2px solid var(--gold);
-  border-radius:var(--radius);
-  padding:32px;text-align:center;
-}
-.pix-box h3{
-  font-family:var(--font-head);font-size:1.3rem;color:var(--text-dark);margin-bottom:16px;
-}
-.pix-key{
-  font-family:var(--font-title);font-size:.85rem;letter-spacing:.08em;
-  background:rgba(200,150,12,.1);
-  border:1px dashed var(--gold);
-  border-radius:var(--radius);padding:12px 20px;
-  color:var(--rust);margin:0 auto 16px;
-  word-break:break-all;
-}
-.pix-box p{font-size:.9rem;color:var(--text-muted);line-height:1.6;font-style:italic}
-.doacoes-cards{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;
-  max-width:820px;margin:0 auto;
-}
-.doacao-card{
-  background:var(--cream);border:1px solid rgba(200,150,12,.2);
-  border-radius:var(--radius);padding:22px;text-align:center;
-}
-.doacao-card .dc-icon{font-size:2rem;margin-bottom:10px}
-.doacao-card h4{
-  font-family:var(--font-head);font-size:.95rem;font-weight:700;
-  color:var(--text-dark);margin-bottom:6px;
-}
-.doacao-card p{font-size:.88rem;color:var(--text-mid);line-height:1.6;font-weight:300}
-
-/* ══ FOOTER ══ */
-footer{
-  background:var(--ink);
-  border-top:2px solid var(--gold);
-  padding:32px 24px calc(var(--safe-bot) + 28px);
-  text-align:center;
-}
-footer .f-cross{font-size:1.5rem;color:var(--gold);margin-bottom:8px}
-footer .f-title{
-  font-family:var(--font-head);font-size:.95rem;
-  color:var(--gold-light);margin-bottom:4px;
-}
-footer .f-sub{font-size:.8rem;color:var(--text-muted);margin-bottom:14px}
-footer .f-links{
-  display:flex;gap:16px;justify-content:center;flex-wrap:wrap;
-  margin-bottom:16px;
-}
-footer .f-links a{
-  font-size:.78rem;color:var(--text-muted);
-  font-style:italic;
-  transition:color .2s;
-}
-footer .f-links a:hover{color:var(--gold-light)}
-footer .f-copy{font-size:.68rem;color:rgba(154,143,100,.4)}
-
-/* ══ PWA INSTALL ══ */
-#install-banner{
-  position:fixed;bottom:calc(var(--safe-bot) + 14px);left:50%;
-  transform:translateX(-50%) translateY(140%);
-  z-index:999;
-  background:var(--ink);
-  border:1px solid var(--gold);
-  border-radius:var(--radius);
-  padding:14px 18px;
-  display:flex;align-items:center;gap:14px;
-  min-width:290px;max-width:calc(100vw - 28px);
-  box-shadow:0 12px 40px rgba(0,0,0,.6);
-  transition:transform .4s cubic-bezier(.16,1,.3,1);
-}
-#install-banner.show{transform:translateX(-50%) translateY(0)}
-#install-banner .ib-icon{font-size:1.8rem;flex-shrink:0}
-#install-banner .ib-text strong{
-  display:block;font-family:var(--font-title);font-size:.78rem;
-  letter-spacing:.06em;color:var(--gold-light);margin-bottom:2px;
-}
-#install-banner .ib-text span{font-size:.75rem;color:var(--text-muted)}
-#install-banner .ib-actions{display:flex;gap:8px;flex-shrink:0}
-.ib-btn{
-  background:linear-gradient(135deg,var(--gold),var(--gold-light));
-  color:var(--ink);border:none;cursor:pointer;
-  font-family:var(--font-title);font-size:.65rem;letter-spacing:.1em;
-  padding:7px 14px;border-radius:var(--radius);font-weight:600;
-}
-.ib-dismiss{background:none;border:none;color:var(--text-muted);font-size:1.1rem;padding:4px;cursor:pointer}
-
-/* ══ RESPONSIVE ══ */
-@media(max-width:700px){
-  .nav-desktop{display:none}
-  .hamburger{display:flex}
-}
-@media(min-width:701px){
-  .hamburger{display:none}
+.nb p {
+  font-family: var(--fc-body);
+  font-size: 0.58rem;
+  color: rgba(184,134,11,0.5);
+  letter-spacing: 0.2em;
+  font-style: italic;
 }
 
-/* ══ UTILS ══ */
-.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+/* Hamburger — visible on mobile */
+.hbg {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: 1px solid rgba(184,134,11,0.3);
+  padding: 7px 8px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.hbg span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--gold-light);
+}
+
+/* Desktop nav links — hidden on mobile */
+.ndl {
+  display: none;
+  flex-wrap: wrap;
+  gap: 1px;
+  list-style: none;
+  justify-content: flex-end;
+}
+
+/* Show desktop nav on wider screens */
+@media (min-width: 900px) {
+  .hbg { display: none; }
+  .ndl { display: flex; }
+}
+
+.ndl li button {
+  background: none;
+  border: none;
+  font-family: var(--fc-head);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  color: rgba(242,232,206,0.65);
+  padding: 5px 8px;
+  border-radius: 1px;
+  text-transform: uppercase;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+.ndl li button:hover,
+.ndl li button.active {
+  background: rgba(184,134,11,0.15);
+  color: var(--gold-light);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   DRAWER (MOBILE MENU)
+═══════════════════════════════════════════════════════════════ */
+.drw {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s;
+}
+.drw.open { opacity: 1; pointer-events: all; }
+.dov { position: absolute; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(3px); }
+.dpn {
+  position: relative;
+  z-index: 1;
+  width: min(280px, 82vw);
+  height: 100%;
+  background: var(--ink);
+  border-right: 1px solid var(--gold);
+  padding: calc(var(--st) + 64px) 0 40px;
+  overflow-y: auto;
+  transform: translateX(-100%);
+  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
+}
+.drw.open .dpn { transform: translateX(0); }
+
+.dsec {
+  font-family: var(--fc-head);
+  font-size: 0.55rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding: 0 16px 8px;
+  border-bottom: 1px solid rgba(184,134,11,0.2);
+  margin-bottom: 4px;
+  margin-top: 16px;
+}
+
+.dpn button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  font-family: var(--fc-body);
+  font-size: 0.95rem;
+  color: var(--parchment);
+  padding: 11px 16px;
+  transition: background 0.2s, color 0.2s;
+  text-align: left;
+  border-bottom: 1px solid rgba(184,134,11,0.06);
+}
+.dpn button:hover { background: rgba(184,134,11,0.1); color: var(--gold-light); }
+
+/* ═══════════════════════════════════════════════════════════════
+   PAGES
+═══════════════════════════════════════════════════════════════ */
+.pg { display: none; min-height: calc(100dvh - 52px); animation: fi 0.35s ease; }
+.pg.active { display: block; }
+@keyframes fi { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO — MOBILE FIRST, FIXED BACKGROUND ISSUE
+═══════════════════════════════════════════════════════════════ */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px 80px;
+  overflow: hidden;
+}
+
+/* Background image layer — separate element to avoid cropping */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('santa-sofia-icone-bizant.jpeg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+/* Dramatic overlays for aged church feel */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(to bottom,
+      rgba(5,2,0,0.7) 0%,
+      rgba(8,4,2,0.4) 35%,
+      rgba(8,4,2,0.45) 65%,
+      rgba(5,2,0,0.85) 100%
+    );
+}
+
+/* Vignette */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.6) 100%);
+}
+
+/* Corner ornaments */
+.hero-corner {
+  position: absolute;
+  z-index: 2;
+  width: 60px;
+  height: 60px;
+  border-color: rgba(184,134,11,0.4);
+  border-style: solid;
+  border-width: 0;
+}
+.hero-corner.tl { top: 16px; left: 16px; border-top-width: 1px; border-left-width: 1px; }
+.hero-corner.tr { top: 16px; right: 16px; border-top-width: 1px; border-right-width: 1px; }
+.hero-corner.bl { bottom: 16px; left: 16px; border-bottom-width: 1px; border-left-width: 1px; }
+.hero-corner.br { bottom: 16px; right: 16px; border-bottom-width: 1px; border-right-width: 1px; }
+
+@media (min-width: 768px) {
+  .hero-corner { width: 90px; height: 90px; top: 24px; bottom: 24px; }
+  .hero-corner.tl, .hero-corner.bl { left: 24px; }
+  .hero-corner.tr, .hero-corner.br { right: 24px; }
+}
+
+.hcont {
+  position: relative;
+  z-index: 3;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.heyb {
+  font-family: var(--fc-head);
+  font-size: 0.58rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 14px;
+}
+
+/* Gothic church title */
+.htit {
+  font-family: var(--fc-gothic);
+  font-size: clamp(2.8rem, 10vw, 6rem);
+  color: var(--parchment);
+  line-height: 0.95;
+  margin-bottom: 6px;
+  text-shadow:
+    0 0 40px rgba(184,134,11,0.3),
+    0 2px 0 rgba(0,0,0,0.8),
+    2px 2px 0 rgba(0,0,0,0.5);
+}
+
+.htit-sub {
+  font-family: var(--fc-title);
+  font-size: clamp(0.9rem, 3vw, 1.5rem);
+  color: var(--gold-light);
+  letter-spacing: 0.12em;
+  font-weight: 400;
+  margin-bottom: 20px;
+  text-shadow: 0 1px 12px rgba(0,0,0,0.6);
+}
+
+.hsep {
+  font-family: var(--fc-head);
+  font-size: 0.65rem;
+  letter-spacing: 0.5em;
+  color: var(--gold);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.hvrs {
+  font-family: var(--fc-body);
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  font-style: italic;
+  font-weight: 400;
+  color: rgba(242,232,206,0.88);
+  max-width: 480px;
+  line-height: 1.8;
+  margin: 0 auto 30px;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+}
+
+.hbts {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════════════════════════ */
+.btn {
+  font-family: var(--fc-head);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border-radius: 1px;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-g {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold-pale) 100%);
+  color: var(--ink);
+  box-shadow: 0 4px 20px rgba(184,134,11,0.4), inset 0 1px 0 rgba(255,255,255,0.2);
+  border: 1px solid var(--gold-light);
+}
+.btn-g:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(184,134,11,0.55); }
+.btn-o {
+  background: transparent;
+  color: var(--gold-light);
+  border: 1px solid rgba(184,134,11,0.5);
+}
+.btn-o:hover { background: rgba(184,134,11,0.1); transform: translateY(-2px); }
+
+/* ═══════════════════════════════════════════════════════════════
+   LAYOUT CONTAINER
+═══════════════════════════════════════════════════════════════ */
+.cont {
+  width: min(1080px, 92vw);
+  margin: 0 auto;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HOME — AVISOS PAROQUIAIS
+═══════════════════════════════════════════════════════════════ */
+.av-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+@media (min-width: 480px) { .av-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 900px) { .av-grid { grid-template-columns: repeat(4, 1fr); } }
+
+.avc {
+  background: rgba(184,134,11,0.06);
+  border: 1px solid rgba(184,134,11,0.25);
+  border-top: 3px solid var(--gold);
+  padding: 18px 16px;
+  position: relative;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.avc:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.5); }
+.avd {
+  font-family: var(--fc-head);
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.avc h3 {
+  font-family: var(--fc-title);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--parchment);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.avc p { font-size: 0.9rem; color: rgba(184,160,110,0.85); line-height: 1.65; }
+
+/* ═══════════════════════════════════════════════════════════════
+   HISTÓRIA — TIMELINE
+═══════════════════════════════════════════════════════════════ */
+.tl {
+  position: relative;
+  padding-left: 36px;
+  border-left: 2px solid rgba(184,134,11,0.3);
+  max-width: 720px;
+  margin: 0 auto;
+}
+.tli { position: relative; padding-bottom: 40px; }
+.tli::before {
+  content: '✦';
+  position: absolute;
+  left: -43px;
+  top: 3px;
+  color: var(--gold);
+  font-size: 0.75rem;
+  background: var(--cream);
+  padding: 2px 1px;
+}
+.tyr {
+  font-family: var(--fc-head);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 5px;
+}
+.tli h3 {
+  font-family: var(--fc-title);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--stone);
+  margin-bottom: 8px;
+}
+.tli p { font-size: 1rem; color: var(--mid-stone); line-height: 1.8; }
+
+/* ═══════════════════════════════════════════════════════════════
+   PADROEIRA
+═══════════════════════════════════════════════════════════════ */
+.phero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  align-items: start;
+  margin-bottom: 48px;
+}
+@media (min-width: 700px) { .phero { grid-template-columns: 1fr 1fr; gap: 52px; } }
+
+.pimg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+.pimg img {
+  border-radius: 1px;
+  border: 3px solid var(--gold);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(184,134,11,0.2);
+  width: 100%;
+  max-width: 320px;
+}
+.pcap {
+  font-family: var(--fc-body);
+  font-style: italic;
+  font-size: 0.8rem;
+  color: rgba(62,42,21,0.6);
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+.ptxt h2 {
+  font-family: var(--fc-title);
+  font-size: clamp(1.2rem, 3vw, 1.7rem);
+  font-weight: 700;
+  color: var(--stone);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+.ptxt p {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--mid-stone);
+  margin-bottom: 12px;
+}
+.ptxt blockquote {
+  border-left: 3px solid var(--gold);
+  padding: 12px 18px;
+  margin: 18px 0;
+  background: rgba(184,134,11,0.07);
+}
+.ptxt blockquote p { font-style: italic; color: var(--rust); margin: 0; }
+
+.fcg {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+@media (min-width: 700px) { .fcg { grid-template-columns: repeat(3, 1fr); } }
+
+.fcc {
+  background: var(--aged);
+  border: 1px solid rgba(184,134,11,0.3);
+  border-top: 2px solid var(--gold);
+  padding: 18px 14px;
+  text-align: center;
+}
+.fcc .fi { font-size: 1.6rem; margin-bottom: 8px; }
+.fcc h4 {
+  font-family: var(--fc-title);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--rust);
+  margin-bottom: 6px;
+}
+.fcc p { font-size: 0.85rem; color: var(--warm-stone); line-height: 1.55; }
+
+/* ═══════════════════════════════════════════════════════════════
+   HORÁRIOS
+═══════════════════════════════════════════════════════════════ */
+.horg {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+@media (min-width: 480px) { .horg { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 900px) { .horg { grid-template-columns: repeat(3, 1fr); } }
+
+.horb {
+  background: var(--cream);
+  border: 1px solid rgba(184,134,11,0.3);
+  border-top: 3px solid var(--gold);
+  padding: 20px 16px;
+  position: relative;
+}
+.horb .horl {
+  font-family: var(--fc-head);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 12px;
+}
+.horb table { width: 100%; border-collapse: collapse; }
+.horb td {
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(184,134,11,0.12);
+  font-size: 0.9rem;
+  color: var(--warm-stone);
+}
+.horb td:last-child {
+  text-align: right;
+  font-weight: 600;
+  color: var(--stone);
+  font-family: var(--fc-head);
+  font-size: 0.85rem;
+}
+.horb tr:last-child td { border-bottom: none; }
+.hobs {
+  padding: 16px 18px;
+  background: rgba(184,134,11,0.07);
+  border: 1px solid rgba(184,134,11,0.3);
+  border-left: 3px solid var(--gold);
+  font-size: 0.9rem;
+  color: var(--warm-stone);
+  line-height: 1.6;
+}
+.hobs strong { color: var(--rust); }
+
+/* ═══════════════════════════════════════════════════════════════
+   EVENTOS
+═══════════════════════════════════════════════════════════════ */
+.evl { display: flex; flex-direction: column; gap: 14px; max-width: 800px; margin: 0 auto; }
+.evi {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: var(--cream);
+  border: 1px solid rgba(184,134,11,0.25);
+  border-left: 3px solid var(--gold);
+  padding: 16px;
+  transition: transform 0.2s;
+}
+.evi:hover { transform: translateX(4px); }
+.evd {
+  flex-shrink: 0;
+  text-align: center;
+  background: var(--blood);
+  color: var(--parchment);
+  padding: 8px 12px;
+  min-width: 52px;
+  border-top: 2px solid var(--gold);
+}
+.evd .dy {
+  font-family: var(--fc-title);
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 1;
+}
+.evd .mn {
+  font-family: var(--fc-head);
+  font-size: 0.5rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+.evb h3 {
+  font-family: var(--fc-title);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--stone);
+  margin-bottom: 4px;
+}
+.evb p { font-size: 0.88rem; color: var(--warm-stone); line-height: 1.6; }
+.evtg {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 2px 10px;
+  background: rgba(184,134,11,0.1);
+  border: 1px solid rgba(184,134,11,0.3);
+  font-family: var(--fc-head);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  color: var(--rust);
+  text-transform: uppercase;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PASTORAIS
+═══════════════════════════════════════════════════════════════ */
+.pag {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 480px) { .pag { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 900px) { .pag { grid-template-columns: repeat(3, 1fr); } }
+
+.pac {
+  background: var(--cream);
+  border: 1px solid rgba(184,134,11,0.25);
+  border-top: 3px solid var(--gold);
+  padding: 22px 18px;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.pac:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.12); }
+.pac .pci { font-size: 1.8rem; margin-bottom: 12px; }
+.pac h3 {
+  font-family: var(--fc-title);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--stone);
+  margin-bottom: 8px;
+}
+.pac p { font-size: 0.9rem; color: var(--warm-stone); line-height: 1.65; margin-bottom: 10px; }
+.pct {
+  font-family: var(--fc-head);
+  font-size: 0.65rem;
+  color: var(--rust);
+  letter-spacing: 0.05em;
+  font-style: italic;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   NOTÍCIAS
+═══════════════════════════════════════════════════════════════ */
+.nog {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 480px) { .nog { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 900px) { .nog { grid-template-columns: repeat(3, 1fr); } }
+
+.noc {
+  background: rgba(184,134,11,0.05);
+  border: 1px solid rgba(184,134,11,0.2);
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.noc:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+.noi {
+  height: 140px;
+  background: linear-gradient(135deg, var(--blood), var(--burgundy));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  border-bottom: 2px solid var(--gold);
+}
+.nob { padding: 16px; }
+.nob .ndt {
+  font-family: var(--fc-head);
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 8px;
+}
+.nob h3 {
+  font-family: var(--fc-title);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--parchment);
+  margin-bottom: 6px;
+}
+.nob p { font-size: 0.87rem; color: rgba(184,160,110,0.8); line-height: 1.6; }
+
+/* ═══════════════════════════════════════════════════════════════
+   GALERIA
+═══════════════════════════════════════════════════════════════ */
+.gg {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+@media (min-width: 600px) { .gg { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 900px) { .gg { grid-template-columns: repeat(4, 1fr); } }
+
+.gi {
+  aspect-ratio: 4/3;
+  border-radius: 1px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  border: 2px solid rgba(184,134,11,0.25);
+  transition: transform 0.25s, border-color 0.25s;
+}
+.gi:hover { transform: scale(1.02); border-color: var(--gold); }
+.gi .gb { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
+.gi .gl {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(0deg, rgba(0,0,0,0.8), transparent);
+  padding: 20px 10px 8px;
+  font-family: var(--fc-head);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-pale);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SACRAMENTOS
+═══════════════════════════════════════════════════════════════ */
+.sacg {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 480px) { .sacg { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 900px) { .sacg { grid-template-columns: repeat(3, 1fr); } }
+
+.sacc {
+  background: var(--cream);
+  border: 1px solid rgba(184,134,11,0.25);
+  border-top: 3px solid var(--gold);
+  padding: 22px 18px;
+}
+.sacc .saci { font-size: 1.8rem; margin-bottom: 10px; }
+.sacc h3 {
+  font-family: var(--fc-title);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--stone);
+  margin-bottom: 8px;
+}
+.sacc p { font-size: 0.9rem; color: var(--warm-stone); line-height: 1.65; margin-bottom: 10px; }
+.dlst { list-style: none; border-top: 1px solid rgba(184,134,11,0.2); padding-top: 10px; }
+.dlst li {
+  font-size: 0.82rem;
+  color: rgba(62,42,21,0.6);
+  padding: 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.dlst li::before { content: '📄'; font-size: 0.72rem; }
+
+/* ═══════════════════════════════════════════════════════════════
+   CONTATO
+═══════════════════════════════════════════════════════════════ */
+.ctg {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: start;
+}
+@media (min-width: 700px) { .ctg { grid-template-columns: 1fr 1fr; gap: 48px; } }
+
+.cbl { display: flex; flex-direction: column; gap: 10px; }
+.ctb {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: var(--cream);
+  border: 1px solid rgba(184,134,11,0.2);
+  border-left: 3px solid var(--gold);
+  padding: 12px 14px;
+}
+.ctbi {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--blood), var(--burgundy));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: var(--gold);
+}
+.ctbt h4 {
+  font-family: var(--fc-head);
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 3px;
+}
+.ctbt p { font-size: 0.85rem; color: var(--warm-stone); line-height: 1.45; }
+.ctbt a { color: var(--rust); text-decoration: underline; text-underline-offset: 2px; }
+.mpb {
+  background: var(--cream);
+  border: 2px solid rgba(184,134,11,0.3);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+.mpb iframe { width: 100%; height: 100%; border: none; filter: sepia(0.3) contrast(0.9); }
+
+/* ═══════════════════════════════════════════════════════════════
+   ORAÇÃO
+═══════════════════════════════════════════════════════════════ */
+.prw { max-width: 580px; margin: 0 auto; }
+.prwi {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--warm-stone);
+  margin-bottom: 24px;
+  text-align: center;
+  font-style: italic;
+}
+.fg { margin-bottom: 16px; }
+.fg label {
+  display: block;
+  font-family: var(--fc-head);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 7px;
+}
+.fg input, .fg textarea {
+  width: 100%;
+  background: var(--cream);
+  border: 1px solid rgba(184,134,11,0.35);
+  border-left: 3px solid rgba(184,134,11,0.3);
+  padding: 11px 14px;
+  font-family: var(--fc-body);
+  font-size: 1rem;
+  color: var(--stone);
+  outline: none;
+  resize: vertical;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.fg input:focus, .fg textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(184,134,11,0.12);
+}
+.fg textarea { min-height: 120px; }
+.prsok {
+  display: none;
+  text-align: center;
+  padding: 22px;
+  background: rgba(184,134,11,0.08);
+  border: 1px solid var(--gold);
+  font-family: var(--fc-title);
+  font-size: 1rem;
+  color: var(--rust);
+  font-style: italic;
+}
+.prrc { margin-top: 44px; }
+.prrc h3 {
+  font-family: var(--fc-title);
+  font-size: 1rem;
+  color: var(--stone);
+  margin-bottom: 14px;
+  text-align: center;
+}
+.pri {
+  background: var(--cream);
+  border-left: 3px solid var(--gold);
+  padding: 12px 16px;
+  margin-bottom: 10px;
+}
+.pri p { font-style: italic; font-size: 0.95rem; color: var(--warm-stone); line-height: 1.6; }
+.pri .pin {
+  font-family: var(--fc-head);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: var(--rust);
+  margin-top: 8px;
+  text-transform: uppercase;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   DOAÇÕES
+═══════════════════════════════════════════════════════════════ */
+.pixb {
+  max-width: 460px;
+  margin: 0 auto 36px;
+  background: var(--cream);
+  border: 2px solid var(--gold);
+  padding: 28px 24px;
+  text-align: center;
+  position: relative;
+}
+.pixb::before {
+  content: '✦ ✝ ✦';
+  position: absolute;
+  top: -0.7rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--cream);
+  padding: 0 10px;
+  font-size: 0.65rem;
+  color: var(--gold);
+  letter-spacing: 0.3em;
+}
+.pixb h3 {
+  font-family: var(--fc-title);
+  font-size: 1.1rem;
+  color: var(--stone);
+  margin-bottom: 12px;
+}
+.pixk {
+  font-family: var(--fc-head);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  background: rgba(184,134,11,0.08);
+  border: 1px dashed var(--gold);
+  padding: 10px 16px;
+  color: var(--rust);
+  margin: 0 auto 14px;
+  word-break: break-all;
+}
+.pixb p { font-size: 0.88rem; color: rgba(62,42,21,0.65); line-height: 1.6; font-style: italic; }
+
+.dcg {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+@media (min-width: 480px) { .dcg { grid-template-columns: repeat(3, 1fr); } }
+
+.dcc {
+  background: var(--cream);
+  border: 1px solid rgba(184,134,11,0.2);
+  border-top: 3px solid var(--gold);
+  padding: 20px 16px;
+  text-align: center;
+}
+.dcc .dci { font-size: 1.8rem; margin-bottom: 8px; }
+.dcc h4 {
+  font-family: var(--fc-title);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--stone);
+  margin-bottom: 6px;
+}
+.dcc p { font-size: 0.85rem; color: var(--warm-stone); line-height: 1.6; }
+
+/* ═══════════════════════════════════════════════════════════════
+   LITURGIA — DOWNLOAD ONLY (no iframe viewer)
+═══════════════════════════════════════════════════════════════ */
+.litu-empty {
+  text-align: center;
+  padding: 52px 20px;
+  background: var(--cream);
+  border: 2px dashed rgba(184,134,11,0.35);
+}
+.litu-list { display: flex; flex-direction: column; gap: 12px; max-width: 720px; margin: 0 auto; }
+.litu-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--cream);
+  border: 1px solid rgba(184,134,11,0.25);
+  border-left: 4px solid var(--gold);
+  padding: 16px 18px;
+  transition: transform 0.2s;
+}
+.litu-item:hover { transform: translateX(3px); }
+.litu-item-icon { font-size: 1.8rem; flex-shrink: 0; }
+.litu-item-info { flex: 1; min-width: 0; }
+.litu-item-info h4 {
+  font-family: var(--fc-title);
+  font-size: 0.95rem;
+  color: var(--stone);
+  margin-bottom: 3px;
+}
+.litu-item-info span {
+  font-family: var(--fc-head);
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--rust);
+}
+.litu-dl-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--ink);
+  border: none;
+  cursor: pointer;
+  font-family: var(--fc-head);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 10px 16px;
+  flex-shrink: 0;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+}
+.litu-dl-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(184,134,11,0.4); }
+
+/* ═══════════════════════════════════════════════════════════════
+   ADMIN
+═══════════════════════════════════════════════════════════════ */
+.atab {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(184,134,11,0.2);
+  color: var(--parchment);
+  padding: 7px 14px;
+  font-family: var(--fc-head);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.atab.active, .atab:hover { background: rgba(184,134,11,0.18); color: var(--gold-light); }
+.apnl { display: none; }
+.apnl.active { display: block; }
+.albl {
+  display: block;
+  font-family: var(--fc-head);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.ainp {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(184,134,11,0.3);
+  padding: 9px 12px;
+  font-family: var(--fc-body);
+  font-size: 0.95rem;
+  color: var(--parchment);
+  outline: none;
+  resize: vertical;
+}
+.ainp:focus { border-color: var(--gold); box-shadow: 0 0 0 2px rgba(184,134,11,0.15); }
+.aadd {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--ink);
+  border: none;
+  cursor: pointer;
+  font-family: var(--fc-head);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 10px 22px;
+}
+.aadd:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(184,134,11,0.35); }
+.aitm {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(184,134,11,0.12);
+  padding: 12px 14px;
+  margin-bottom: 8px;
+}
+.aibdy { flex: 1; }
+.aibdy strong { display: block; font-family: var(--fc-title); font-size: 0.9rem; color: var(--parchment); margin-bottom: 3px; }
+.aibdy span { font-size: 0.8rem; color: rgba(184,160,110,0.6); }
+.aiact { display: flex; gap: 6px; flex-shrink: 0; }
+.adel {
+  background: none;
+  border: 1px solid rgba(180,60,60,0.4);
+  font-size: 0.7rem;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-family: var(--fc-head);
+  color: #e08888;
+}
+.adel:hover { background: rgba(180,60,60,0.15); }
+
+/* ═══════════════════════════════════════════════════════════════
+   ADMIN LOGIN MODAL
+═══════════════════════════════════════════════════════════════ */
+#sb {
+  position: fixed;
+  bottom: calc(var(--sb) + 10px);
+  right: 10px;
+  z-index: 500;
+  width: 24px;
+  height: 24px;
+  background: rgba(184,134,11,0.05);
+  border: 1px solid rgba(184,134,11,0.1);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.5rem;
+  color: rgba(184,134,11,0.2);
+  transition: all 0.3s;
+}
+#sb:hover { background: rgba(184,134,11,0.18); color: rgba(184,134,11,0.6); }
+
+#adm-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+#adm-modal.open { display: flex; }
+
+.ambx {
+  background: var(--ink);
+  border: 1px solid var(--gold);
+  border-top: 3px solid var(--gold);
+  padding: 36px 28px;
+  width: min(340px, 90vw);
+  text-align: center;
+}
+.ambx h3 {
+  font-family: var(--fc-title);
+  font-size: 1.2rem;
+  color: var(--gold-light);
+  margin-bottom: 6px;
+}
+.ambx .amp {
+  font-size: 0.85rem;
+  color: rgba(184,160,110,0.6);
+  margin-bottom: 20px;
+  font-style: italic;
+}
+.ambx input {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(184,134,11,0.3);
+  padding: 10px 12px;
+  font-family: var(--fc-body);
+  font-size: 1rem;
+  color: var(--parchment);
+  outline: none;
+  margin-bottom: 12px;
+  letter-spacing: 0.1em;
+}
+.ambx input:focus { border-color: var(--gold); }
+.amerr { font-size: 0.8rem; color: #e08888; margin-bottom: 10px; display: none; }
+
+/* ═══════════════════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════════════════ */
+footer {
+  background: var(--ink);
+  border-top: 2px solid var(--gold);
+  padding: 32px 20px calc(var(--sb) + 28px);
+  text-align: center;
+  position: relative;
+}
+footer::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(184,134,11,0.2), transparent);
+}
+footer .fc { font-size: 1.3rem; color: var(--gold); margin-bottom: 8px; letter-spacing: 0.4em; }
+footer .ftt {
+  font-family: var(--fc-title);
+  font-size: 0.95rem;
+  color: var(--gold-light);
+  margin-bottom: 4px;
+}
+footer .fss {
+  font-family: var(--fc-body);
+  font-size: 0.8rem;
+  color: rgba(184,160,110,0.5);
+  margin-bottom: 14px;
+  font-style: italic;
+}
+footer .fll {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+footer .fll a {
+  font-family: var(--fc-head);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(184,160,110,0.5);
+  transition: color 0.2s;
+}
+footer .fll a:hover { color: var(--gold-light); }
+footer .fcp { font-size: 0.65rem; color: rgba(184,160,110,0.25); }
+
+/* ═══════════════════════════════════════════════════════════════
+   PWA INSTALL BANNER
+═══════════════════════════════════════════════════════════════ */
+#ibann {
+  position: fixed;
+  bottom: calc(var(--sb) + 14px);
+  left: 50%;
+  transform: translateX(-50%) translateY(140%);
+  z-index: 999;
+  background: var(--ink);
+  border: 1px solid var(--gold);
+  border-top: 3px solid var(--gold);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 280px;
+  max-width: calc(100vw - 24px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.7);
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+#ibann.show { transform: translateX(-50%) translateY(0); }
+#ibann .ibi { font-size: 1.6rem; flex-shrink: 0; }
+#ibann .ibt strong {
+  display: block;
+  font-family: var(--fc-head);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 2px;
+}
+#ibann .ibt span { font-size: 0.72rem; color: rgba(184,160,110,0.55); }
+#ibann .iba { display: flex; gap: 8px; flex-shrink: 0; }
+.ibbtn {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--ink);
+  border: none;
+  cursor: pointer;
+  font-family: var(--fc-head);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 7px 14px;
+  font-weight: 700;
+}
+.ibdis { background: none; border: none; color: rgba(184,160,110,0.5); font-size: 1rem; padding: 4px; cursor: pointer; }
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION PADDING UTILITY
+═══════════════════════════════════════════════════════════════ */
+.sec { padding: 56px 0 64px; }
+.sec-sm { padding: 40px 0 48px; }
+
+/* ═══════════════════════════════════════════════════════════════
+   WELCOME TEXT BOX
+═══════════════════════════════════════════════════════════════ */
+.welcome-text {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+  line-height: 1.9;
+  color: var(--warm-stone);
+}
+.welcome-text strong { font-weight: 600; color: var(--stone); }
+.welcome-source {
+  margin-top: 20px;
+  font-family: var(--fc-head);
+  font-style: italic;
+  color: var(--rust);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+}
+
 </style>
 </head>
 <body>
 
-<!-- ╔══ NAV ══════════════════════════════════════════════════╗ -->
-<nav id="main-nav">
-  <div class="nav-brand" onclick="goTo('home')">
-    <!-- Mini cross SVG -->
-    <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
-      <rect x="14" y="2" width="6" height="30" rx="2" fill="url(#ng)"/>
-      <rect x="2" y="12" width="30" height="6" rx="2" fill="url(#ng)"/>
-      <defs>
-        <linearGradient id="ng" x1="2" y1="2" x2="32" y2="32">
-          <stop offset="0%" stop-color="#f5d97a"/>
-          <stop offset="100%" stop-color="#c8960c"/>
-        </linearGradient>
-      </defs>
+<!-- ══ NAVIGATION ══════════════════════════════════════════════ -->
+<nav>
+  <div class="nb" onclick="goTo('home')">
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+      <rect x="12" y="2" width="6" height="26" rx="1" fill="url(#ng)"/>
+      <rect x="2" y="11" width="26" height="6" rx="1" fill="url(#ng)"/>
+      <defs><linearGradient id="ng" x1="2" y1="2" x2="28" y2="28">
+        <stop offset="0%" stop-color="#f0d070"/><stop offset="100%" stop-color="#b8860b"/>
+      </linearGradient></defs>
     </svg>
-    <div class="brand-text">
+    <div class="nb-text">
       <h1>Paróquia Santa Sofia</h1>
       <p>Cosmos · Rio de Janeiro · Est. 1945</p>
     </div>
   </div>
-
-  <ul class="nav-desktop" id="nav-desktop">
-    <li><button class="active" data-page="home">🏠 Início</button></li>
-    <li><button data-page="historia">📖 História</button></li>
-    <li><button data-page="padroeira">👑 Padroeira</button></li>
-    <li><button data-page="horarios">⏰ Horários</button></li>
-    <li><button data-page="agenda">📅 Agenda</button></li>
-    <li><button data-page="pastorais">🙏 Pastorais</button></li>
-    <li><button data-page="noticias">📰 Notícias</button></li>
-    <li><button data-page="galeria">📸 Galeria</button></li>
-    <li><button data-page="sacramentos">❤️ Sacramentos</button></li>
-    <li><button data-page="contato">📍 Contato</button></li>
-    <li><button data-page="oracao">✝️ Oração</button></li>
-    <li><button data-page="doacoes">🎁 Dízimo</button></li>
+  <ul class="ndl" id="nav-desktop">
+    <li><button class="active" data-page="home">Início</button></li>
+    <li><button data-page="historia">História</button></li>
+    <li><button data-page="padroeira">Padroeira</button></li>
+    <li><button data-page="horarios">Horários</button></li>
+    <li><button data-page="agenda">Agenda</button></li>
+    <li><button data-page="pastorais">Pastorais</button></li>
+    <li><button data-page="noticias">Notícias</button></li>
+    <li><button data-page="galeria">Galeria</button></li>
+    <li><button data-page="sacramentos">Sacramentos</button></li>
+    <li><button data-page="contato">Contato</button></li>
+    <li><button data-page="oracao">Oração</button></li>
+    <li><button data-page="doacoes">Dízimo</button></li>
+    <li><button data-page="liturgia">Liturgia</button></li>
   </ul>
-
-  <button class="hamburger" id="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="hbg" id="hamburger"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- ╔══ DRAWER ════════════════════════════════════════════════╗ -->
-<div class="drawer" id="drawer">
-  <div class="drawer-overlay" id="drawer-overlay"></div>
-  <div class="drawer-panel" id="drawer-panel">
-    <p class="drawer-section-title">Navegação</p>
-    <button onclick="goTo('home')"><span class="nav-emoji">🏠</span> Início</button>
-    <button onclick="goTo('historia')"><span class="nav-emoji">📖</span> História da Paróquia</button>
-    <button onclick="goTo('padroeira')"><span class="nav-emoji">👑</span> Padroeira</button>
-    <button onclick="goTo('horarios')"><span class="nav-emoji">⏰</span> Horários de Missa</button>
-    <button onclick="goTo('agenda')"><span class="nav-emoji">📅</span> Agenda / Eventos</button>
-    <button onclick="goTo('pastorais')"><span class="nav-emoji">🙏</span> Pastorais e Grupos</button>
-    <button onclick="goTo('noticias')"><span class="nav-emoji">📰</span> Notícias / Avisos</button>
-    <button onclick="goTo('galeria')"><span class="nav-emoji">📸</span> Galeria</button>
-    <button onclick="goTo('sacramentos')"><span class="nav-emoji">❤️</span> Sacramentos</button>
-    <button onclick="goTo('contato')"><span class="nav-emoji">📍</span> Contato</button>
-    <button onclick="goTo('oracao')"><span class="nav-emoji">✝️</span> Pedidos de Oração</button>
-    <button onclick="goTo('doacoes')"><span class="nav-emoji">🎁</span> Doações / Dízimo</button>
-    <p class="drawer-section-title" style="margin-top:24px">Redes Sociais</p>
-    <button onclick="window.open('https://pt-br.facebook.com/PascomSantaSofia/','_blank')">
-      <span class="nav-emoji">📘</span> Facebook
-    </button>
-    <button onclick="window.open('https://www.instagram.com/pascomsantasofia/','_blank')">
-      <span class="nav-emoji">📷</span> Instagram
-    </button>
+<!-- ══ DRAWER ═══════════════════════════════════════════════════ -->
+<div class="drw" id="drawer">
+  <div class="dov" id="drawer-overlay"></div>
+  <div class="dpn">
+    <p class="dsec">Navegação</p>
+    <button onclick="goTo('home')">🏠 Início</button>
+    <button onclick="goTo('historia')">📖 História da Paróquia</button>
+    <button onclick="goTo('padroeira')">👑 Padroeira</button>
+    <button onclick="goTo('horarios')">⏰ Horários de Missa</button>
+    <button onclick="goTo('agenda')">📅 Agenda / Eventos</button>
+    <button onclick="goTo('pastorais')">🙏 Pastorais e Grupos</button>
+    <button onclick="goTo('noticias')">📰 Notícias / Avisos</button>
+    <button onclick="goTo('galeria')">📸 Galeria</button>
+    <button onclick="goTo('sacramentos')">❤️ Sacramentos</button>
+    <button onclick="goTo('contato')">📍 Contato</button>
+    <button onclick="goTo('oracao')">✝️ Pedidos de Oração</button>
+    <button onclick="goTo('doacoes')">🎁 Doações / Dízimo</button>
+    <button onclick="goTo('liturgia')">📋 Liturgia Diária</button>
+    <p class="dsec">Redes Sociais</p>
+    <button onclick="window.open('https://pt-br.facebook.com/PascomSantaSofia/','_blank')">📘 Facebook</button>
+    <button onclick="window.open('https://www.instagram.com/pascomsantasofia/','_blank')">📷 Instagram</button>
   </div>
 </div>
 
-<!-- ╔══════════════════════════════════════════════════════════╗
-     PAGE 1 — HOME
-╚══════════════════════════════════════════════════════════════╝ -->
-<div class="page active" id="page-home">
+<!-- ══════════════════════════════════════════════════════════════
+     HOME
+══════════════════════════════════════════════════════════════ -->
+<div class="pg active" id="page-home">
 
-  <!-- Hero escuro -->
+  <!-- HERO -->
   <div class="hero">
-    <!-- SVG Santa Sofia ilustrada (art icônica medieval) -->
-    <div class="hero-saint-img">
-      <svg viewBox="0 0 280 340" xmlns="http://www.w3.org/2000/svg" style="width:100%">
-        <!-- Auréola -->
-        <circle cx="140" cy="80" r="58" fill="none" stroke="#c8960c" stroke-width="2" stroke-dasharray="6 4" opacity=".7"/>
-        <circle cx="140" cy="80" r="52" fill="none" stroke="#e8b84b" stroke-width="1" opacity=".5"/>
-        <!-- Halo glow -->
-        <circle cx="140" cy="80" r="55" fill="rgba(200,150,12,.08)"/>
-        <!-- Rosto -->
-        <ellipse cx="140" cy="78" rx="32" ry="36" fill="#f5e6cc"/>
-        <!-- Cabelo -->
-        <path d="M108 68 Q112 40 140 36 Q168 40 172 68 Q168 56 140 52 Q112 56 108 68Z" fill="#4a2c14"/>
-        <!-- Olhos -->
-        <ellipse cx="128" cy="74" rx="4.5" ry="3" fill="#2a1505"/>
-        <ellipse cx="152" cy="74" rx="4.5" ry="3" fill="#2a1505"/>
-        <circle cx="129" cy="73" r="1.2" fill="white"/>
-        <circle cx="153" cy="73" r="1.2" fill="white"/>
-        <!-- Sobrancelhas -->
-        <path d="M122 68 Q128 65 134 68" stroke="#4a2c14" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <path d="M146 68 Q152 65 158 68" stroke="#4a2c14" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <!-- Nariz -->
-        <path d="M138 80 Q140 86 142 80" stroke="#c49a6c" stroke-width="1.2" fill="none"/>
-        <!-- Boca -->
-        <path d="M132 92 Q140 97 148 92" stroke="#a0604a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <!-- Véu/manto cabeça -->
-        <path d="M104 70 Q100 100 106 130 L108 140 Q124 138 140 138 Q156 138 172 140 L174 130 Q180 100 176 70 Q168 56 140 52 Q112 56 104 70Z" fill="#2c4a6e" opacity=".9"/>
-        <!-- Rosto sobre manto -->
-        <ellipse cx="140" cy="78" rx="32" ry="36" fill="#f5e6cc"/>
-        <!-- Repetir features sobre manto -->
-        <path d="M108 68 Q112 40 140 36 Q168 40 172 68 Q168 56 140 52 Q112 56 108 68Z" fill="#4a2c14"/>
-        <ellipse cx="128" cy="74" rx="4.5" ry="3" fill="#2a1505"/>
-        <ellipse cx="152" cy="74" rx="4.5" ry="3" fill="#2a1505"/>
-        <circle cx="129" cy="73" r="1.2" fill="white"/>
-        <circle cx="153" cy="73" r="1.2" fill="white"/>
-        <path d="M122 68 Q128 65 134 68" stroke="#4a2c14" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <path d="M146 68 Q152 65 158 68" stroke="#4a2c14" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <path d="M138 80 Q140 86 142 80" stroke="#c49a6c" stroke-width="1.2" fill="none"/>
-        <path d="M132 92 Q140 97 148 92" stroke="#a0604a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <!-- Corpo/veste -->
-        <path d="M106 138 Q90 180 88 250 Q100 260 140 262 Q180 260 192 250 Q190 180 174 138 Q158 142 140 142 Q122 142 106 138Z" fill="#8b3a2a"/>
-        <!-- Manto azul sobre corpo -->
-        <path d="M90 170 Q70 220 72 270 Q88 275 100 270 L106 138 Q92 155 90 170Z" fill="#2c4a6e"/>
-        <path d="M190 170 Q210 220 208 270 Q192 275 180 270 L174 138 Q208 155 190 170Z" fill="#2c4a6e"/>
-        <!-- Detalhe dourado veste -->
-        <path d="M124 142 Q130 160 132 200 Q136 240 140 262 Q144 240 148 200 Q150 160 156 142" stroke="#c8960c" stroke-width="1" fill="none" opacity=".6"/>
-        <!-- Cruz nas mãos -->
-        <rect x="128" y="220" width="4" height="26" rx="1" fill="url(#crossg)"/>
-        <rect x="122" y="228" width="16" height="4" rx="1" fill="url(#crossg)"/>
-        <!-- Mãos -->
-        <ellipse cx="120" cy="222" rx="10" ry="7" fill="#f0d8b8" transform="rotate(-15,120,222)"/>
-        <ellipse cx="160" cy="222" rx="10" ry="7" fill="#f0d8b8" transform="rotate(15,160,222)"/>
-        <!-- Folha de palma (martirio) -->
-        <path d="M158 215 Q170 200 175 185 Q168 195 162 200 Q172 185 174 168 Q165 182 160 190 Q166 175 165 158 Q155 175 152 188 Q155 170 150 155 Q143 175 146 195 Q140 178 136 162 Q138 183 142 198" stroke="#4a7a2a" stroke-width="2" fill="none" stroke-linecap="round"/>
-        <!-- Titulo -->
-        <text x="140" y="295" text-anchor="middle" font-family="'IM Fell English',serif" font-size="11" fill="#c8960c" letter-spacing="2">SANTA SOFIA</text>
-        <text x="140" y="310" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-style="italic" font-size="9" fill="#7a6040" letter-spacing="1">Mártir · Séc. II</text>
-        <!-- Linha decorativa -->
-        <line x1="80" y1="318" x2="200" y2="318" stroke="#c8960c" stroke-width="1" opacity=".4"/>
-        <defs>
-          <linearGradient id="crossg" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#f5d97a"/>
-            <stop offset="100%" stop-color="#c8960c"/>
-          </linearGradient>
-        </defs>
-      </svg>
-    </div>
-
-    <p class="hero-eyebrow">✦ Cosmos · Rio de Janeiro ✦</p>
-    <h1 class="hero-title">
-      Paróquia
-      <em>Santa Sofia</em>
-    </h1>
-    <p class="hero-subtitle">— Fé · Esperança · Caridade —</p>
-    <p class="hero-verse">"Eu vim para que todos tenham vida, e a tenham em abundância."<br/><small style="font-size:.8em;letter-spacing:.12em">Jo 10,10</small></p>
-    <div class="hero-btns">
-      <button class="btn btn-gold" onclick="goTo('horarios')">⏰ Horários de Missa</button>
-      <button class="btn btn-outline" onclick="goTo('padroeira')">👑 Nossa Padroeira</button>
-    </div>
-  </div>
-
-  <!-- Boas-vindas em pergaminho -->
-  <div class="parchment home-welcome">
-    <div class="container">
-      <div class="section-ornament">✦ ✝ ✦</div>
-      <span class="section-label">Bem-vindos</span>
-      <h2 class="section-title">Sejam Bem-<em>Vindos!</em></h2>
-      <div class="section-rule"><span>✦</span></div>
-      <div class="welcome-box">
-        <p>Esta é a página oficial da <strong>Paróquia Santa Sofia</strong> e das comunidades de <strong>Santíssimo Sacramento</strong>, <strong>São Sebastião</strong> e <strong>Nossa Senhora da Penha</strong>.</p>
-        <p>Aqui você encontrará informações sobre os horários das missas, eventos, pastorais, tradição e cultura católica. É o seu portal de acesso para todas as novidades de nossa comunidade, nossa arquidiocese e de toda a Igreja Católica.</p>
-        <p><strong>É a tecnologia e a Igreja juntos, anunciando a nossa fé!</strong></p>
-        <p class="welcome-sig">— Pastoral da Comunicação da Paróquia Santa Sofia</p>
+    <div class="hero-bg"></div>
+    <div class="hero-corner tl"></div>
+    <div class="hero-corner tr"></div>
+    <div class="hero-corner bl"></div>
+    <div class="hero-corner br"></div>
+    <div class="hcont">
+      <p class="heyb">✦ &nbsp; Cosmos · Rio de Janeiro &nbsp; ✦</p>
+      <h1 class="htit">Santa Sofia</h1>
+      <p class="htit-sub">Paróquia</p>
+      <p class="hsep">— &nbsp; Fé · Esperança · Caridade &nbsp; —</p>
+      <p class="hvrs">"Eu vim para que todos tenham vida, e a tenham em abundância."<br/><small style="font-size:0.78em;letter-spacing:0.14em;font-style:normal;font-family:'Cinzel',serif;">— Jo 10,10</small></p>
+      <div class="hbts">
+        <button class="btn btn-g" onclick="goTo('horarios')">⏰ Horários de Missa</button>
+        <button class="btn btn-o" onclick="goTo('padroeira')">👑 Nossa Padroeira</button>
       </div>
     </div>
   </div>
 
-  <!-- Avisos rápidos -->
-  <div style="padding:56px 0 72px;background:var(--walnut)">
-    <div class="container">
-      <div class="section-ornament" style="color:var(--gold)">✦ ✦ ✦</div>
-      <span class="section-label" style="color:var(--text-muted)">Comunicados</span>
-      <h2 class="section-title" style="color:var(--cream)">Avisos <em style="color:var(--gold-light)">Paroquiais</em></h2>
-      <div class="section-rule"><span style="color:var(--gold)">✦</span></div>
-      <div class="avisos-grid">
-        <div class="aviso-card">
-          <p class="aviso-date">✦ Julho · 2025</p>
-          <h3>Festa de Santa Sofia</h3>
-          <p>No dia 30 de setembro, celebramos a festa da nossa padroeira com missa solene e procissão. Confirme sua presença!</p>
-        </div>
-        <div class="aviso-card">
-          <p class="aviso-date">✦ Todo Domingo</p>
-          <h3>Missas nos Horários Habituais</h3>
-          <p>Missas às 07h, 09h e 19h. Venha celebrar conosco a Eucaristia dominical com toda a comunidade.</p>
-        </div>
-        <div class="aviso-card">
-          <p class="aviso-date">✦ Primeiras Sextas</p>
-          <h3>Adoração ao Santíssimo</h3>
-          <p>Todas as primeiras sextas-feiras do mês, das 18h às 19h30, hora santa com adoração eucarística.</p>
-        </div>
-        <div class="aviso-card">
-          <p class="aviso-date">✦ Agosto · 2025</p>
-          <h3>Início da Catequese 2025</h3>
-          <p>As inscrições para a catequese de crianças, jovens e adultos estão abertas. Procure a secretaria paroquial.</p>
-        </div>
+  <!-- BEM-VINDOS -->
+  <div class="manuscript sec">
+    <div class="cont" style="position:relative;z-index:1;">
+      <div class="orn">✦ &nbsp; ✝ &nbsp; ✦</div>
+      <span class="lbl" style="color:rgba(62,42,21,0.55)">Bem-vindos</span>
+      <h2 class="ttl">Sejam Bem-<em>Vindos!</em></h2>
+      <div class="rle"><span>✦</span></div>
+      <div class="welcome-text">
+        <p>Esta é a página oficial da <strong>Paróquia Santa Sofia</strong> e das comunidades de <strong>Santíssimo Sacramento</strong> e <strong>Nossa Senhora da Penha</strong>.</p>
+        <p style="margin-top:12px">Aqui você encontrará horários das missas, eventos, pastorais, tradição e cultura católica.</p>
+        <p style="margin-top:12px"><strong>É a tecnologia e a Igreja juntos, anunciando a nossa fé!</strong></p>
+        <p class="welcome-source">— Pastoral da Comunicação da Paróquia Santa Sofia</p>
       </div>
     </div>
   </div>
 
-</div><!-- /page-home -->
-
-<!-- ╔══════════════════════════════════════════════════════════╗
-     PAGE 2 — HISTÓRIA
-╚══════════════════════════════════════════════════════════════╝ -->
-<div class="page parchment" id="page-historia">
-  <div class="historia-page">
-    <div class="container">
-      <div class="section-ornament">✦ ✝ ✦</div>
-      <span class="section-label">Nossas Raízes</span>
-      <h2 class="section-title">História da <em>Paróquia</em></h2>
-      <div class="section-rule"><span>✦</span></div>
-
-      <div class="history-intro">
-        <p>Fundada em 1º de Janeiro de 1945, em Cosmos – Rio de Janeiro/RJ, a Paróquia Santa Sofia é um dos raríssimos templos no mundo dedicados à memória de Santa Sofia e suas filhas mártires da Igreja Católica.</p>
-      </div>
-
-      <div class="timeline">
-        <div class="timeline-item">
-          <p class="t-year">1º de Janeiro de 1945 · Fundação</p>
-          <h3>Criação da Paróquia Santa Sofia</h3>
-          <p>Em meio à fé crescente dos moradores de Cosmos, nasce a Paróquia Santa Sofia — um dos raríssimos templos no mundo dedicados à memória de Santa Sofia e suas filhas, mártires Fé, Esperança e Caridade. Desde o primeiro dia, a paróquia se tornou centro espiritual da comunidade.</p>
-        </div>
-        <div class="timeline-item">
-          <p class="t-year">Décadas de 1950–1970 · Crescimento</p>
-          <h3>Expansão das Comunidades</h3>
-          <p>Com o crescimento da população na Zona Oeste do Rio, a paróquia se expande para atender novas comunidades. Surgem as capelas do Santíssimo Sacramento, de São Sebastião e de Nossa Senhora da Penha, levando a fé a mais famílias de Cosmos e arredores.</p>
-        </div>
-        <div class="timeline-item">
-          <p class="t-year">1980–2000 · Consolidação</p>
-          <h3>Pastorais e Movimentos</h3>
-          <p>A vida paroquial se organiza com pastorais ativas: catequese, liturgia, caridade, coro e grupos de jovens. A paróquia passa a ser reconhecida como referência espiritual e social em toda a região de Cosmos.</p>
-        </div>
-        <div class="timeline-item">
-          <p class="t-year">2000–2018 · Renovação</p>
-          <h3>Obra e Modernização</h3>
-          <p>A estrutura física da igreja é renovada e ampliada. A Pastoral da Comunicação — Pascom Santa Sofia — é criada, levando a presença da paróquia às redes sociais e à internet, evangelizando através das novas mídias.</p>
-        </div>
-        <div class="timeline-item">
-          <p class="t-year">Hoje · Presente</p>
-          <h3>Uma Comunidade Viva</h3>
-          <p>Com mais de 79 anos de história, a Paróquia Santa Sofia continua firme em sua missão: anunciar o Evangelho, servir à comunidade e celebrar os sacramentos. Fé, esperança e caridade seguem sendo os pilares de nossa caminhada cristã.</p>
-        </div>
+  <!-- AVISOS -->
+  <div class="stonework sec">
+    <div class="cont">
+      <div class="orn">✦ &nbsp; ✦ &nbsp; ✦</div>
+      <span class="lbl">Comunicados</span>
+      <h2 class="ttl ttl-light">Avisos <em>Paroquiais</em></h2>
+      <div class="rle"><span>✦</span></div>
+      <div class="av-grid">
+        <div class="avc"><p class="avd">✦ Setembro · 2026</p><h3>Festa de Santa Sofia</h3><p>No dia 30 de setembro, celebramos a festa da nossa padroeira com missa solene e procissão.</p></div>
+        <div class="avc"><p class="avd">✦ Todo Domingo</p><h3>Missas nos Horários Habituais</h3><p>Missas às 08h, 10h e 19h. Venha celebrar conosco a Eucaristia dominical.</p></div>
+        <div class="avc"><p class="avd">✦ Quintas-Feiras</p><h3>Adoração ao Santíssimo</h3><p>Toda quinta-feira do mês, às 20h, missa e adoração eucarística na Paróquia.</p></div>
+        <div class="avc"><p class="avd">✦ Abril · 2026</p><h3>Início da Catequese 2026</h3><p>Inscrições abertas para catequese de crianças, jovens e adultos. Procure a secretaria paroquial.</p></div>
       </div>
     </div>
   </div>
+
 </div>
 
-<!-- ╔══════════════════════════════════════════════════════════╗
-     PAGE 3 — PADROEIRA
-╚══════════════════════════════════════════════════════════════╝ -->
-<div class="page parchment" id="page-padroeira">
-  <div class="padroeira-page">
-    <div class="container">
-      <div class="section-ornament">✦ ✝ ✦</div>
-      <span class="section-label">Nossa Padroeira</span>
-      <h2 class="section-title">Santa <em>Sofia</em></h2>
-      <div class="section-rule"><span>✦</span></div>
-
-      <div class="padroeira-hero">
-        <div class="padroeira-img-wrap">
-          <!-- SVG maior e mais detalhada de Santa Sofia -->
-          <svg viewBox="0 0 320 420" xmlns="http://www.w3.org/2000/svg">
-            <!-- Fundo decorativo -->
-            <rect width="320" height="420" rx="8" fill="#f0e6c8"/>
-            <!-- Borda ornamental -->
-            <rect x="8" y="8" width="304" height="404" rx="6" fill="none" stroke="#c8960c" stroke-width="1.5" stroke-dasharray="8 4" opacity=".5"/>
-            <rect x="14" y="14" width="292" height="392" rx="4" fill="none" stroke="#c8960c" stroke-width=".5" opacity=".3"/>
-            <!-- Auréola -->
-            <circle cx="160" cy="110" r="70" fill="rgba(200,150,12,.08)" stroke="#c8960c" stroke-width="2" stroke-dasharray="6 3"/>
-            <circle cx="160" cy="110" r="62" fill="none" stroke="#e8b84b" stroke-width=".8" opacity=".6"/>
-            <!-- Raios de luz -->
-            <g opacity=".15" stroke="#c8960c" stroke-width="1">
-              <line x1="160" y1="40" x2="160" y2="15"/>
-              <line x1="195" y1="50" x2="210" y2="30"/>
-              <line x1="210" y1="80" x2="230" y2="68"/>
-              <line x1="125" y1="50" x2="110" y2="30"/>
-              <line x1="110" y1="80" x2="90" y2="68"/>
-            </g>
-            <!-- Rosto -->
-            <ellipse cx="160" cy="108" rx="38" ry="44" fill="#f5e2c0"/>
-            <!-- Cabelo/véu -->
-            <path d="M122 95 Q126 60 160 54 Q194 60 198 95 Q194 74 160 68 Q126 74 122 95Z" fill="#3a1e0a"/>
-            <!-- Véu azul -->
-            <path d="M120 100 Q115 140 118 175 L124 185 Q142 182 160 182 Q178 182 196 185 L202 175 Q205 140 200 100 Q192 78 160 68 Q128 78 120 100Z" fill="#1a3d6e"/>
-            <!-- Rosto sobre véu -->
-            <ellipse cx="160" cy="108" rx="38" ry="44" fill="#f5e2c0"/>
-            <path d="M122 95 Q126 60 160 54 Q194 60 198 95 Q194 74 160 68 Q126 74 122 95Z" fill="#3a1e0a"/>
-            <!-- Olhos -->
-            <ellipse cx="146" cy="103" rx="5.5" ry="4" fill="#1a0f00"/>
-            <ellipse cx="174" cy="103" rx="5.5" ry="4" fill="#1a0f00"/>
-            <circle cx="147" cy="102" r="1.5" fill="white" opacity=".7"/>
-            <circle cx="175" cy="102" r="1.5" fill="white" opacity=".7"/>
-            <!-- Sobrancelhas -->
-            <path d="M138 96 Q146 92 154 96" stroke="#3a1e0a" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-            <path d="M166 96 Q174 92 182 96" stroke="#3a1e0a" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-            <!-- Nariz -->
-            <path d="M157 114 Q160 121 163 114" stroke="#b88a60" stroke-width="1.5" fill="none"/>
-            <!-- Boca serena -->
-            <path d="M150 126 Q160 132 170 126" stroke="#8a4030" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-            <!-- Corpo veste vermelha -->
-            <path d="M124 185 Q105 240 102 330 Q120 340 160 342 Q200 340 218 330 Q215 240 196 185 Q178 188 160 188 Q142 188 124 185Z" fill="#7a2e1e"/>
-            <!-- Manto azul lateral -->
-            <path d="M106 220 Q86 285 88 340 Q104 345 118 338 L124 185 Q110 205 106 220Z" fill="#1a3d6e"/>
-            <path d="M214 220 Q234 285 232 340 Q216 345 202 338 L196 185 Q210 205 214 220Z" fill="#1a3d6e"/>
-            <!-- Detalhe dourado borda veste -->
-            <path d="M124 185 Q122 210 120 250 Q118 290 120 330" stroke="#c8960c" stroke-width="2" fill="none" opacity=".5"/>
-            <path d="M196 185 Q198 210 200 250 Q202 290 200 330" stroke="#c8960c" stroke-width="2" fill="none" opacity=".5"/>
-            <!-- Cruz nas mãos (centro) -->
-            <rect x="152" y="258" width="6" height="34" rx="2" fill="url(#cg2)"/>
-            <rect x="143" y="268" width="24" height="6" rx="2" fill="url(#cg2)"/>
-            <!-- Mãos -->
-            <ellipse cx="140" cy="262" rx="14" ry="9" fill="#f0d4a0" transform="rotate(-20,140,262)"/>
-            <ellipse cx="180" cy="262" rx="14" ry="9" fill="#f0d4a0" transform="rotate(20,180,262)"/>
-            <!-- Folha de palma -->
-            <path d="M186 255 Q200 235 206 215 Q198 228 190 235 Q202 218 204 198 Q193 214 187 224 Q195 207 193 188 Q181 208 178 222 Q183 203 177 186 Q168 210 172 228 Q165 210 160 192 Q162 216 167 232" stroke="#3a6020" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".85"/>
-            <!-- Filhas pequenas ao pé (Fé, Esperança, Caridade) -->
-            <g opacity=".75">
-              <!-- Fe -->
-              <ellipse cx="100" cy="320" rx="10" ry="12" fill="#f5e2c0"/>
-              <rect x="93" y="332" width="14" height="18" rx="2" fill="#8b1a1a"/>
-              <path d="M94 314 Q100 308 106 314 Q104 310 100 308 Q96 310 94 314Z" fill="#2a1200"/>
-              <!-- Esperanca -->
-              <ellipse cx="130" cy="325" rx="10" ry="12" fill="#f5e2c0"/>
-              <rect x="123" y="337" width="14" height="16" rx="2" fill="#1a4a8b"/>
-              <path d="M124 319 Q130 313 136 319 Q134 315 130 313 Q126 315 124 319Z" fill="#2a1200"/>
-              <!-- Caridade -->
-              <ellipse cx="192" cy="325" rx="9" ry="11" fill="#f5e2c0"/>
-              <rect x="185" y="336" width="14" height="16" rx="2" fill="#1a6b2a"/>
-              <path d="M186 319 Q192 313 198 319 Q196 315 192 313 Q188 315 186 319Z" fill="#2a1200"/>
-            </g>
-            <!-- Rótulos -->
-            <text x="100" y="355" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="7" fill="#7a5020" font-style="italic">Fé</text>
-            <text x="130" y="358" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="7" fill="#7a5020" font-style="italic">Esperança</text>
-            <text x="192" y="358" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="7" fill="#7a5020" font-style="italic">Caridade</text>
-            <!-- Título -->
-            <text x="160" y="382" text-anchor="middle" font-family="'IM Fell English',serif" font-size="13" fill="#7a3a1a" letter-spacing="3">SANCTA SOPHIA</text>
-            <text x="160" y="397" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-style="italic" font-size="10" fill="#9a7040">Mater Martyrum · 30 de Setembro</text>
-            <!-- Ornamentos cantos -->
-            <text x="20" y="34" font-size="14" fill="#c8960c" opacity=".5">✦</text>
-            <text x="292" y="34" font-size="14" fill="#c8960c" opacity=".5">✦</text>
-            <text x="20" y="404" font-size="14" fill="#c8960c" opacity=".5">✦</text>
-            <text x="292" y="404" font-size="14" fill="#c8960c" opacity=".5">✦</text>
-            <defs>
-              <linearGradient id="cg2" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#f5d97a"/>
-                <stop offset="100%" stop-color="#c8960c"/>
-              </linearGradient>
-            </defs>
-          </svg>
-          <p class="saint-caption">Santa Sofia com suas filhas<br/>Fé, Esperança e Caridade</p>
-        </div>
-
-        <div class="padroeira-text">
-          <h2>Quem foi Santa Sofia?</h2>
-          <p>Santa Sofia foi uma mártir cristã que viveu em Roma no século II. Seu nome, de origem grega, significa <strong>Sabiduría</strong> — virtude que ela demonstrou ao criar suas filhas na fé cristã mesmo em tempos de perseguição.</p>
-          <p>Ela tinha três filhas chamadas <strong>Fé (Pistis)</strong>, <strong>Esperança (Elpis)</strong> e <strong>Caridade (Ágape)</strong>, cujos nomes coincidem com as três virtudes teologais de São Paulo (1 Cor 13).</p>
-          <blockquote>
-            <p>"Sofía ensinou sabiamente suas três filhas a temer a Deus e a não recuar diante de nenhum tirano."</p>
-          </blockquote>
-          <p>Durante o reinado do imperador Adriano (117–138 d.C.), as filhas de Sofia foram martirizadas por se recusarem a renunciar à fé cristã. Sofia enterrou os corpos das filhas e, três dias depois, morreu ao lado de suas tumbas de desgosto e amor materno — sendo também ela venerada como mártir.</p>
-          <p>Em 778, parte de suas relíquias foi transferida a um convento em Eschau, Alsácia, de onde seu culto se espalhou pela Europa.</p>
-        </div>
-      </div>
-
-      <h3 style="font-family:var(--font-head);font-size:1.4rem;color:var(--text-dark);text-align:center;margin-bottom:24px">Curiosidades sobre a Padroeira</h3>
-      <div class="fact-cards">
-        <div class="fact-card">
-          <div class="fact-icon">📅</div>
-          <h4>Dia Comemorativo</h4>
-          <p>Celebrada em <strong>30 de setembro</strong> no calendário litúrgico católico e em 18 de setembro na Igreja Ortodoxa.</p>
-        </div>
-        <div class="fact-card">
-          <div class="fact-icon">🕊️</div>
-          <h4>Significado do Nome</h4>
-          <p><em>Sophia</em>, em grego, significa <strong>Sabiduría</strong>. Em honra a ela foi construída a Hagia Sophia em Constantinopla (532–537 d.C.).</p>
-        </div>
-        <div class="fact-card">
-          <div class="fact-icon">🌍</div>
-          <h4>Raridade do Templo</h4>
-          <p>A Paróquia Santa Sofia em Cosmos é um dos <strong>raríssimos templos no mundo</strong> dedicados diretamente à sua memória.</p>
-        </div>
-        <div class="fact-card">
-          <div class="fact-icon">👑</div>
-          <h4>Protetora das Famílias</h4>
-          <p>Santa Sofia é padroeira das <strong>mães cristãs</strong> e intercessora em problemas entre pais e filhos, e para suportar provas com fé.</p>
-        </div>
-        <div class="fact-card">
-          <div class="fact-icon">⛪</div>
-          <h4>Relíquias</h4>
-          <p>Suas relíquias foram trasladadas a Roma por ordem do Papa Paulo I, para a Igreja de São Silvestre in Campo Marzio.</p>
-        </div>
-        <div class="fact-card">
-          <div class="fact-icon">📖</div>
-          <h4>Citação Bíblica</h4>
-          <p>Seus filhos chamados Fé, Esperança e Caridade espelham a passagem de <strong>1 Coríntios 13</strong> de São Paulo Apóstolo.</p>
-        </div>
-      </div>
+<!-- ══════════════════════════════════════════════════════════════
+     HISTÓRIA
+══════════════════════════════════════════════════════════════ -->
+<div class="pg manuscript" id="page-historia">
+  <div class="sec"><div class="cont">
+    <div class="orn">✦ &nbsp; ✝ &nbsp; ✦</div>
+    <span class="lbl" style="color:rgba(62,42,21,0.55)">Nossas Raízes</span>
+    <h2 class="ttl">História da <em>Paróquia</em></h2>
+    <div class="rle"><span>✦</span></div>
+    <div style="max-width:680px;margin:0 auto 48px;text-align:center;font-size:1.05rem;line-height:1.9;color:var(--warm-stone);">
+      <p>Fundada em 1º de Janeiro de 1945, em Cosmos – Rio de Janeiro/RJ, a Paróquia Santa Sofia é um dos raríssimos templos no mundo dedicados à memória de Santa Sofia e suas filhas mártires da Igreja Católica.</p>
     </div>
-  </div>
+    <div class="tl">
+      <div class="tli"><p class="tyr">1º de Janeiro de 1945 · Fundação</p><h3>Criação da Paróquia Santa Sofia</h3><p>Em meio à fé crescente dos moradores de Cosmos, nasce a Paróquia Santa Sofia — dedicada à memória de Santa Sofia e suas filhas mártires Fé, Esperança e Caridade.</p></div>
+      <div class="tli"><p class="tyr">Décadas de 1950–1970 · Crescimento</p><h3>Expansão das Comunidades</h3><p>Com o crescimento da Zona Oeste do Rio, surgem as capelas do Santíssimo Sacramento, de São Sebastião e de Nossa Senhora da Penha, levando a fé a mais famílias de Cosmos e arredores.</p></div>
+      <div class="tli"><p class="tyr">1980–2000 · Consolidação</p><h3>Pastorais e Movimentos</h3><p>A vida paroquial se organiza com pastorais ativas: catequese, liturgia, caridade, coro e grupos de jovens. A paróquia torna-se referência espiritual em toda a região.</p></div>
+      <div class="tli"><p class="tyr">2000–2018 · Renovação</p><h3>Obra e Modernização</h3><p>A estrutura física é renovada e ampliada. A Pascom Santa Sofia é criada, levando a paróquia às redes sociais e ao digital.</p></div>
+      <div class="tli" style="padding-bottom:0"><p class="tyr">Hoje · Presente</p><h3>Uma Comunidade Viva</h3><p>Com mais de 79 anos de história, a Paróquia Santa Sofia continua firme: anunciar o Evangelho, servir à comunidade e celebrar os sacramentos.</p></div>
+    </div>
+  </div></div>
 </div>
 
-<!-- ╔══════════════════════════════════════════════════════════╗
-     PAGE 4 — HORÁRIOS
-╚══════════════════════════════════════════════════════════════╝ -->
-<div class="page parchment" id="page-horarios">
-  <div class="horarios-page">
-    <div class="container">
-      <div class="section-ornament">⏰ ✦ ⏰</div>
-      <span class="section-label">Liturgia</span>
-      <h2 class="section-title">Horários de <em>Missa</em></h2>
-      <div class="section-rule"><span>✦</span></div>
-
-      <div class="horarios-grid">
-        <div class="horario-block">
-          <p class="hb-label">⛪ Segunda a Sexta</p>
-          <table><tbody>
-            <tr><td>Terço</td><td>06h40</td></tr>
-            <tr><td>Santa Missa</td><td>07h00</td></tr>
-          </tbody></table>
-        </div>
-        <div class="horario-block">
-          <p class="hb-label">✝️ Sábado</p>
-          <table><tbody>
-            <tr><td>Confissões</td><td>17h30</td></tr>
-            <tr><td>Santa Missa</td><td>19h00</td></tr>
-          </tbody></table>
-        </div>
-        <div class="horario-block">
-          <p class="hb-label">🌟 Domingo</p>
-          <table><tbody>
-            <tr><td>1ª Missa</td><td>07h00</td></tr>
-            <tr><td>2ª Missa</td><td>09h00</td></tr>
-            <tr><td>3ª Missa</td><td>19h00</td></tr>
-          </tbody></table>
-        </div>
-        <div class="horario-block">
-          <p class="hb-label">🕯️ Primeiras Sextas</p>
-          <table><tbody>
-            <tr><td>Adoração</td><td>18h00</td></tr>
-            <tr><td>Hora Santa</td><td>18h00–19h30</td></tr>
-            <tr><td>Missa Especial</td><td>19h30</td></tr>
-          </tbody></table>
-        </div>
-        <div class="horario-block">
-          <p class="hb-label">🙏 Confissões</p>
-          <table><tbody>
-            <tr><td>Sábados</td><td>17h30</td></tr>
-            <tr><td>Sob consulta</td><td>Na secretaria</td></tr>
-          </tbody></table>
-        </div>
-        <div class="horario-block">
-          <p class="hb-label">🏢 Secretaria Paroquial</p>
-          <table><tbody>
-            <tr><td>Terça a Sábado</td><td>09h–12h</td></tr>
-            <tr><td>Terça a Sexta</td><td>14h–17h</td></tr>
-          </tbody></table>
-        </div>
+<!-- ══════════════════════════════════════════════════════════════
+     PADROEIRA
+══════════════════════════════════════════════════════════════ -->
+<div class="pg manuscript" id="page-padroeira">
+  <div class="sec"><div class="cont">
+    <div class="orn">✦ &nbsp; ✝ &nbsp; ✦</div>
+    <span class="lbl" style="color:rgba(62,42,21,0.55)">Nossa Padroeira</span>
+    <h2 class="ttl">Santa <em>Sofia</em></h2>
+    <div class="rle"><span>✦</span></div>
+    <div class="phero">
+      <div class="pimg">
+        <img src="santa-sofia-familia.jpeg" alt="Santa Sofia com suas filhas Fé, Esperança e Caridade"/>
+        <p class="pcap">Santa Sofia com suas filhas<br/>Fé, Esperança e Caridade</p>
       </div>
-      <div class="horario-obs">
-        <strong>⚠️ Atenção:</strong> Os horários podem ser alterados em datas festivas, feriados e solenidades. Acompanhe os avisos paroquiais no Facebook e Instagram da Pascom Santa Sofia.
+      <div class="ptxt">
+        <h2>Quem foi Santa Sofia?</h2>
+        <p>Santa Sofia foi uma mártir cristã que viveu em Roma no século II. Seu nome, de origem grega, significa <strong>Sabedoria</strong> — virtude que ela demonstrou ao criar suas filhas na fé cristã mesmo em tempos de perseguição.</p>
+        <p>Ela tinha três filhas chamadas <strong>Fé (Pistis)</strong>, <strong>Esperança (Elpis)</strong> e <strong>Caridade (Ágape)</strong>, cujos nomes coincidem com as três virtudes teologais de São Paulo (1 Cor 13).</p>
+        <blockquote><p>"Sofia ensinou sabiamente suas três filhas a temer a Deus e a não recuar diante de nenhum tirano."</p></blockquote>
+        <p>Durante o reinado do imperador Adriano (117–138 d.C.), as filhas de Sofia foram martirizadas. Sofia enterrou os corpos das filhas e, três dias depois, morreu ao lado de suas tumbas — sendo também ela venerada como mártir.</p>
+        <p>Em 778, parte de suas relíquias foi transferida a um convento em Eschau, Alsácia, de onde seu culto se espalhou pela Europa.</p>
       </div>
     </div>
-  </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:14px;margin:0 auto 48px;max-width:300px;">
+      <img src="santa-sofia-icone.jpeg" alt="Ícone de Santa Sofia" style="width:100%;border:3px solid var(--gold);box-shadow:0 8px 32px rgba(0,0,0,0.2);"/>
+      <p class="pcap">Ícone de Santa Sofia</p>
+    </div>
+    <h3 style="font-family:var(--fc-title);font-size:1.2rem;color:var(--stone);text-align:center;margin-bottom:22px;">Curiosidades sobre a Padroeira</h3>
+    <div class="fcg">
+      <div class="fcc"><div class="fi">📅</div><h4>Dia Comemorativo</h4><p>Celebrada em <strong>30 de setembro</strong> no calendário litúrgico católico e em 18 de setembro na Igreja Ortodoxa.</p></div>
+      <div class="fcc"><div class="fi">🕊️</div><h4>Significado do Nome</h4><p><em>Sophia</em>, em grego, significa <strong>Sabedoria</strong>. Em honra a ela foi construída a Hagia Sophia em Constantinopla.</p></div>
+      <div class="fcc"><div class="fi">🌍</div><h4>Raridade do Templo</h4><p>A Paróquia Santa Sofia em Cosmos é um dos <strong>raríssimos templos no mundo</strong> dedicados diretamente à sua memória.</p></div>
+      <div class="fcc"><div class="fi">👑</div><h4>Protetora das Famílias</h4><p>Santa Sofia é padroeira das <strong>mães cristãs</strong> e intercessora em problemas entre pais e filhos.</p></div>
+      <div class="fcc"><div class="fi">⛪</div><h4>Relíquias</h4><p>Suas relíquias foram trasladadas a Roma por ordem do Papa Paulo I, para a Igreja de São Silvestre in Campo Marzio.</p></div>
+      <div class="fcc"><div class="fi">📖</div><h4>Citação Bíblica</h4><p>Seus filhos Fé, Esperança e Caridade espelham a passagem de <strong>1 Coríntios 13</strong> de São Paulo.</p></div>
+    </div>
+  </div></div>
 </div>
 
-<!-- ╔══════════════════════════════════════════════════════════╗
-     PAGE 5 — AGENDA
-╚══════════════════════════════════════════════════════════════╝ -->
-<div class="page parchment" id="page-agenda">
-  <div class="agenda-page">
-    <div class="container">
-      <div class="section-ornament">📅 ✦ 📅</div>
-      <span class="section-label">Próximos Eventos</span>
-      <h2 class="section-title">Agenda <em>Paroquial</em></h2>
-      <div class="section-rule"><span>✦</span></div>
-      <div class="eventos-list">
-        <div class="evento-item">
-          <div class="evento-date-box"><div class="day">06</div><div class="month">Jul</div></div>
-          <div class="evento-body">
-            <h3>Início das Atividades do Grupo de Jovens</h3>
-            <p>Retomada dos encontros semanais do grupo jovem paroquial. Às 15h na sala paroquial. Todos os jovens de 15 a 35 anos são bem-vindos!</p>
-            <span class="evento-tag">👦 Jovens</span>
-          </div>
-        </div>
-        <div class="evento-item">
-          <div class="evento-date-box"><div class="day">12</div><div class="month">Jul</div></div>
-          <div class="evento-body">
-            <h3>Missa de Cura e Libertação</h3>
-            <p>Celebração especial de cura e libertação às 19h na Igreja Sede. Venha com suas intenções e convidados.</p>
-            <span class="evento-tag">🙏 Missa Especial</span>
-          </div>
-        </div>
-        <div class="evento-item">
-          <div class="evento-date-box"><div class="day">20</div><div class="month">Jul</div></div>
-          <div class="evento-body">
-            <h3>Encontro de Casais</h3>
-            <p>Encontro mensal dos casais da paróquia. Tema: "O Amor como Missão". Às 18h. Inscrições na secretaria.</p>
-            <span class="evento-tag">💑 Casais</span>
-          </div>
-        </div>
-        <div class="evento-item">
-          <div class="evento-date-box"><div class="day">01</div><div class="month">Ago</div></div>
-          <div class="evento-body">
-            <h3>Início da Catequese 2025</h3>
-            <p>Início das aulas de catequese para crianças (1ª Eucaristia) e adolescentes (Crisma). Inscrições abertas na secretaria.</p>
-            <span class="evento-tag">📖 Catequese</span>
-          </div>
-        </div>
-        <div class="evento-item">
-          <div class="evento-date-box"><div class="day">15</div><div class="month">Ago</div></div>
-          <div class="evento-body">
-            <h3>Nossa Senhora da Assunção — Missa Solene</h3>
-            <p>Celebração da solenidade de Nossa Senhora da Assunção com missa solene às 19h. Haverá procissão após a missa.</p>
-            <span class="evento-tag">🕊️ Solenidade</span>
-          </div>
-        </div>
-        <div class="evento-item">
-          <div class="evento-date-box"><div class="day">30</div><div class="month">Set</div></div>
-          <div class="evento-body">
-            <h3>🌟 Festa de Santa Sofia — Padroeira</h3>
-            <p>Grande festa da padroeira com missa solene às 19h, procissão pelas ruas da paróquia, bênção dos fiéis e confraternização.</p>
-            <span class="evento-tag">👑 Festa Paroquial</span>
-          </div>
-        </div>
+<!-- ══════════════════════════════════════════════════════════════
+     HORÁRIOS
+══════════════════════════════════════════════════════════════ -->
+<div class="pg manuscript" id="page-horarios">
+  <div class="sec"><div class="cont">
+    <div class="orn">⏰ &nbsp; ✦ &nbsp; ⏰</div>
+    <span class="lbl" style="color:rgba(62,42,21,0.55)">Liturgia</span>
+    <h2 class="ttl">Horários de <em>Missa</em></h2>
+    <div class="rle"><span>✦</span></div>
+    <div class="horg">
+      <div class="horb"><p class="horl">⛪ Segunda-Feira</p><table><tr><td>Santa Missa</td><td>19h00</td></tr><tr><td colspan="2" style="font-size:0.78rem;color:rgba(62,42,21,0.5);font-style:italic;border:none">Terço dos homens e mulheres após a missa</td></tr><tr><td colspan="2" style="font-size:0.7rem;color:var(--rust);font-family:var(--fc-head);font-style:italic;border:none;letter-spacing:0.08em;">Paróquia Santa Sofia</td></tr></table></div>
+      <div class="horb"><p class="horl">⛪ Terça-Feira</p><table><tr><td>Santa Missa</td><td>20h00</td></tr><tr><td colspan="2" style="font-size:0.7rem;color:var(--rust);font-family:var(--fc-head);font-style:italic;border:none;letter-spacing:0.08em;">Capela Santíssimo Sacramento</td></tr></table></div>
+      <div class="horb"><p class="horl">⛪ Quinta-Feira</p><table><tr><td>Missa e Adoração</td><td>20h00</td></tr><tr><td colspan="2" style="font-size:0.7rem;color:var(--rust);font-family:var(--fc-head);font-style:italic;border:none;letter-spacing:0.08em;">Paróquia Santa Sofia</td></tr></table></div>
+      <div class="horb"><p class="horl">✝️ Sábado</p><table><tr><td>Santa Missa</td><td>10h00</td></tr><tr><td colspan="2" style="font-size:0.7rem;color:var(--rust);font-family:var(--fc-head);font-style:italic;border:none;letter-spacing:0.08em;">Capela Nossa Senhora da Penha</td></tr></table></div>
+      <div class="horb"><p class="horl">🌟 Domingo</p><table><tr><td>1ª Missa</td><td>09h00</td></tr><tr><td>2ª Missa</td><td>10h00</td></tr><tr><td>3ª Missa</td><td>19h00</td></tr><tr><td colspan="2" style="font-size:0.7rem;color:var(--rust);font-family:var(--fc-head);font-style:italic;border:none;letter-spacing:0.08em;">Paróquia Santa Sofia</td></tr></table></div>
+      <div class="horb"><p class="horl">🏢 Secretaria</p><table><tr><td>Terça a Sexta</td><td>09h–12h</td></tr><tr><td>Terça a Sexta</td><td>14h–17h</td></tr></table></div>
+    </div>
+    <div class="hobs"><strong>⚠️ Atenção:</strong> Os horários podem ser alterados em datas festivas e solenidades. Acompanhe os avisos no Facebook e Instagram da Pascom Santa Sofia.</div>
+  </div></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     AGENDA
+══════════════════════════════════════════════════════════════ -->
+<div class="pg manuscript" id="page-agenda">
+  <div class="sec"><div class="cont">
+    <div class="orn">📅 &nbsp; ✦ &nbsp; 📅</div>
+    <span class="lbl" style="color:rgba(62,42,21,0.55)">Próximos Eventos</span>
+    <h2 class="ttl">Agenda <em>Paroquial</em></h2>
+    <div class="rle"><span>✦</span></div>
+    <div class="evl" id="ev-pub"></div>
+  </div></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     PASTORAIS
+══════════════════════════════════════════════════════════════ -->
+<div class="pg manuscript" id="page-pastorais">
+  <div class="sec"><div class="cont">
+    <div class="orn">🙏 &nbsp; ✦ &nbsp; 🙏</div>
+    <span class="lbl" style="color:rgba(62,42,21,0.55)">Grupos e Ministérios</span>
+    <h2 class="ttl">Pastorais e <em>Movimentos</em></h2>
+    <div class="rle"><span>✦</span></div>
+    <div class="pag" id="past-pub"></div>
+  </div></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     NOTÍCIAS
+══════════════════════════════════════════════════════════════ -->
+<div class="pg stonework" id="page-noticias">
+  <div class="sec"><div class="cont">
+    <div class="orn">📰 &nbsp; ✦ &nbsp; 📰</div>
+    <span class="lbl">Comunicados</span>
+    <h2 class="ttl ttl-light">Notícias e <em>Avisos</em></h2>
+    <div class="rle"><span>✦</span></div>
+    <div class="nog" id="not-pub"></div>
+  </div></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     GALERIA
+══════════════════════════════════════════════════════════════ -->
+<div class="pg stonework" id="page-galeria">
+  <div class="sec"><div class="cont">
+    <div class="orn">📸 &nbsp; ✦ &nbsp; 📸</div>
+    <span class="lbl">Momentos</span>
+    <h2 class="ttl ttl-light">Galeria de <em>Fotos</em></h2>
+    <div class="rle"><span>✦</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:12px;margin:0 auto 36px;max-width:440px;">
+      <img src="santa-sofia-icone-bizant.jpeg" alt="Ícone Bizantino Santa Sofia" style="width:100%;border:3px solid var(--gold);box-shadow:0 12px 40px rgba(0,0,0,0.5);"/>
+      <p style="font-family:var(--fc-head);font-style:italic;font-size:0.7rem;color:rgba(184,160,110,0.55);text-align:center;letter-spacing:0.1em;text-transform:uppercase;">Santa Sofia com Fé, Esperança e Caridade</p>
+    </div>
+    <div class="gg">
+      <div class="gi" style="grid-column:span 2"><div class="gb" style="background:linear-gradient(135deg,#2c1a08,#5a3010)">
+        <svg viewBox="0 0 320 220" width="100%" style="max-height:220px">
+          <rect width="320" height="220" fill="#1a0a04"/>
+          <circle cx="80" cy="20" r="1" fill="#f5d97a" opacity=".7"/><circle cx="140" cy="14" r="2" fill="#f5d97a" opacity=".9"/><circle cx="200" cy="22" r="1.2" fill="#f5d97a" opacity=".7"/><circle cx="260" cy="16" r="1.5" fill="#f5d97a" opacity=".8"/>
+          <circle cx="268" cy="32" r="16" fill="#f0d060" opacity=".3"/>
+          <rect x="60" y="75" width="200" height="130" fill="#2a1808"/>
+          <rect x="40" y="58" width="50" height="150" fill="#1e1005"/><rect x="230" y="58" width="50" height="150" fill="#1e1005"/>
+          <rect x="115" y="28" width="90" height="95" fill="#241508"/>
+          <polygon points="40,58 65,18 90,58" fill="#3d2010"/><polygon points="230,58 255,18 280,58" fill="#3d2010"/><polygon points="115,28 160,0 205,28" fill="#4a2810"/>
+          <rect x="156" y="0" width="8" height="18" fill="#c8960c"/><rect x="150" y="5" width="20" height="6" fill="#c8960c"/>
+          <circle cx="160" cy="90" r="22" fill="none" stroke="#c8960c" stroke-width="2" opacity=".6"/>
+          <path d="M135 205 L135 148 Q160 128 185 148 L185 205Z" fill="#0d0504" stroke="#c8960c" stroke-width="1.5" opacity=".5"/>
+          <text x="160" y="218" text-anchor="middle" font-family="serif" font-size="10" fill="#c8960c" letter-spacing="2" opacity=".85">Igreja Paroquial · Cosmos, RJ</text>
+        </svg>
+      </div><div class="gl">⛪ Igreja Sede — Cosmos, RJ</div></div>
+      <div class="gi"><div class="gb" style="background:linear-gradient(135deg,#1a3060,#3060a0)">
+        <svg viewBox="0 0 220 165" width="100%"><rect width="220" height="165" fill="#1a0a04"/><rect x="60" y="90" width="100" height="50" fill="#2c1a08"/><rect x="55" y="88" width="110" height="5" fill="#c8960c" opacity=".8"/><rect x="73" y="55" width="4" height="36" fill="#c8960c" opacity=".7"/><rect x="143" y="55" width="4" height="36" fill="#c8960c" opacity=".7"/><ellipse cx="75" cy="52" rx="5" ry="7" fill="#ff9a00" opacity=".8"/><ellipse cx="145" cy="52" rx="5" ry="7" fill="#ff9a00" opacity=".8"/><rect x="107" y="40" width="6" height="46" fill="#e8b84b"/><rect x="98" y="52" width="24" height="6" fill="#e8b84b"/><text x="110" y="155" text-anchor="middle" font-family="serif" font-size="9" fill="#c8960c" opacity=".8">Santa Missa</text></svg>
+      </div><div class="gl">✝️ Santa Missa</div></div>
+      <div class="gi"><div class="gb" style="background:linear-gradient(135deg,#1a3a10,#3a6a20)">
+        <svg viewBox="0 0 220 165" width="100%"><rect width="220" height="165" fill="#0a1a04"/><circle cx="50" cy="90" r="12" fill="#f0d4a0"/><rect x="41" y="102" width="18" height="30" rx="4" fill="#1a4a8b"/><circle cx="82" cy="85" r="12" fill="#e8c890"/><rect x="73" y="97" width="18" height="32" rx="4" fill="#8b1a4a"/><circle cx="114" cy="88" r="12" fill="#f0d4a0"/><rect x="105" y="100" width="18" height="30" rx="4" fill="#1a6b30"/><circle cx="146" cy="85" r="12" fill="#e8c890"/><rect x="137" y="97" width="18" height="32" rx="4" fill="#7a2010"/><circle cx="178" cy="88" r="12" fill="#f0d4a0"/><rect x="169" y="100" width="18" height="30" rx="4" fill="#1a3d6e"/><text x="110" y="28" font-size="14" fill="#f5d97a" opacity=".7" text-anchor="middle">♪</text><text x="110" y="155" text-anchor="middle" font-family="serif" font-size="9" fill="#c8960c" opacity=".8">Grupo de Jovens</text></svg>
+      </div><div class="gl">👦 Grupo de Jovens</div></div>
+      <div class="gi"><div class="gb" style="background:linear-gradient(135deg,#2a0a0a,#6a2010)">
+        <svg viewBox="0 0 220 165" width="100%"><rect width="220" height="165" fill="#1a0804"/><circle cx="40" cy="95" r="10" fill="#f0d4a0"/><rect x="33" y="105" width="14" height="28" rx="3" fill="#1a3d6e"/><circle cx="70" cy="90" r="10" fill="#f0d4a0"/><rect x="63" y="100" width="14" height="30" rx="3" fill="#7a2010"/><circle cx="100" cy="93" r="10" fill="#f0d4a0"/><rect x="93" y="103" width="14" height="28" rx="3" fill="#1a5a1a"/><circle cx="130" cy="90" r="10" fill="#f0d4a0"/><rect x="123" y="100" width="14" height="30" rx="3" fill="#6a1a4a"/><circle cx="160" cy="93" r="10" fill="#f0d4a0"/><rect x="153" y="103" width="14" height="28" rx="3" fill="#1a3d6e"/><circle cx="190" cy="90" r="10" fill="#f0d4a0"/><rect x="183" y="100" width="14" height="30" rx="3" fill="#7a2010"/><rect x="107" y="30" width="4" height="62" fill="#c8960c"/><rect x="111" y="30" width="38" height="26" fill="#7a2010"/><text x="110" y="155" text-anchor="middle" font-family="serif" font-size="9" fill="#c8960c" opacity=".8">Procissão Paroquial</text></svg>
+      </div><div class="gl">🕯️ Procissão</div></div>
+    </div>
+    <p style="text-align:center;margin-top:24px;font-size:0.88rem;color:rgba(184,160,110,0.55);font-style:italic;">
+      Mais fotos em nosso <a href="https://pt-br.facebook.com/PascomSantaSofia/" target="_blank" style="color:var(--gold-light);text-decoration:underline;">Facebook</a> e <a href="https://www.instagram.com/pascomsantasofia/" target="_blank" style="color:var(--gold-light);text-decoration:underline;">Instagram</a>.
+    </p>
+  </div></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SACRAMENTOS
+══════════════════════════════════════════════════════════════ -->
+<div class="pg manuscript" id="page-sacramentos">
+  <div class="sec"><div class="cont">
+    <div class="orn">❤️ &nbsp; ✦ &nbsp; ❤️</div>
+    <span class="lbl" style="color:rgba(62,42,21,0.55)">Sinais de Graça</span>
+    <h2 class="ttl">Os <em>Sacramentos</em></h2>
+    <div class="rle"><span>✦</span></div>
+    <div class="sacg">
+      <div class="sacc"><div class="saci">💧</div><h3>Batismo</h3><p>O primeiro sacramento que nos une a Cristo e à Igreja. Celebrado aos domingos após a missa das 9h, com agendamento prévio.</p><ul class="dlst"><li>Certidão de nascimento</li><li>Documento dos pais e padrinhos</li><li>Curso de preparação</li></ul></div>
+      <div class="sacc"><div class="saci">🕊️</div><h3>Crisma</h3><p>Fortalecimento dos dons do Espírito Santo. Preparação dura aproximadamente um ano, com encontros semanais.</p><ul class="dlst"><li>Certidão de batismo</li><li>Inscrição na catequese de Crisma</li><li>Participação regular nas missas</li></ul></div>
+      <div class="sacc"><div class="saci">🍞</div><h3>1ª Comunhão</h3><p>O coração da vida sacramental. Celebrada após dois anos de catequese, com preparação especial para crianças e famílias.</p><ul class="dlst"><li>Certidão de batismo</li><li>Dois anos de catequese</li><li>Participação na missa dominical</li></ul></div>
+      <div class="sacc"><div class="saci">💍</div><h3>Matrimônio</h3><p>O sacramento do amor conjugal. Agende com pelo menos 6 meses de antecedência. Inclui encontro de noivos.</p><ul class="dlst"><li>Certidão de batismo e crisma</li><li>Participação no curso de noivos</li><li>Certidão de nascimento civil</li></ul></div>
+      <div class="sacc"><div class="saci">✝️</div><h3>Confissão</h3><p>O sacramento do perdão e da misericórdia divina. Mediante agendamento com o pároco ou antes das missas.</p><ul class="dlst"><li>Agendar com o pároco</li><li>Secretaria paroquial</li></ul></div>
+      <div class="sacc"><div class="saci">🛢️</div><h3>Unção dos Enfermos</h3><p>Sacramento que conforta e fortalece os enfermos. Para enfermos em casa ou no hospital, contate a secretaria.</p><ul class="dlst"><li>Contato: secretaria paroquial</li><li>Pastoral da Saúde para visitas domiciliares</li></ul></div>
+    </div>
+  </div></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     CONTATO
+══════════════════════════════════════════════════════════════ -->
+<div class="pg manuscript" id="page-contato">
+  <div class="sec"><div class="cont">
+    <div class="orn">📍 &nbsp; ✦ &nbsp; 📍</div>
+    <span class="lbl" style="color:rgba(62,42,21,0.55)">Venha nos visitar</span>
+    <h2 class="ttl">Contato e <em>Localização</em></h2>
+    <div class="rle"><span>✦</span></div>
+    <div class="ctg">
+      <div class="cbl">
+        <div class="ctb"><div class="ctbi">⛪</div><div class="ctbt"><h4>Paróquia Santa Sofia</h4><p>Praça Sofia Moreira, s/n<br/>Cosmos, RJ · 23060-490</p></div></div>
+        <div class="ctb"><div class="ctbi">⛪</div><div class="ctbt"><h4>Capela Santíssimo Sacramento</h4><p>R. Iberê Gomes, S/N<br/>Cosmos, RJ · 23061-390</p></div></div>
+        <div class="ctb"><div class="ctbi">⛪</div><div class="ctbt"><h4>Capela Nossa Senhora da Penha</h4><p>Alameda da Igreja, S/N<br/>Cosmos, Rio de Janeiro – RJ</p></div></div>
+        <div class="ctb"><div class="ctbi">💬</div><div class="ctbt"><h4>WhatsApp</h4><p><a href="https://wa.me/5521988257189">(21) 98825-7189</a><br/><small style="font-style:italic;color:rgba(62,42,21,0.5)">Seg–Sáb, horário comercial</small></p></div></div>
+        <div class="ctb"><div class="ctbi">📧</div><div class="ctbt"><h4>E-mail</h4><p><a href="mailto:pascomsantasofia@gmail.com">pascomsantasofia@gmail.com</a></p></div></div>
+        <div class="ctb"><div class="ctbi">📘</div><div class="ctbt"><h4>Facebook</h4><p><a href="https://www.facebook.com/paroquiasantasofia" target="_blank">Paróquia Santa Sofia</a></p></div></div>
+        <div class="ctb"><div class="ctbi">📷</div><div class="ctbt"><h4>Instagram</h4><p><a href="https://www.instagram.com/paroquiasantasofia/" target="_blank">@paroquiasantasofia</a></p></div></div>
+        <div class="ctb"><div class="ctbi">🏢</div><div class="ctbt"><h4>Secretaria Paroquial</h4><p>Terça a Sexta: 9h–12h e 14h–18h</p></div></div>
+      </div>
+      <div>
+        <div class="mpb"><iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-43.6900,-22.9650,-43.6400,-22.9300&layer=mapnik&marker=-22.948,-43.665" allowfullscreen loading="lazy" title="Cosmos, Rio de Janeiro"></iframe></div>
+        <p style="font-size:0.75rem;color:rgba(62,42,21,0.5);margin-top:8px;text-align:center;font-style:italic;">Cosmos · Zona Oeste do Rio de Janeiro</p>
       </div>
     </div>
-  </div>
+  </div></div>
 </div>
 
-<!-- ╔══════════════════════════════════════════════════════════╗
-     PAGE 6 — PASTORAIS
-╚══════════════════════════════════════════════════════════════╝ -->
-<div class="page parchment" id="page-pastorais">
-  <div class="pastorais-page">
-    <div class="container">
-      <div class="section-ornament">🙏 ✦ 🙏</div>
-      <span class="section-label">Grupos e Ministérios</span>
-      <h2 class="section-title">Pastorais e <em>Movimentos</em></h2>
-      <div class="section-rule"><span>✦</span></div>
-      <div class="pastorais-grid">
-        <div class="pastoral-card">
-          <div class="pc-icon">📖</div>
-          <h3>Catequese</h3>
-          <p>Formação para crianças (1ª Eucaristia), adolescentes (Crisma) e adultos (RICA). Aulas aos sábados na sala paroquial. Inscrições abertas a partir de agosto.</p>
-          <p class="pastoral-contact">📞 Catequista: Secretaria Paroquial</p>
-        </div>
-        <div class="pastoral-card">
-          <div class="pc-icon">🎵</div>
-          <h3>Pastoral da Música</h3>
-          <p>Ministério de música que anima todas as celebrações litúrgicas da paróquia. Ensaios às quartas-feiras, às 19h. Músicos e cantores são bem-vindos!</p>
-          <p class="pastoral-contact">📞 Coordenação: na secretaria</p>
-        </div>
-        <div class="pastoral-card">
-          <div class="pc-icon">🕯️</div>
-          <h3>Ministérios Litúrgicos</h3>
-          <p>Acólitos, leitores e ministros da Eucaristia que colaboram nas celebrações. Formação contínua. Interessados falar com o pároco.</p>
-          <p class="pastoral-contact">📞 Pároco: via secretaria</p>
-        </div>
-        <div class="pastoral-card">
-          <div class="pc-icon">👦</div>
-          <h3>Grupo de Jovens</h3>
-          <p>Encontros semanais para jovens de 15 a 35 anos. Retiros, missões, partilha da Palavra. Uma comunidade vibrante e acolhedora. Domingos às 15h.</p>
-          <p class="pastoral-contact">📷 @pascomsantasofia</p>
-        </div>
-        <div class="pastoral-card">
-          <div class="pc-icon">💑</div>
-          <h3>Pastoral Familiar</h3>
-          <p>Encontros mensais para casais, preparação para o casamento e acompanhamento de famílias. Reunião toda terceira sexta às 19h30.</p>
-          <p class="pastoral-contact">📞 Coordenação: secretaria</p>
-        </div>
-        <div class="pastoral-card">
-          <div class="pc-icon">❤️</div>
-          <h3>Pastoral da Caridade</h3>
-          <p>Distribuição de alimentos, visitas a doentes e assistência aos mais necessitados da comunidade. Reunião na primeira segunda-feira às 15h.</p>
-          <p class="pastoral-contact">📞 Coordenação: secretaria</p>
-        </div>
-        <div class="pastoral-card">
-          <div class="pc-icon">📣</div>
-          <h3>Pascom Santa Sofia</h3>
-          <p>Pastoral da Comunicação responsável pelo site, redes sociais, boletim paroquial e toda a comunicação da paróquia. Reuniões quinzenais.</p>
-          <p class="pastoral-contact">📷 Instagram · 📘 Facebook</p>
-        </div>
-        <div class="pastoral-card">
-          <div class="pc-icon">👩‍⚕️</div>
-          <h3>Pastoral da Saúde</h3>
-          <p>Visitas a enfermos, acompanhamento de idosos e doentes em hospitais e residências. Unção dos enfermos mediante agendamento.</p>
-          <p class="pastoral-contact">📞 Contato: secretaria paroquial</p>
-        </div>
+<!-- ══════════════════════════════════════════════════════════════
+     ORAÇÃO
+══════════════════════════════════════════════════════════════ -->
+<div class="pg manuscript" id="page-oracao">
+  <div class="sec"><div class="cont">
+    <div class="orn">✝️ &nbsp; ✦ &nbsp; ✝️</div>
+    <span class="lbl" style="color:rgba(62,42,21,0.55)">Intercessão</span>
+    <h2 class="ttl">Pedidos de <em>Oração</em></h2>
+    <div class="rle"><span>✦</span></div>
+    <div class="prw">
+      <p class="prwi">"Pedis e recebereis, para que a vossa alegria seja completa." — Jo 16,24<br/>Envie sua intenção e nossa comunidade orará por você.</p>
+      <div id="prayer-form">
+        <div class="fg"><label>Seu Nome (opcional)</label><input type="text" id="prayer-name" placeholder="Como podemos chamar você?"/></div>
+        <div class="fg"><label>Sua Intenção de Oração</label><textarea id="prayer-text" placeholder="Escreva sua intenção aqui... Tudo ficará em sigilo e será levado ao altar."></textarea></div>
+        <button class="btn btn-g" style="width:100%;justify-content:center;" onclick="submitPrayer()">🙏 Enviar Pedido de Oração</button>
+      </div>
+      <div class="prsok" id="prayer-success"><p>🙏 Seu pedido foi recebido com amor.</p><p style="font-size:0.88rem;margin-top:8px;font-style:italic;color:rgba(122,46,14,0.7)">Nossa comunidade orará por você.</p></div>
+      <div class="prrc" id="recent-prayers">
+        <h3>✦ Intenções Recentes da Comunidade</h3>
+        <div class="pri"><p>"Pela cura e saúde de toda a minha família."</p><p class="pin">— Um fiel da comunidade</p></div>
+        <div class="pri"><p>"Que meu filho encontre o caminho de volta à fé e à família."</p><p class="pin">— Uma mãe da paróquia</p></div>
+        <div class="pri"><p>"Pela paz em nosso bairro e em nossa nação."</p><p class="pin">— Anônimo</p></div>
       </div>
     </div>
-  </div>
+  </div></div>
 </div>
 
-<!-- ╔══════════════════════════════════════════════════════════╗
-     PAGE 7 — NOTÍCIAS
-╚══════════════════════════════════════════════════════════════╝ -->
-<div class="page" style="background:var(--walnut)" id="page-noticias">
-  <div class="noticias-page">
-    <div class="container">
-      <div class="section-ornament" style="color:var(--gold)">📰 ✦ 📰</div>
-      <span class="section-label" style="color:var(--text-muted)">Comunicados</span>
-      <h2 class="section-title" style="color:var(--cream)">Notícias e <em style="color:var(--gold-light)">Avisos</em></h2>
-      <div class="section-rule"><span style="color:var(--gold)">✦</span></div>
-      <div class="noticias-grid">
-        <div class="noticia-card">
-          <div class="noticia-img">✝️</div>
-          <div class="noticia-body">
-            <p class="nc-date">Junho · 2025</p>
-            <h3>Corpus Christi: Procissão pelas Ruas de Cosmos</h3>
-            <p>A solenidade de Corpus Christi foi celebrada com grande devoção, com missa solene e procissão eucarística pelas ruas da paróquia.</p>
-          </div>
+<!-- ══════════════════════════════════════════════════════════════
+     DOAÇÕES
+══════════════════════════════════════════════════════════════ -->
+<div class="pg manuscript" id="page-doacoes">
+  <div class="sec"><div class="cont">
+    <div class="orn">🎁 &nbsp; ✦ &nbsp; 🎁</div>
+    <span class="lbl" style="color:rgba(62,42,21,0.55)">Contribuição</span>
+    <h2 class="ttl">Dízimo e <em>Doações</em></h2>
+    <div class="rle"><span>✦</span></div>
+    <div style="max-width:640px;margin:0 auto 40px;text-align:center;font-size:1rem;line-height:1.85;color:var(--warm-stone);">
+      <p><em>"Cada um dê conforme determinou em seu coração, pois Deus ama quem dá com alegria."</em><br/><small style="font-family:var(--fc-head);font-size:0.7rem;letter-spacing:0.1em;">— 2 Coríntios 9,7</small></p>
+      <p style="margin-top:12px">O dízimo e as ofertas sustentam a missão da nossa paróquia. <strong>Sua contribuição faz a diferença!</strong></p>
+    </div>
+    <div class="pixb">
+      <h3>✦ Contribua via PIX</h3>
+      <p style="font-size:0.82rem;color:rgba(62,42,21,0.55);margin-bottom:14px;">Chave PIX da Paróquia Santa Sofia:</p>
+      <div class="pixk">33.593.575/0226-06</div>
+      <p>Após o PIX, envie o comprovante via WhatsApp ou e-mail.</p>
+    </div>
+    <div class="dcg">
+      <div class="dcc"><div class="dci">🏗️</div><h4>Obras da Igreja</h4><p>Contribuições para manutenção e melhorias das instalações paroquiais e das capelas.</p></div>
+      <div class="dcc"><div class="dci">❤️</div><h4>Fundo de Caridade</h4><p>Doações destinadas à Pastoral da Caridade para ajuda às famílias necessitadas.</p></div>
+      <div class="dcc"><div class="dci">📖</div><h4>Catequese e Formação</h4><p>Apoie a formação cristã de crianças, jovens e adultos com materiais para a catequese.</p></div>
+    </div>
+    <p style="text-align:center;margin-top:28px;font-size:0.88rem;color:rgba(62,42,21,0.55);font-style:italic;">
+      Também é possível contribuir presencialmente nas coletas das missas.<br/>
+      <strong style="color:var(--rust)">Deus abençoa quem dá com alegria! ✦</strong>
+    </p>
+  </div></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     LITURGIA — DOWNLOAD ONLY
+══════════════════════════════════════════════════════════════ -->
+<div class="pg manuscript" id="page-liturgia">
+  <div class="sec"><div class="cont">
+    <div class="orn">📋 &nbsp; ✦ &nbsp; 📋</div>
+    <span class="lbl" style="color:rgba(62,42,21,0.55)">Palavra de Deus</span>
+    <h2 class="ttl">Liturgia <em>Diária</em></h2>
+    <div class="rle"><span>✦</span></div>
+    <p style="text-align:center;font-size:1rem;line-height:1.8;color:var(--warm-stone);font-style:italic;max-width:600px;margin:0 auto 36px;">
+      "Não só de pão viverá o homem, mas de toda palavra que sai da boca de Deus." — Mt 4,4
+    </p>
+    <div style="max-width:720px;margin:0 auto;">
+      <!-- Empty state -->
+      <div id="litu-empty" class="litu-empty">
+        <div style="font-size:2.5rem;margin-bottom:14px;">📖</div>
+        <h3 style="font-family:var(--fc-title);font-size:1.1rem;color:var(--stone);margin-bottom:8px;">Liturgia do Dia</h3>
+        <p style="font-size:0.92rem;color:rgba(62,42,21,0.6);font-style:italic;">Nenhuma liturgia publicada ainda.<br/>Volte mais tarde ou acompanhe nossas redes sociais.</p>
+      </div>
+      <!-- Liturgy list -->
+      <div id="litu-list" class="litu-list" style="display:none;"></div>
+    </div>
+  </div></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     ADMIN
+══════════════════════════════════════════════════════════════ -->
+<div class="pg stonework" id="page-admin">
+  <div class="sec"><div class="cont" style="max-width:880px;">
+    <div class="orn">🔐 &nbsp; ✦ &nbsp; 🔐</div>
+    <h2 class="ttl ttl-light">Painel <em>Administrativo</em></h2>
+    <div class="rle"><span>✦</span></div>
+    <div style="display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap;">
+      <button class="atab active" onclick="swTab(this,'tab-ag')">📅 Agenda</button>
+      <button class="atab" onclick="swTab(this,'tab-pa')">🙏 Pastorais</button>
+      <button class="atab" onclick="swTab(this,'tab-no')">📰 Notícias</button>
+      <button class="atab" onclick="swTab(this,'tab-li')">📋 Liturgia PDF</button>
+    </div>
+
+    <!-- TAB: AGENDA -->
+    <div class="apnl active" id="tab-ag">
+      <h3 style="font-family:var(--fc-title);color:var(--gold-light);margin-bottom:14px;font-size:1rem;">Gerenciar Agenda</h3>
+      <div id="adm-ev" style="margin-bottom:14px;"></div>
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(184,134,11,0.2);padding:18px;margin-bottom:0;">
+        <p class="albl" style="margin-bottom:12px;">✦ Novo Evento</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
+          <div><label class="albl">Dia</label><input class="ainp" id="ne-dia" placeholder="Ex: 15"/></div>
+          <div><label class="albl">Mês</label><input class="ainp" id="ne-mes" placeholder="Ex: Jul"/></div>
         </div>
-        <div class="noticia-card">
-          <div class="noticia-img">🌸</div>
-          <div class="noticia-body">
-            <p class="nc-date">Maio · 2025</p>
-            <h3>Mês de Maria: Terço das Mães</h3>
-            <p>Durante todo o mês de maio, o terço das mães reuniu dezenas de famílias na Igreja Sede, celebrando as mamães da nossa comunidade.</p>
-          </div>
-        </div>
-        <div class="noticia-card">
-          <div class="noticia-img">🕊️</div>
-          <div class="noticia-body">
-            <p class="nc-date">Abril · 2025</p>
-            <h3>Semana Santa: Um Tempo de Graça</h3>
-            <p>A Semana Santa foi marcada por celebrações intensas — do Domingo de Ramos ao Domingo de Páscoa, a paróquia viveu um tempo de renovação.</p>
-          </div>
-        </div>
-        <div class="noticia-card">
-          <div class="noticia-img">📣</div>
-          <div class="noticia-body">
-            <p class="nc-date">Março · 2025</p>
-            <h3>Quaresma: Caminhos de Conversão</h3>
-            <p>Início da Quaresma com o rito das Cinzas e retiros espirituais. A programação quaresmal reuniu paroquianos de todas as idades.</p>
-          </div>
-        </div>
-        <div class="noticia-card">
-          <div class="noticia-img">🎄</div>
-          <div class="noticia-body">
-            <p class="nc-date">Dezembro · 2024</p>
-            <h3>Natal: Luz que Nasce no Coração</h3>
-            <p>A Missa do Galo reuniu centenas de fiéis para celebrar o nascimento de Jesus. A Cantata de Natal emocionou toda a comunidade.</p>
-          </div>
-        </div>
-        <div class="noticia-card">
-          <div class="noticia-img">🌟</div>
-          <div class="noticia-body">
-            <p class="nc-date">Setembro · 2024</p>
-            <h3>Festa de Santa Sofia 2024</h3>
-            <p>A festa da padroeira contou com missa solene, procissão pelas ruas do bairro e uma confraternização que reuniu toda a família paroquial.</p>
-          </div>
-        </div>
+        <div style="margin-bottom:10px;"><label class="albl">Título</label><input class="ainp" id="ne-tit" placeholder="Título do evento"/></div>
+        <div style="margin-bottom:10px;"><label class="albl">Descrição</label><textarea class="ainp" id="ne-desc" rows="3"></textarea></div>
+        <div style="margin-bottom:12px;"><label class="albl">Tag</label><input class="ainp" id="ne-tag" placeholder="Ex: 🙏 Missa Especial"/></div>
+        <button class="aadd" onclick="addEv()">+ Adicionar Evento</button>
       </div>
     </div>
-  </div>
-</div>
 
-<!-- ╔══════════════════════════════════════════════════════════╗
-     PAGE 8 — GALERIA
-╚══════════════════════════════════════════════════════════════╝ -->
-<div class="page" style="background:var(--oak)" id="page-galeria">
-  <div class="galeria-page">
-    <div class="container">
-      <div class="section-ornament" style="color:var(--gold)">📸 ✦ 📸</div>
-      <span class="section-label" style="color:var(--text-muted)">Momentos</span>
-      <h2 class="section-title" style="color:var(--cream)">Galeria de <em style="color:var(--gold-light)">Fotos</em></h2>
-      <div class="section-rule"><span style="color:var(--gold)">✦</span></div>
-
-      <!-- SVG galeria com "pinturas medievais" estilizadas -->
-      <div class="galeria-grid">
-        <div class="galeria-item" style="grid-column:span 2">
-          <div class="gi-bg" style="background:linear-gradient(135deg,#2c1a08,#5a3010)">
-            <svg viewBox="0 0 320 240" width="320" height="240" style="max-width:100%">
-              <!-- Igreja estilizada medieval -->
-              <rect width="320" height="240" fill="none"/>
-              <!-- Céu noturno -->
-              <rect width="320" height="240" fill="#1a0a04"/>
-              <!-- Estrelas -->
-              <circle cx="40" cy="30" r="1.5" fill="#f5d97a" opacity=".8"/>
-              <circle cx="80" cy="20" r="1" fill="#f5d97a" opacity=".6"/>
-              <circle cx="140" cy="15" r="2" fill="#f5d97a" opacity=".9"/>
-              <circle cx="200" cy="25" r="1.2" fill="#f5d97a" opacity=".7"/>
-              <circle cx="260" cy="18" r="1.5" fill="#f5d97a" opacity=".8"/>
-              <circle cx="290" cy="40" r="1" fill="#f5d97a" opacity=".5"/>
-              <!-- Lua -->
-              <circle cx="270" cy="35" r="18" fill="#f0d060" opacity=".4"/>
-              <!-- Igreja fachada -->
-              <rect x="60" y="80" width="200" height="140" fill="#2a1808"/>
-              <rect x="60" y="80" width="200" height="140" fill="url(#brickp)" opacity=".4"/>
-              <!-- Torres laterais -->
-              <rect x="40" y="60" width="50" height="160" fill="#1e1005"/>
-              <rect x="230" y="60" width="50" height="160" fill="#1e1005"/>
-              <!-- Torre central -->
-              <rect x="115" y="30" width="90" height="100" fill="#241508"/>
-              <!-- Telhados torres -->
-              <polygon points="40,60 65,20 90,60" fill="#3d2010"/>
-              <polygon points="230,60 255,20 280,60" fill="#3d2010"/>
-              <!-- Telhado torre central -->
-              <polygon points="115,30 160,0 205,30" fill="#4a2810"/>
-              <!-- Cruz no topo -->
-              <rect x="156" y="0" width="8" height="20" fill="#c8960c"/>
-              <rect x="150" y="6" width="20" height="6" fill="#c8960c"/>
-              <!-- Rosáceo -->
-              <circle cx="160" cy="95" r="25" fill="none" stroke="#c8960c" stroke-width="2" opacity=".6"/>
-              <circle cx="160" cy="95" r="18" fill="none" stroke="#c8960c" stroke-width="1" opacity=".4"/>
-              <!-- Luz rosáceo -->
-              <circle cx="160" cy="95" r="20" fill="rgba(200,150,12,.08)"/>
-              <!-- Porta -->
-              <path d="M135 220 L135 150 Q160 130 185 150 L185 220Z" fill="#0d0504"/>
-              <path d="M135 220 L135 150 Q160 130 185 150 L185 220Z" fill="none" stroke="#c8960c" stroke-width="1.5" opacity=".5"/>
-              <!-- Janelas gotícas -->
-              <path d="M75 100 L75 75 Q83 65 91 75 L91 100Z" fill="rgba(200,150,12,.15)" stroke="#c8960c" stroke-width="1" opacity=".5"/>
-              <path d="M245 100 L245 75 Q253 65 261 75 L261 100Z" fill="rgba(200,150,12,.15)" stroke="#c8960c" stroke-width="1" opacity=".5"/>
-              <!-- Título -->
-              <text x="160" y="234" text-anchor="middle" font-family="'IM Fell English',serif" font-size="11" fill="#c8960c" letter-spacing="2" opacity=".85">Igreja Paroquial · Cosmos, RJ</text>
-              <defs>
-                <pattern id="brickp" width="20" height="10" patternUnits="userSpaceOnUse">
-                  <rect width="20" height="10" fill="none"/>
-                  <rect x="0" y="0" width="18" height="8" fill="rgba(60,30,10,.3)" rx="1"/>
-                </pattern>
-              </defs>
-            </svg>
-          </div>
-          <div class="gi-label">⛪ Igreja Sede — Cosmos, RJ</div>
+    <!-- TAB: PASTORAIS -->
+    <div class="apnl" id="tab-pa">
+      <h3 style="font-family:var(--fc-title);color:var(--gold-light);margin-bottom:14px;font-size:1rem;">Gerenciar Pastorais</h3>
+      <div id="adm-pa" style="margin-bottom:14px;"></div>
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(184,134,11,0.2);padding:18px;">
+        <p class="albl" style="margin-bottom:12px;">✦ Nova Pastoral</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
+          <div><label class="albl">Ícone (emoji)</label><input class="ainp" id="np-ic" placeholder="Ex: 🎵" maxlength="4"/></div>
+          <div><label class="albl">Nome</label><input class="ainp" id="np-nm" placeholder="Nome da pastoral"/></div>
         </div>
-
-        <div class="galeria-item">
-          <div class="gi-bg" style="background:linear-gradient(135deg,#1a3060,#3060a0)">
-            <svg viewBox="0 0 220 165" width="220" height="165" style="max-width:100%">
-              <rect width="220" height="165" fill="#1a0a04"/>
-              <!-- Altar estilizado -->
-              <rect x="60" y="90" width="100" height="55" fill="#2c1a08"/>
-              <rect x="55" y="88" width="110" height="6" fill="#c8960c" opacity=".8"/>
-              <!-- Toalha do altar -->
-              <rect x="60" y="88" width="100" height="57" fill="white" opacity=".08"/>
-              <!-- Castiçais -->
-              <rect x="73" y="55" width="4" height="38" fill="#c8960c" opacity=".7"/>
-              <rect x="143" y="55" width="4" height="38" fill="#c8960c" opacity=".7"/>
-              <!-- Chamas -->
-              <ellipse cx="75" cy="52" rx="5" ry="8" fill="#ff9a00" opacity=".8"/>
-              <ellipse cx="75" cy="52" rx="3" ry="5" fill="#ffcc44" opacity=".9"/>
-              <ellipse cx="145" cy="52" rx="5" ry="8" fill="#ff9a00" opacity=".8"/>
-              <ellipse cx="145" cy="52" rx="3" ry="5" fill="#ffcc44" opacity=".9"/>
-              <!-- Cruz central -->
-              <rect x="107" y="40" width="6" height="48" fill="url(#altcg)"/>
-              <rect x="98" y="52" width="24" height="6" fill="url(#altcg)"/>
-              <!-- Luz divina -->
-              <circle cx="110" cy="66" r="30" fill="rgba(200,150,12,.06)"/>
-              <!-- Fiéis silhuetas -->
-              <g fill="#0d0504" opacity=".7">
-                <ellipse cx="50" cy="155" rx="14" ry="18"/>
-                <ellipse cx="80" cy="158" rx="12" ry="15"/>
-                <ellipse cx="110" cy="155" rx="14" ry="18"/>
-                <ellipse cx="140" cy="158" rx="12" ry="15"/>
-                <ellipse cx="170" cy="155" rx="14" ry="18"/>
-              </g>
-              <text x="110" y="155" text-anchor="middle" font-family="'IM Fell English',serif" font-size="9" fill="#c8960c" opacity=".8">Santa Missa</text>
-              <defs>
-                <linearGradient id="altcg" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#f5d97a"/>
-                  <stop offset="100%" stop-color="#c8960c"/>
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
-          <div class="gi-label">✝️ Santa Missa Dominical</div>
-        </div>
-
-        <div class="galeria-item">
-          <div class="gi-bg" style="background:linear-gradient(135deg,#2a0a0a,#6a2010)">
-            <svg viewBox="0 0 220 165" width="220" height="165" style="max-width:100%">
-              <rect width="220" height="165" fill="#1a0804"/>
-              <!-- Procissão estilizada -->
-              <!-- Pessoas em procissão -->
-              <g>
-                <circle cx="40" cy="95" r="10" fill="#f0d4a0"/>
-                <rect x="33" y="105" width="14" height="30" rx="3" fill="#1a3d6e"/>
-                <circle cx="70" cy="90" r="10" fill="#f0d4a0"/>
-                <rect x="63" y="100" width="14" height="32" rx="3" fill="#7a2010"/>
-                <circle cx="100" cy="93" r="10" fill="#f0d4a0"/>
-                <rect x="93" y="103" width="14" height="30" rx="3" fill="#1a5a1a"/>
-                <circle cx="130" cy="90" r="10" fill="#f0d4a0"/>
-                <rect x="123" y="100" width="14" height="32" rx="3" fill="#6a1a4a"/>
-                <circle cx="160" cy="93" r="10" fill="#f0d4a0"/>
-                <rect x="153" y="103" width="14" height="30" rx="3" fill="#1a3d6e"/>
-                <circle cx="190" cy="90" r="10" fill="#f0d4a0"/>
-                <rect x="183" y="100" width="14" height="32" rx="3" fill="#7a2010"/>
-              </g>
-              <!-- Estandarte -->
-              <rect x="107" y="30" width="4" height="65" fill="#c8960c"/>
-              <rect x="111" y="30" width="40" height="28" fill="#7a2010"/>
-              <circle cx="131" cy="44" r="10" fill="rgba(200,150,12,.3)" stroke="#c8960c" stroke-width="1"/>
-              <text x="131" y="48" text-anchor="middle" font-family="serif" font-size="10" fill="#c8960c">✦</text>
-              <!-- Velas acesas -->
-              <rect x="50" y="70" width="3" height="20" fill="#f5e090"/>
-              <ellipse cx="51" cy="68" rx="3" ry="5" fill="#ff9a00" opacity=".8"/>
-              <rect x="170" y="70" width="3" height="20" fill="#f5e090"/>
-              <ellipse cx="171" cy="68" rx="3" ry="5" fill="#ff9a00" opacity=".8"/>
-              <text x="110" y="155" text-anchor="middle" font-family="'IM Fell English',serif" font-size="9" fill="#c8960c" opacity=".8">Procissão de Corpus Christi</text>
-            </svg>
-          </div>
-          <div class="gi-label">🕯️ Procissão Paroquial</div>
-        </div>
-
-        <div class="galeria-item">
-          <div class="gi-bg" style="background:linear-gradient(135deg,#1a3a10,#3a6a20)">
-            <svg viewBox="0 0 220 165" width="220" height="165" style="max-width:100%">
-              <rect width="220" height="165" fill="#0a1a04"/>
-              <!-- Grupo de jovens -->
-              <g>
-                <circle cx="50" cy="90" r="12" fill="#f0d4a0"/><rect x="41" y="102" width="18" height="30" rx="4" fill="#1a4a8b"/>
-                <circle cx="82" cy="85" r="12" fill="#e8c890"/><rect x="73" y="97" width="18" height="32" rx="4" fill="#8b1a4a"/>
-                <circle cx="114" cy="88" r="12" fill="#f0d4a0"/><rect x="105" y="100" width="18" height="30" rx="4" fill="#1a6b30"/>
-                <circle cx="146" cy="85" r="12" fill="#e8c890"/><rect x="137" y="97" width="18" height="32" rx="4" fill="#7a2010"/>
-                <circle cx="178" cy="88" r="12" fill="#f0d4a0"/><rect x="169" y="100" width="18" height="30" rx="4" fill="#1a3d6e"/>
-              </g>
-              <!-- Guitarra simples -->
-              <ellipse cx="114" cy="130" rx="18" ry="22" fill="#5a3010" opacity=".6" stroke="#c8960c" stroke-width="1"/>
-              <rect x="112" y="80" width="4" height="50" fill="#3a1a05" opacity=".8"/>
-              <!-- Estrelas / alegria -->
-              <text x="30" y="40" font-size="12" fill="#f5d97a" opacity=".6">✦</text>
-              <text x="180" y="35" font-size="10" fill="#f5d97a" opacity=".5">✦</text>
-              <text x="110" y="30" font-size="14" fill="#f5d97a" opacity=".7">♪</text>
-              <text x="75" y="50" font-size="10" fill="#f5d97a" opacity=".4">♫</text>
-              <text x="150" y="45" font-size="10" fill="#f5d97a" opacity=".4">♪</text>
-              <text x="110" y="155" text-anchor="middle" font-family="'IM Fell English',serif" font-size="9" fill="#c8960c" opacity=".8">Grupo de Jovens</text>
-            </svg>
-          </div>
-          <div class="gi-label">👦 Grupo de Jovens</div>
-        </div>
-
-        <div class="galeria-item">
-          <div class="gi-bg" style="background:linear-gradient(135deg,#2a1a00,#4a3010)">
-            <svg viewBox="0 0 220 165" width="220" height="165" style="max-width:100%">
-              <rect width="220" height="165" fill="#1a0c04"/>
-              <!-- Batismo cena -->
-              <!-- Pia Batismal estilizada -->
-              <ellipse cx="110" cy="110" rx="55" ry="35" fill="#1a3d6e" opacity=".6" stroke="#c8960c" stroke-width="2"/>
-              <ellipse cx="110" cy="110" rx="55" ry="35" fill="none" stroke="#c8960c" stroke-width="1" stroke-dasharray="4 3" opacity=".4"/>
-              <!-- Água -->
-              <ellipse cx="110" cy="112" rx="48" ry="28" fill="#1a5080" opacity=".5"/>
-              <!-- Padre -->
-              <circle cx="90" cy="72" r="12" fill="#f0d4a0"/>
-              <rect x="81" y="84" width="18" height="28" rx="3" fill="#1a1a1a"/>
-              <!-- Estola -->
-              <rect x="88" y="84" width="4" height="28" fill="#c8960c" opacity=".7"/>
-              <!-- Criança -->
-              <circle cx="130" cy="80" r="9" fill="#f5e2c0"/>
-              <rect x="122" y="89" width="16" height="22" rx="3" fill="white" opacity=".8"/>
-              <!-- Concha d'água -->
-              <path d="M100 75 Q110 65 120 75 Q115 85 110 88 Q105 85 100 75Z" fill="#c8960c" opacity=".5"/>
-              <!-- Água caindo -->
-              <path d="M110 84 Q108 90 106 96 Q110 100 114 96 Q112 90 110 84Z" fill="#6ab0d8" opacity=".6"/>
-              <!-- Luz divina -->
-              <circle cx="110" cy="90" r="40" fill="rgba(200,150,12,.06)"/>
-              <!-- Pomba do Espírito Santo -->
-              <path d="M95 45 Q110 35 125 45 Q120 50 115 48 Q120 55 115 60 Q110 55 105 60 Q100 55 105 48 Q100 50 95 45Z" fill="white" opacity=".7"/>
-              <text x="110" y="155" text-anchor="middle" font-family="'IM Fell English',serif" font-size="9" fill="#c8960c" opacity=".8">Sacramento do Batismo</text>
-            </svg>
-          </div>
-          <div class="gi-label">💧 Batismos na Paróquia</div>
-        </div>
-
-        <div class="galeria-item">
-          <div class="gi-bg" style="background:linear-gradient(135deg,#1a0a1a,#3a1040)">
-            <svg viewBox="0 0 220 165" width="220" height="165" style="max-width:100%">
-              <rect width="220" height="165" fill="#100a18"/>
-              <!-- Festa padroeira -->
-              <!-- Fogos de artifício decorativos -->
-              <g opacity=".7">
-                <circle cx="60" cy="40" r="25" fill="none" stroke="#f5d97a" stroke-width="1" stroke-dasharray="3 5"/>
-                <circle cx="160" cy="35" r="20" fill="none" stroke="#e88844" stroke-width="1" stroke-dasharray="3 5"/>
-                <circle cx="110" cy="25" r="18" fill="none" stroke="#c8960c" stroke-width="1" stroke-dasharray="3 5"/>
-                <!-- Raios -->
-                <line x1="60" y1="15" x2="60" y2="5" stroke="#f5d97a" stroke-width="1.5"/>
-                <line x1="80" y1="22" x2="88" y2="14" stroke="#f5d97a" stroke-width="1.5"/>
-                <line x1="40" y1="22" x2="32" y2="14" stroke="#f5d97a" stroke-width="1.5"/>
-                <line x1="160" y1="15" x2="160" y2="6" stroke="#e88844" stroke-width="1.5"/>
-                <line x1="178" y1="22" x2="186" y2="14" stroke="#e88844" stroke-width="1.5"/>
-                <line x1="110" y1="7" x2="110" y2="0" stroke="#c8960c" stroke-width="1.5"/>
-              </g>
-              <!-- Multidão festiva -->
-              <g>
-                <circle cx="30" cy="120" r="9" fill="#f0d4a0"/><rect x="23" y="129" width="14" height="24" rx="3" fill="#8b1a1a"/>
-                <circle cx="55" cy="115" r="9" fill="#e8c890"/><rect x="48" y="124" width="14" height="26" rx="3" fill="#1a3d6e"/>
-                <circle cx="80" cy="118" r="9" fill="#f0d4a0"/><rect x="73" y="127" width="14" height="24" rx="3" fill="#1a6b30"/>
-                <circle cx="105" cy="113" r="9" fill="#e8c890"/><rect x="98" y="122" width="14" height="26" rx="3" fill="#7a2010"/>
-                <circle cx="130" cy="116" r="9" fill="#f0d4a0"/><rect x="123" y="125" width="14" height="26" rx="3" fill="#6a1a4a"/>
-                <circle cx="155" cy="120" r="9" fill="#e8c890"/><rect x="148" y="129" width="14" height="24" rx="3" fill="#1a3d6e"/>
-                <circle cx="180" cy="115" r="9" fill="#f0d4a0"/><rect x="173" y="124" width="14" height="26" rx="3" fill="#8b1a1a"/>
-                <circle cx="205" cy="118" r="9" fill="#e8c890"/><rect x="198" y="127" width="14" height="24" rx="3" fill="#1a6b30"/>
-              </g>
-              <!-- Bandeirinhas -->
-              <path d="M10 65 Q55 55 110 60 Q165 55 210 65" stroke="#c8960c" stroke-width="1.5" fill="none" stroke-dasharray="8 4" opacity=".5"/>
-              <text x="110" y="155" text-anchor="middle" font-family="'IM Fell English',serif" font-size="9" fill="#c8960c" opacity=".8">Festa de Santa Sofia</text>
-            </svg>
-          </div>
-          <div class="gi-label">🌟 Festa da Padroeira</div>
-        </div>
-
-      </div>
-
-      <p style="text-align:center;margin-top:28px;font-size:.9rem;color:var(--text-muted);font-style:italic">
-        Mais fotos em nosso <a href="https://pt-br.facebook.com/PascomSantaSofia/" target="_blank" style="color:var(--gold-light);text-decoration:underline">Facebook</a> e <a href="https://www.instagram.com/pascomsantasofia/" target="_blank" style="color:var(--gold-light);text-decoration:underline">Instagram</a>.
-      </p>
-    </div>
-  </div>
-</div>
-
-<!-- ╔══════════════════════════════════════════════════════════╗
-     PAGE 9 — SACRAMENTOS
-╚══════════════════════════════════════════════════════════════╝ -->
-<div class="page parchment" id="page-sacramentos">
-  <div class="sacramentos-page">
-    <div class="container">
-      <div class="section-ornament">❤️ ✦ ❤️</div>
-      <span class="section-label">Sinais de Graça</span>
-      <h2 class="section-title">Os <em>Sacramentos</em></h2>
-      <div class="section-rule"><span>✦</span></div>
-      <div class="sacramentos-grid">
-        <div class="sacramento-card">
-          <div class="sc-icon">💧</div>
-          <h3>Batismo</h3>
-          <p>O primeiro sacramento que nos une a Cristo e à Igreja. O batismo é celebrado aos domingos após a missa das 9h, com agendamento prévio.</p>
-          <ul class="docs-list">
-            <li>Certidão de nascimento</li>
-            <li>Documento dos pais e padrinhos</li>
-            <li>Curso de preparação para batismo</li>
-            <li>Participar de missas antes do batismo</li>
-          </ul>
-        </div>
-        <div class="sacramento-card">
-          <div class="sc-icon">🕊️</div>
-          <h3>Crisma</h3>
-          <p>Fortalecimento dos dons do Espírito Santo. O processo de preparação dura aproximadamente um ano, com encontros semanais para adolescentes e adultos.</p>
-          <ul class="docs-list">
-            <li>Certidão de batismo</li>
-            <li>Inscrição na catequese de Crisma</li>
-            <li>Participação regular nas missas</li>
-          </ul>
-        </div>
-        <div class="sacramento-card">
-          <div class="sc-icon">🍞</div>
-          <h3>Eucaristia (1ª Comunhão)</h3>
-          <p>O coração da vida sacramental. A primeira comunhão é celebrada após dois anos de catequese, com preparação especial para crianças e famílias.</p>
-          <ul class="docs-list">
-            <li>Certidão de batismo</li>
-            <li>Dois anos de catequese</li>
-            <li>Participação na missa dominical</li>
-          </ul>
-        </div>
-        <div class="sacramento-card">
-          <div class="sc-icon">💍</div>
-          <h3>Matrimônio</h3>
-          <p>O sacramento do amor conjugal. A preparação para o casamento inclui encontros de noivos e documentação específica. Agende com pelo menos 6 meses de antecedência.</p>
-          <ul class="docs-list">
-            <li>Certidão de batismo e crisma dos noivos</li>
-            <li>Participação no curso de noivos</li>
-            <li>Certidão de nascimento (civil)</li>
-            <li>Contato: secretaria paroquial</li>
-          </ul>
-        </div>
-        <div class="sacramento-card">
-          <div class="sc-icon">✝️</div>
-          <h3>Confissão (Reconciliação)</h3>
-          <p>O sacramento do perdão e da misericórdia divina. Confissões aos sábados das 17h30 às 19h, ou mediante agendamento com o pároco.</p>
-          <ul class="docs-list">
-            <li>Não é necessário agendamento prévio</li>
-            <li>Sábados, 17h30 às 19h</li>
-            <li>Outros horários: agendar com pároco</li>
-          </ul>
-        </div>
-        <div class="sacramento-card">
-          <div class="sc-icon">🛢️</div>
-          <h3>Unção dos Enfermos</h3>
-          <p>Sacramento que conforta e fortalece os enfermos. Para enfermos em casa ou no hospital, entrar em contato com a secretaria ou a Pastoral da Saúde.</p>
-          <ul class="docs-list">
-            <li>Contato: secretaria paroquial</li>
-            <li>Pastoral da Saúde para visitas domiciliares</li>
-            <li>Disponível a qualquer horário em urgência</li>
-          </ul>
-        </div>
+        <div style="margin-bottom:10px;"><label class="albl">Descrição</label><textarea class="ainp" id="np-desc" rows="3"></textarea></div>
+        <div style="margin-bottom:12px;"><label class="albl">Contato</label><input class="ainp" id="np-ct" placeholder="Ex: 📞 (21) 9xxxx-xxxx"/></div>
+        <button class="aadd" onclick="addPa()">+ Adicionar Pastoral</button>
       </div>
     </div>
-  </div>
-</div>
 
-<!-- ╔══════════════════════════════════════════════════════════╗
-     PAGE 10 — CONTATO
-╚══════════════════════════════════════════════════════════════╝ -->
-<div class="page parchment" id="page-contato">
-  <div class="contato-page">
-    <div class="container">
-      <div class="section-ornament">📍 ✦ 📍</div>
-      <span class="section-label">Venha nos visitar</span>
-      <h2 class="section-title">Contato e <em>Localização</em></h2>
-      <div class="section-rule"><span>✦</span></div>
-      <div class="contato-grid">
-        <div class="info-blocks">
-          <div class="info-block">
-            <div class="ib-icon">📍</div>
-            <div class="ib-text">
-              <h4>Endereço</h4>
-              <p>Cosmos, Rio de Janeiro — RJ<br/>Zona Oeste · Arquidiocese do Rio de Janeiro</p>
-            </div>
-          </div>
-          <div class="info-block">
-            <div class="ib-icon">📞</div>
-            <div class="ib-text">
-              <h4>Telefone</h4>
-              <p>(21) ●●●●-●●●●<br/><small style="font-style:italic;color:var(--text-muted)">Consulte via redes sociais</small></p>
-            </div>
-          </div>
-          <div class="info-block">
-            <div class="ib-icon">💬</div>
-            <div class="ib-text">
-              <h4>WhatsApp</h4>
-              <p>(21) ●●●●-●●●●<br/><small style="font-style:italic;color:var(--text-muted)">Disponível seg–sáb, horário comercial</small></p>
-            </div>
-          </div>
-          <div class="info-block">
-            <div class="ib-icon">📧</div>
-            <div class="ib-text">
-              <h4>E-mail</h4>
-              <p><a href="mailto:pascomsantasofia@gmail.com">pascomsantasofia@gmail.com</a></p>
-            </div>
-          </div>
-          <div class="info-block">
-            <div class="ib-icon">📘</div>
-            <div class="ib-text">
-              <h4>Facebook</h4>
-              <p><a href="https://pt-br.facebook.com/PascomSantaSofia/" target="_blank">PascomSantaSofia</a></p>
-            </div>
-          </div>
-          <div class="info-block">
-            <div class="ib-icon">📷</div>
-            <div class="ib-text">
-              <h4>Instagram</h4>
-              <p><a href="https://www.instagram.com/pascomsantasofia/" target="_blank">@pascomsantasofia</a></p>
-            </div>
-          </div>
-          <div class="info-block">
-            <div class="ib-icon">🏢</div>
-            <div class="ib-text">
-              <h4>Secretaria Paroquial</h4>
-              <p>Terça a Sábado: 9h–12h<br/>Terça a Sexta: 14h–17h</p>
-            </div>
-          </div>
+    <!-- TAB: NOTÍCIAS -->
+    <div class="apnl" id="tab-no">
+      <h3 style="font-family:var(--fc-title);color:var(--gold-light);margin-bottom:14px;font-size:1rem;">Gerenciar Notícias</h3>
+      <div id="adm-no" style="margin-bottom:14px;"></div>
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(184,134,11,0.2);padding:18px;">
+        <p class="albl" style="margin-bottom:12px;">✦ Nova Notícia</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
+          <div><label class="albl">Ícone</label><input class="ainp" id="nn-ic" placeholder="Ex: ✝️" maxlength="4"/></div>
+          <div><label class="albl">Data</label><input class="ainp" id="nn-dt" placeholder="Ex: Julho · 2025"/></div>
         </div>
-        <div>
-          <div class="map-box">
-            <iframe
-              src="https://www.openstreetmap.org/export/embed.html?bbox=-43.6900,-22.9650,-43.6400,-22.9300&layer=mapnik&marker=-22.948,-43.665"
-              allowfullscreen loading="lazy"
-              title="Cosmos, Rio de Janeiro">
-            </iframe>
-          </div>
-          <p style="font-size:.8rem;color:var(--text-muted);margin-top:8px;text-align:center;font-style:italic">Cosmos · Zona Oeste do Rio de Janeiro</p>
-        </div>
+        <div style="margin-bottom:10px;"><label class="albl">Título</label><input class="ainp" id="nn-tit"/></div>
+        <div style="margin-bottom:12px;"><label class="albl">Texto</label><textarea class="ainp" id="nn-tx" rows="3"></textarea></div>
+        <button class="aadd" onclick="addNo()">+ Adicionar Notícia</button>
       </div>
     </div>
-  </div>
-</div>
 
-<!-- ╔══════════════════════════════════════════════════════════╗
-     PAGE 11 — ORAÇÃO
-╚══════════════════════════════════════════════════════════════╝ -->
-<div class="page parchment" id="page-oracao">
-  <div class="oracao-page">
-    <div class="container">
-      <div class="section-ornament">✝️ ✦ ✝️</div>
-      <span class="section-label">Intercessão</span>
-      <h2 class="section-title">Pedidos de <em>Oração</em></h2>
-      <div class="section-rule"><span>✦</span></div>
-
-      <div class="prayer-form-wrap">
-        <p>"Pedis e recebereis, para que a vossa alegria seja completa." — Jo 16,24<br/>Envie sua intenção e nossa comunidade orará por você.</p>
-
-        <div id="prayer-form">
-          <div class="form-group">
-            <label>Seu Nome (opcional)</label>
-            <input type="text" id="prayer-name" placeholder="Como podemos chamar você?"/>
-          </div>
-          <div class="form-group">
-            <label>Sua Intenção de Oração</label>
-            <textarea id="prayer-text" placeholder="Escreva sua intenção aqui... Tudo ficará em sigilo e será levado ao altar."></textarea>
-          </div>
-          <button class="btn btn-gold" style="width:100%;justify-content:center" onclick="submitPrayer()">
-            🙏 Enviar Pedido de Oração
-          </button>
+    <!-- TAB: LITURGIA -->
+    <div class="apnl" id="tab-li">
+      <h3 style="font-family:var(--fc-title);color:var(--gold-light);margin-bottom:14px;font-size:1rem;">Publicar Liturgia Diária (PDF)</h3>
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(184,134,11,0.2);padding:20px;">
+        <div style="margin-bottom:14px;"><label class="albl">Título</label><input class="ainp" id="li-tit" placeholder="Ex: Liturgia — 4 de Julho de 2025"/></div>
+        <div style="margin-bottom:14px;"><label class="albl">Data</label><input class="ainp" id="li-dt" type="date"/></div>
+        <div style="margin-bottom:14px;">
+          <label class="albl">Arquivo PDF</label>
+          <input type="file" accept=".pdf" id="li-file" style="display:block;width:100%;padding:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(184,134,11,0.3);color:var(--parchment);font-family:var(--fc-body);cursor:pointer;"/>
         </div>
-
-        <div class="form-success" id="prayer-success">
-          <p>🙏 Seu pedido foi recebido com amor.</p>
-          <p style="font-size:.9rem;margin-top:8px;font-style:italic;color:var(--text-muted)">Nossa comunidade orará por você.</p>
-        </div>
-
-        <div class="recent-prayers" id="recent-prayers">
-          <h3>✦ Intenções Recentes da Comunidade</h3>
-          <div class="prayer-item"><p>"Pela cura e saúde de toda a minha família."</p><p class="pi-name">— Um fiel da comunidade</p></div>
-          <div class="prayer-item"><p>"Que meu filho encontre o caminho de volta à fé e à família."</p><p class="pi-name">— Uma mãe da paróquia</p></div>
-          <div class="prayer-item"><p>"Pela paz em nosso bairro e em nossa nação."</p><p class="pi-name">— Anônimo</p></div>
-          <div class="prayer-item"><p>"Pela alma de todos os que partiram desta paróquia."</p><p class="pi-name">— Família da comunidade</p></div>
-        </div>
+        <button class="aadd" onclick="pubLi()">📤 Publicar Liturgia</button>
+        <p id="li-ok" style="margin-top:10px;font-size:0.85rem;color:var(--gold);font-style:italic;display:none;"></p>
       </div>
+      <div id="li-arch-adm" style="margin-top:16px;"></div>
     </div>
-  </div>
-</div>
 
-<!-- ╔══════════════════════════════════════════════════════════╗
-     PAGE 12 — DOAÇÕES
-╚══════════════════════════════════════════════════════════════╝ -->
-<div class="page parchment" id="page-doacoes">
-  <div class="doacoes-page">
-    <div class="container">
-      <div class="section-ornament">🎁 ✦ 🎁</div>
-      <span class="section-label">Contribuição</span>
-      <h2 class="section-title">Dízimo e <em>Doações</em></h2>
-      <div class="section-rule"><span>✦</span></div>
-
-      <div class="doacoes-intro">
-        <p><em>"Cada um dê conforme determinou em seu coração, não com tristeza ou por obrigação, pois Deus ama quem dá com alegria."</em><br/><small>— 2 Coríntios 9,7</small></p>
-        <br/>
-        <p>O dízimo e as ofertas sustentam a missão da nossa paróquia: missas, sacramentos, catequese, pastorais e obras de caridade. <strong>Sua contribuição faz a diferença!</strong></p>
-      </div>
-
-      <div class="pix-box">
-        <h3>✦ Contribua via PIX</h3>
-        <p style="font-size:.85rem;color:var(--text-muted);margin-bottom:16px">Chave PIX da Paróquia Santa Sofia:</p>
-        <div class="pix-key">paroquiasantasofia@cosmos.rj<br/><small style="font-size:.75em;opacity:.7">(consulte a secretaria para confirmação)</small></div>
-        <p>Após o PIX, envie o comprovante via WhatsApp ou e-mail para identificação da doação.</p>
-      </div>
-
-      <div class="doacoes-cards">
-        <div class="doacao-card">
-          <div class="dc-icon">💰</div>
-          <h4>Dízimo Mensal</h4>
-          <p>O dízimo bíblico é 10% da sua renda. Contribua mensalmente e participe da sustentação da paróquia.</p>
-        </div>
-        <div class="doacao-card">
-          <div class="dc-icon">🏗️</div>
-          <h4>Obras da Igreja</h4>
-          <p>Contribuições para manutenção e melhorias das instalações paroquiais e das capelas.</p>
-        </div>
-        <div class="doacao-card">
-          <div class="dc-icon">❤️</div>
-          <h4>Fundo de Caridade</h4>
-          <p>Doações destinadas diretamente à Pastoral da Caridade para ajuda às famílias necessitadas.</p>
-        </div>
-        <div class="doacao-card">
-          <div class="dc-icon">📖</div>
-          <h4>Catequese e Formação</h4>
-          <p>Apoie a formação cristã de crianças, jovens e adultos com materiais e recursos para a catequese.</p>
-        </div>
-      </div>
-
-      <p style="text-align:center;margin-top:32px;font-size:.9rem;color:var(--text-muted);font-style:italic">
-        Também é possível contribuir presencialmente nas coletas das missas ou na secretaria paroquial.<br/>
-        <strong style="color:var(--rust)">Deus abençoa quem dá com alegria! ✦</strong>
-      </p>
+    <div style="margin-top:28px;display:flex;gap:10px;flex-wrap:wrap;">
+      <button onclick="goTo('home')" style="background:none;border:1px solid rgba(184,134,11,0.35);color:rgba(184,160,110,0.65);padding:8px 18px;font-family:var(--fc-head);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;">← Voltar ao Site</button>
+      <button onclick="admLogout()" style="background:none;border:1px solid rgba(200,50,50,0.4);color:rgba(220,100,100,0.75);padding:8px 18px;font-family:var(--fc-head);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;">🔒 Sair</button>
     </div>
-  </div>
+  </div></div>
 </div>
 
-<!-- ╔══ FOOTER ════════════════════════════════════════════════╗ -->
+<!-- ══ FOOTER ════════════════════════════════════════════════════ -->
 <footer>
-  <p class="f-cross">✦ ✝ ✦</p>
-  <p class="f-title">Paróquia Santa Sofia</p>
-  <p class="f-sub">Fé · Esperança · Caridade — Cosmos, Rio de Janeiro · Est. 1945</p>
-  <div class="f-links">
-    <a href="https://pt-br.facebook.com/PascomSantaSofia/" target="_blank">📘 Facebook</a>
-    <a href="https://www.instagram.com/pascomsantasofia/" target="_blank">📷 Instagram</a>
+  <p class="fc">✦ &nbsp; ✝ &nbsp; ✦</p>
+  <p class="ftt">Paróquia Santa Sofia</p>
+  <p class="fss">Fé · Esperança · Caridade — Cosmos, Rio de Janeiro · Est. 1945</p>
+  <div class="fll">
+    <a href="https://www.facebook.com/paroquiasantasofia" target="_blank">📘 Facebook</a>
+    <a href="https://www.instagram.com/paroquiasantasofia/" target="_blank">📷 Instagram</a>
     <a href="#" onclick="goTo('contato');return false">📍 Contato</a>
     <a href="#" onclick="goTo('horarios');return false">⏰ Horários</a>
+    <a href="#" onclick="goTo('liturgia');return false">📋 Liturgia</a>
   </div>
-  <p class="f-copy">© 2025 Pastoral da Comunicação da Paróquia Santa Sofia. Todos os direitos reservados.</p>
+  <p class="fcp">© 2025 Pastoral da Comunicação da Paróquia Santa Sofia. Todos os direitos reservados.</p>
 </footer>
 
-<!-- ╔══ PWA INSTALL BANNER ════════════════════════════════════╗ -->
-<div id="install-banner">
-  <span class="ib-icon">⛪</span>
-  <div class="ib-text">
-    <strong>Instalar App da Paróquia</strong>
-    <span>Acesse offline, a qualquer hora</span>
+<!-- ══ PWA INSTALL ═══════════════════════════════════════════════ -->
+<div id="ibann">
+  <span class="ibi">⛪</span>
+  <div class="ibt"><strong>Instalar App da Paróquia</strong><span>Acesse offline, a qualquer hora</span></div>
+  <div class="iba">
+    <button class="ibbtn" id="inst-btn">Instalar</button>
+    <button class="ibdis" id="inst-dis">✕</button>
   </div>
-  <div class="ib-actions">
-    <button class="ib-btn" id="install-btn">Instalar</button>
-    <button class="ib-dismiss" id="install-dismiss">✕</button>
+</div>
+
+<!-- ══ ADMIN BUTTON + MODAL ════════════════════════════════════ -->
+<button id="sb" onclick="openAdmLogin()" title="">✦</button>
+
+<div id="adm-modal">
+  <div class="ambx">
+    <h3>🔐 Área Restrita</h3>
+    <p class="amp">Digite a senha para acessar o painel administrativo</p>
+    <input type="password" id="adm-pass" placeholder="••••••••••••••" onkeydown="if(event.key==='Enter')chkPass()"/>
+    <p class="amerr" id="adm-err">Senha incorreta. Tente novamente.</p>
+    <button class="aadd" onclick="chkPass()" style="width:100%;margin-bottom:10px;">Entrar</button>
+    <button onclick="closeAdmModal()" style="background:none;border:none;color:rgba(184,160,110,0.5);cursor:pointer;font-size:0.85rem;font-family:var(--fc-body);">Cancelar</button>
   </div>
 </div>
 
 <script>
-/* ══ NAVIGATION ══════════════════════════════════════════════ */
-const pages = {};
-document.querySelectorAll('.page').forEach(p => {
-  const key = p.id.replace('page-','');
-  pages[key] = p;
+/* ══ NAVEGAÇÃO ═══════════════════════════════════════════════ */
+const PGS = {};
+document.querySelectorAll('.pg').forEach(function(p) {
+  PGS[p.id.replace('page-', '')] = p;
 });
 
 function goTo(key) {
-  Object.values(pages).forEach(p => p.classList.remove('active'));
-  const target = pages[key];
-  if(target){
-    target.classList.add('active');
-    window.scrollTo({top:0,behavior:'smooth'});
+  Object.values(PGS).forEach(function(p) { p.classList.remove('active'); });
+  if (PGS[key]) {
+    PGS[key].classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-  document.querySelectorAll('[data-page]').forEach(b => {
+  document.querySelectorAll('[data-page]').forEach(function(b) {
     b.classList.toggle('active', b.dataset.page === key);
   });
   closeDrawer();
-  // Update hash
-  history.pushState(null,'','#'+key);
+  history.pushState(null, '', '#' + key);
 }
 
-// desktop nav buttons
-document.querySelectorAll('#nav-desktop button[data-page]').forEach(btn => {
-  btn.addEventListener('click', () => goTo(btn.dataset.page));
+document.querySelectorAll('#nav-desktop button[data-page]').forEach(function(btn) {
+  btn.addEventListener('click', function() { goTo(btn.dataset.page); });
 });
 
-// Handle hash on load
-const hash = location.hash.replace('#','');
-if(hash && pages[hash]) goTo(hash);
+var hash0 = location.hash.replace('#', '');
+if (hash0 && PGS[hash0]) goTo(hash0);
 
 /* ══ DRAWER ══════════════════════════════════════════════════ */
-const drawer = document.getElementById('drawer');
-document.getElementById('hamburger').addEventListener('click', () => {
-  drawer.classList.toggle('open');
-});
+var DRW = document.getElementById('drawer');
+document.getElementById('hamburger').addEventListener('click', function() { DRW.classList.toggle('open'); });
 document.getElementById('drawer-overlay').addEventListener('click', closeDrawer);
-function closeDrawer(){ drawer.classList.remove('open'); }
+function closeDrawer() { DRW.classList.remove('open'); }
 
-/* ══ PRAYER FORM ═════════════════════════════════════════════ */
-function submitPrayer(){
-  const text = document.getElementById('prayer-text').value.trim();
-  const name = document.getElementById('prayer-name').value.trim();
-  if(!text){ alert('Por favor, escreva sua intenção de oração.'); return; }
-  
-  // Add to recent list
-  const list = document.getElementById('recent-prayers');
-  const item = document.createElement('div');
-  item.className = 'prayer-item';
-  item.innerHTML = `<p>"${text}"</p><p class="pi-name">— ${name || 'Um fiel da comunidade'}</p>`;
+/* ══ ORAÇÃO ══════════════════════════════════════════════════ */
+function submitPrayer() {
+  var text = document.getElementById('prayer-text').value.trim();
+  var name = document.getElementById('prayer-name').value.trim();
+  if (!text) { alert('Por favor, escreva sua intenção de oração.'); return; }
+  var list = document.getElementById('recent-prayers');
+  var item = document.createElement('div');
+  item.className = 'pri';
+  item.innerHTML = '<p>"' + text + '"</p><p class="pin">— ' + (name || 'Um fiel da comunidade') + '</p>';
   list.querySelector('h3').after(item);
-  
-  // Show success
   document.getElementById('prayer-form').style.display = 'none';
   document.getElementById('prayer-success').style.display = 'block';
-  
-  // Reset after 4 seconds
-  setTimeout(() => {
+  setTimeout(function() {
     document.getElementById('prayer-form').style.display = 'block';
     document.getElementById('prayer-success').style.display = 'none';
     document.getElementById('prayer-text').value = '';
@@ -2158,35 +2057,305 @@ function submitPrayer(){
   }, 4000);
 }
 
+/* ══ STORAGE HELPERS ═════════════════════════════════════════ */
+var SK = { ev: 'ss_ev', pa: 'ss_pa', no: 'ss_no', li: 'ss_li' };
+
+var DEF_EV = [
+  { id:1, dia:'06', mes:'Jul', titulo:'Início do Grupo de Jovens', desc:'Retomada dos encontros semanais às 15h na sala paroquial. Jovens de 15 a 35 anos, bem-vindos!', tag:'👦 Jovens' },
+  { id:2, dia:'12', mes:'Jul', titulo:'Missa de Cura e Libertação', desc:'Celebração especial às 19h na Igreja Sede.', tag:'🙏 Missa Especial' },
+  { id:3, dia:'20', mes:'Jul', titulo:'Encontro de Casais', desc:'Encontro mensal. Tema: "O Amor como Missão". Às 18h.', tag:'💑 Casais' },
+  { id:4, dia:'01', mes:'Ago', titulo:'Início da Catequese 2025', desc:'Aulas de catequese para crianças e adolescentes. Inscrições na secretaria.', tag:'📖 Catequese' },
+  { id:5, dia:'15', mes:'Ago', titulo:'Nossa Senhora da Assunção — Missa Solene', desc:'Solenidade com missa às 19h e procissão.', tag:'🕊️ Solenidade' },
+  { id:6, dia:'30', mes:'Set', titulo:'🌟 Festa de Santa Sofia — Padroeira', desc:'Missa solene às 19h, procissão e confraternização.', tag:'👑 Festa Paroquial' }
+];
+var DEF_PA = [
+  { id:1, icon:'📖', nome:'Catequese', desc:'Formação para crianças (1ª Eucaristia), adolescentes (Crisma) e adultos (RICA). Aulas aos sábados.', contato:'📞 Catequista: Secretaria Paroquial' },
+  { id:2, icon:'🎵', nome:'Pastoral da Música', desc:'Ministério de música que anima as celebrações litúrgicas. Ensaios às quartas, às 19h.', contato:'📞 Coordenação: na secretaria' },
+  { id:3, icon:'🕯️', nome:'Ministérios Litúrgicos', desc:'Acólitos, leitores e ministros da Eucaristia. Formação contínua.', contato:'📞 Pároco: via secretaria' },
+  { id:4, icon:'👦', nome:'Grupo de Jovens', desc:'Encontros semanais para jovens de 15 a 35 anos. Domingos às 15h.', contato:'📷 @pascomsantasofia' },
+  { id:5, icon:'💑', nome:'Pastoral Familiar', desc:'Encontros mensais para casais e preparação para o casamento.', contato:'📞 Coordenação: secretaria' },
+  { id:6, icon:'❤️', nome:'Pastoral da Caridade', desc:'Distribuição de alimentos e assistência aos mais necessitados da comunidade.', contato:'📞 Coordenação: secretaria' },
+  { id:7, icon:'📣', nome:'Pascom Santa Sofia', desc:'Pastoral da Comunicação responsável pelo site, redes sociais e comunicação da paróquia.', contato:'📷 Instagram · 📘 Facebook' },
+  { id:8, icon:'👩‍⚕️', nome:'Pastoral da Saúde', desc:'Visitas a enfermos e acompanhamento de idosos em hospitais e residências.', contato:'📞 Contato: secretaria paroquial' }
+];
+var DEF_NO = [
+  { id:1, icon:'✝️', data:'Junho · 2025', titulo:'Corpus Christi: Procissão pelas Ruas de Cosmos', texto:'A solenidade foi celebrada com missa solene e procissão eucarística pelas ruas da paróquia.' },
+  { id:2, icon:'🌸', data:'Maio · 2025', titulo:'Mês de Maria: Terço das Mães', texto:'Durante todo o mês de maio, o terço das mães reuniu dezenas de famílias na Igreja Sede.' },
+  { id:3, icon:'🕊️', data:'Abril · 2025', titulo:'Semana Santa: Um Tempo de Graça', texto:'Do Domingo de Ramos ao Domingo de Páscoa, a paróquia viveu um tempo de renovação e graça.' },
+  { id:4, icon:'📣', data:'Março · 2025', titulo:'Quaresma: Caminhos de Conversão', texto:'Início da Quaresma com o rito das Cinzas e retiros espirituais que reuniram paroquianos.' },
+  { id:5, icon:'🎄', data:'Dezembro · 2024', titulo:'Natal: Luz que Nasce no Coração', texto:'A Missa do Galo reuniu centenas de fiéis para celebrar o nascimento de Jesus.' },
+  { id:6, icon:'🌟', data:'Setembro · 2024', titulo:'Festa de Santa Sofia 2024', texto:'A festa contou com missa solene, procissão e confraternização de toda a família paroquial.' }
+];
+
+function ld(k, d) {
+  try { var r = localStorage.getItem(k); return r ? JSON.parse(r) : d; } catch(e) { return d; }
+}
+function sv(k, d) {
+  try { localStorage.setItem(k, JSON.stringify(d)); } catch(e) {}
+}
+
+/* ══ RENDER FUNCTIONS ════════════════════════════════════════ */
+function rEv() {
+  var d = ld(SK.ev, DEF_EV);
+  var pub = document.getElementById('ev-pub');
+  if (pub) pub.innerHTML = d.length === 0
+    ? '<p style="text-align:center;color:rgba(62,42,21,0.5);font-style:italic;padding:40px;">Nenhum evento cadastrado.</p>'
+    : d.map(function(e) {
+        return '<div class="evi"><div class="evd"><div class="dy">' + e.dia + '</div><div class="mn">' + e.mes + '</div></div>' +
+               '<div class="evb"><h3>' + e.titulo + '</h3><p>' + e.desc + '</p><span class="evtg">' + e.tag + '</span></div></div>';
+      }).join('');
+  var adm = document.getElementById('adm-ev');
+  if (adm) adm.innerHTML = d.length === 0
+    ? '<p style="color:rgba(184,160,110,0.5);font-style:italic;padding:6px 0;">Nenhum evento.</p>'
+    : d.map(function(e) {
+        return '<div class="aitm"><div class="aibdy"><strong>' + e.dia + '/' + e.mes + ' — ' + e.titulo + '</strong>' +
+               '<span>' + e.desc.substring(0, 65) + '...</span></div>' +
+               '<div class="aiact"><button class="adel" onclick="delEv(' + e.id + ')">🗑</button></div></div>';
+      }).join('');
+}
+
+function rPa() {
+  var d = ld(SK.pa, DEF_PA);
+  var pub = document.getElementById('past-pub');
+  if (pub) pub.innerHTML = d.map(function(p) {
+    return '<div class="pac"><div class="pci">' + p.icon + '</div><h3>' + p.nome + '</h3><p>' + p.desc + '</p><p class="pct">' + p.contato + '</p></div>';
+  }).join('');
+  var adm = document.getElementById('adm-pa');
+  if (adm) adm.innerHTML = d.length === 0
+    ? '<p style="color:rgba(184,160,110,0.5);font-style:italic;padding:6px 0;">Nenhuma pastoral.</p>'
+    : d.map(function(p) {
+        return '<div class="aitm"><div class="aibdy"><strong>' + p.icon + ' ' + p.nome + '</strong>' +
+               '<span>' + p.desc.substring(0, 65) + '...</span></div>' +
+               '<div class="aiact"><button class="adel" onclick="delPa(' + p.id + ')">🗑</button></div></div>';
+      }).join('');
+}
+
+function rNo() {
+  var d = ld(SK.no, DEF_NO);
+  var pub = document.getElementById('not-pub');
+  if (pub) pub.innerHTML = d.map(function(n) {
+    return '<div class="noc"><div class="noi">' + n.icon + '</div><div class="nob"><p class="ndt">' + n.data + '</p><h3>' + n.titulo + '</h3><p>' + n.texto + '</p></div></div>';
+  }).join('');
+  var adm = document.getElementById('adm-no');
+  if (adm) adm.innerHTML = d.length === 0
+    ? '<p style="color:rgba(184,160,110,0.5);font-style:italic;padding:6px 0;">Nenhuma notícia.</p>'
+    : d.map(function(n) {
+        return '<div class="aitm"><div class="aibdy"><strong>' + n.icon + ' ' + n.titulo + '</strong>' +
+               '<span>' + n.data + '</span></div>' +
+               '<div class="aiact"><button class="adel" onclick="delNo(' + n.id + ')">🗑</button></div></div>';
+      }).join('');
+}
+
+/* ══ LITURGIA — DOWNLOAD ONLY ════════════════════════════════
+   On mobile, <a download> with a base64 data URL triggers the
+   device's native PDF viewer / share sheet instead of iframe.
+══════════════════════════════════════════════════════════════ */
+function rLi() {
+  var d = ld(SK.li, []);
+  var empty = document.getElementById('litu-empty');
+  var list  = document.getElementById('litu-list');
+
+  if (d.length === 0) {
+    if (empty) empty.style.display = 'block';
+    if (list)  list.style.display  = 'none';
+  } else {
+    if (empty) empty.style.display = 'none';
+    if (list) {
+      list.style.display = 'flex';
+      list.innerHTML = d.map(function(l, i) {
+        return '<div class="litu-item">' +
+          '<div class="litu-item-icon">📋</div>' +
+          '<div class="litu-item-info">' +
+            '<h4>' + l.titulo + '</h4>' +
+            '<span>' + l.data + '</span>' +
+          '</div>' +
+          '<a class="litu-dl-btn" href="' + l.url + '" download="' + l.titulo + '.pdf" ' +
+            'onclick="openPdf(event, \'' + i + '\')">' +
+            '⬇ Baixar PDF' +
+          '</a>' +
+        '</div>';
+      }).join('');
+    }
+  }
+
+  /* Admin archive */
+  var admL = document.getElementById('li-arch-adm');
+  if (admL) {
+    admL.innerHTML = d.length === 0 ? '' :
+      '<p class="albl" style="margin-bottom:10px;">Liturgias publicadas</p>' +
+      d.map(function(l, i) {
+        return '<div class="aitm"><div class="aibdy"><strong>' + l.titulo + '</strong><span>' + l.data + '</span></div>' +
+               '<div class="aiact"><button class="adel" onclick="delLi(' + i + ')">🗑</button></div></div>';
+      }).join('');
+  }
+}
+
+/*  openPdf: on mobile, open the data URL in a new tab so the
+    native PDF viewer handles it. On desktop, the `download`
+    attribute already triggers the download dialog.           */
+function openPdf(evt, idx) {
+  var d = ld(SK.li, []);
+  if (!d[idx]) return;
+  /* Always open in new tab — browser/OS decides how to handle it */
+  var w = window.open();
+  if (w) {
+    w.document.write(
+      '<style>body{margin:0;background:#000;display:flex;align-items:center;justify-content:center;min-height:100vh;}' +
+      'embed{width:100vw;height:100vh;}</style>' +
+      '<embed src="' + d[idx].url + '" type="application/pdf" width="100%" height="100%"/>'
+    );
+    evt.preventDefault(); /* prevent duplicate download */
+  }
+  /* If popup blocked, the <a download> fallback still fires */
+}
+
+/* ══ CRUD ════════════════════════════════════════════════════ */
+function addEv() {
+  var dia  = document.getElementById('ne-dia').value.trim();
+  var mes  = document.getElementById('ne-mes').value.trim();
+  var tit  = document.getElementById('ne-tit').value.trim();
+  var desc = document.getElementById('ne-desc').value.trim();
+  var tag  = document.getElementById('ne-tag').value.trim();
+  if (!dia || !mes || !tit || !desc) { alert('Preencha dia, mês, título e descrição.'); return; }
+  var d = ld(SK.ev, DEF_EV);
+  var id = d.length > 0 ? Math.max.apply(null, d.map(function(e){ return e.id; })) + 1 : 1;
+  d.push({ id:id, dia:dia, mes:mes, titulo:tit, desc:desc, tag:tag||'📅 Evento' });
+  sv(SK.ev, d);
+  ['ne-dia','ne-mes','ne-tit','ne-desc','ne-tag'].forEach(function(x){ document.getElementById(x).value=''; });
+  rEv();
+}
+function delEv(id) {
+  if (!confirm('Excluir este evento?')) return;
+  sv(SK.ev, ld(SK.ev, DEF_EV).filter(function(e){ return e.id !== id; }));
+  rEv();
+}
+
+function addPa() {
+  var icon = document.getElementById('np-ic').value.trim() || '🙏';
+  var nome = document.getElementById('np-nm').value.trim();
+  var desc = document.getElementById('np-desc').value.trim();
+  var ct   = document.getElementById('np-ct').value.trim();
+  if (!nome || !desc) { alert('Preencha nome e descrição.'); return; }
+  var d = ld(SK.pa, DEF_PA);
+  var id = d.length > 0 ? Math.max.apply(null, d.map(function(p){ return p.id; })) + 1 : 1;
+  d.push({ id:id, icon:icon, nome:nome, desc:desc, contato:ct||'📞 Secretaria paroquial' });
+  sv(SK.pa, d);
+  ['np-ic','np-nm','np-desc','np-ct'].forEach(function(x){ document.getElementById(x).value=''; });
+  rPa();
+}
+function delPa(id) {
+  if (!confirm('Excluir esta pastoral?')) return;
+  sv(SK.pa, ld(SK.pa, DEF_PA).filter(function(p){ return p.id !== id; }));
+  rPa();
+}
+
+function addNo() {
+  var icon = document.getElementById('nn-ic').value.trim() || '📰';
+  var dt   = document.getElementById('nn-dt').value.trim();
+  var tit  = document.getElementById('nn-tit').value.trim();
+  var tx   = document.getElementById('nn-tx').value.trim();
+  if (!tit || !tx) { alert('Preencha título e texto.'); return; }
+  var d = ld(SK.no, DEF_NO);
+  var id = d.length > 0 ? Math.max.apply(null, d.map(function(n){ return n.id; })) + 1 : 1;
+  d.unshift({ id:id, icon:icon, data:dt||new Date().toLocaleDateString('pt-BR',{month:'long',year:'numeric'}), titulo:tit, texto:tx });
+  sv(SK.no, d);
+  ['nn-ic','nn-dt','nn-tit','nn-tx'].forEach(function(x){ document.getElementById(x).value=''; });
+  rNo();
+}
+function delNo(id) {
+  if (!confirm('Excluir esta notícia?')) return;
+  sv(SK.no, ld(SK.no, DEF_NO).filter(function(n){ return n.id !== id; }));
+  rNo();
+}
+
+function pubLi() {
+  var tit  = document.getElementById('li-tit').value.trim();
+  var dtv  = document.getElementById('li-dt').value;
+  var fi   = document.getElementById('li-file');
+  var ok   = document.getElementById('li-ok');
+  if (!tit || !fi.files[0]) { alert('Preencha o título e selecione um PDF.'); return; }
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    var url = e.target.result;
+    var d   = ld(SK.li, []);
+    var dtf = dtv
+      ? new Date(dtv + 'T12:00:00').toLocaleDateString('pt-BR',{day:'numeric',month:'long',year:'numeric'})
+      : tit;
+    d.unshift({ titulo:tit, data:dtf, url:url });
+    if (d.length > 10) d.pop();
+    sv(SK.li, d);
+    ok.textContent = '✦ Liturgia publicada com sucesso!';
+    ok.style.display = 'block';
+    setTimeout(function(){ ok.style.display='none'; }, 3500);
+    document.getElementById('li-tit').value = '';
+    document.getElementById('li-dt').value  = '';
+    fi.value = '';
+    rLi();
+  };
+  reader.readAsDataURL(fi.files[0]);
+}
+function delLi(i) {
+  if (!confirm('Excluir esta liturgia?')) return;
+  var d = ld(SK.li, []);
+  d.splice(i, 1);
+  sv(SK.li, d);
+  rLi();
+}
+
+/* ══ ADMIN AUTH ══════════════════════════════════════════════ */
+var ADM_PW = '1945';
+var isAdm = false;
+
+function openAdmLogin() {
+  if (isAdm) { goTo('admin'); return; }
+  document.getElementById('adm-modal').classList.add('open');
+  setTimeout(function(){ document.getElementById('adm-pass').focus(); }, 100);
+}
+function closeAdmModal() {
+  document.getElementById('adm-modal').classList.remove('open');
+  document.getElementById('adm-pass').value = '';
+  document.getElementById('adm-err').style.display = 'none';
+}
+function chkPass() {
+  if (document.getElementById('adm-pass').value === ADM_PW) {
+    isAdm = true;
+    closeAdmModal();
+    goTo('admin');
+    rEv(); rPa(); rNo(); rLi();
+  } else {
+    document.getElementById('adm-err').style.display = 'block';
+    document.getElementById('adm-pass').value = '';
+    document.getElementById('adm-pass').focus();
+  }
+}
+function admLogout() { isAdm = false; goTo('home'); }
+function swTab(btn, id) {
+  document.querySelectorAll('.atab').forEach(function(b){ b.classList.remove('active'); });
+  document.querySelectorAll('.apnl').forEach(function(p){ p.classList.remove('active'); });
+  btn.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+
 /* ══ PWA INSTALL ═════════════════════════════════════════════ */
-let deferredPrompt = null;
-const banner = document.getElementById('install-banner');
-
-window.addEventListener('beforeinstallprompt', e => {
-  e.preventDefault();
-  deferredPrompt = e;
-  setTimeout(() => banner.classList.add('show'), 3000);
+var dp = null;
+var ib = document.getElementById('ibann');
+window.addEventListener('beforeinstallprompt', function(e) {
+  e.preventDefault(); dp = e;
+  setTimeout(function(){ ib.classList.add('show'); }, 3000);
 });
-
-document.getElementById('install-btn').addEventListener('click', async () => {
-  if(!deferredPrompt) return;
-  deferredPrompt.prompt();
-  const {outcome} = await deferredPrompt.userChoice;
-  deferredPrompt = null;
-  banner.classList.remove('show');
+document.getElementById('inst-btn').addEventListener('click', function() {
+  if (!dp) return;
+  dp.prompt();
+  dp.userChoice.then(function(){ dp = null; ib.classList.remove('show'); });
 });
+document.getElementById('inst-dis').addEventListener('click', function(){ ib.classList.remove('show'); });
+window.addEventListener('appinstalled', function(){ ib.classList.remove('show'); dp = null; });
 
-document.getElementById('install-dismiss').addEventListener('click', () => {
-  banner.classList.remove('show');
-});
+/* ══ INIT ════════════════════════════════════════════════════ */
+rEv(); rPa(); rNo(); rLi();
 
-window.addEventListener('appinstalled', () => {
-  banner.classList.remove('show');
-});
-
-/* ══ SERVICE WORKER ══════════════════════════════════════════ */
-if('serviceWorker' in navigator){
-  navigator.serviceWorker.register('./sw.js').catch(()=>{});
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js').catch(function(){});
 }
 </script>
 </body>
